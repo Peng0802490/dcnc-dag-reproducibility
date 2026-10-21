@@ -1,0 +1,176 @@
+{
+  "driving_milan": {
+    "case": "driving_milan",
+    "curves": {
+      "Exact-K1.csv": [
+        "DCNC-DAG",
+        "exact_dp",
+        1
+      ],
+      "Heuristic.csv": [
+        "DCNC-DAG",
+        "greedy",
+        1
+      ],
+      "CTS.csv": [
+        "CTS",
+        "cts",
+        1
+      ],
+      "Randomized.csv": [
+        "Random",
+        "random",
+        1
+      ]
+    },
+    "gate_trim": true,
+    "min_seeds": 3
+  },
+  "driving_random": {
+    "case": "drv_rand_q45",
+    "curves": {
+      "Exact-K1.csv": [
+        "DCNC-DAG",
+        "exact_dp",
+        1
+      ],
+      "Heuristic.csv": [
+        "DCNC-DAG",
+        "greedy",
+        1
+      ],
+      "CTS.csv": [
+        "CTS",
+        "cts",
+        1
+      ],
+      "Randomized.csv": [
+        "Random",
+        "random",
+        1
+      ]
+    },
+    "gate_trim": true,
+    "min_seeds": 3
+  },
+  "random_milan": {
+    "case": "r6_milan",
+    "curves": {
+      "Exact-K1.csv": [
+        "DCNC-DAG",
+        "exact_dp",
+        1
+      ],
+      "Heuristic.csv": [
+        "DCNC-DAG",
+        "greedy",
+        1
+      ],
+      "CTS.csv": [
+        "CTS",
+        "cts",
+        1
+      ],
+      "Randomized.csv": [
+        "Random",
+        "random",
+        1
+      ]
+    },
+    "gate_trim": true,
+    "min_seeds": 3
+  },
+  "random_random": {
+    "case": "r6_random",
+    "curves": {
+      "Exact-K1.csv": [
+        "DCNC-DAG",
+        "exact_dp",
+        1
+      ],
+      "Heuristic.csv": [
+        "DCNC-DAG",
+        "greedy",
+        1
+      ],
+      "CTS.csv": [
+        "CTS",
+        "cts",
+        1
+      ],
+      "Randomized.csv": [
+        "Random",
+        "random",
+        1
+      ]
+    },
+    "gate_trim": true,
+    "min_seeds": 3
+  },
+  "random_roofnet": {
+    "case": "rn_access",
+    "curves": {
+      "Exact-K1.csv": [
+        "DCNC-DAG",
+        "exact_dp",
+        1
+      ],
+      "Heuristic.csv": [
+        "DCNC-DAG",
+        "greedy",
+        1
+      ],
+      "CTS.csv": [
+        "CTS",
+        "cts",
+        1
+      ],
+      "Randomized.csv": [
+        "Random",
+        "random",
+        1
+      ]
+    },
+    "match_grid": {
+      "Heuristic.csv": "Exact-K1.csv"
+    },
+    "cr_floor": 0.72,
+    "gate_trim": true,
+    "min_seeds": 3
+  },
+  "random_flocklab": {
+    "case": "fl_access",
+    "curves": {
+      "Exact-K1.csv": [
+        "DCNC-DAG",
+        "exact_dp",
+        1
+      ],
+      "Heuristic.csv": [
+        "DCNC-DAG",
+        "greedy",
+        1
+      ],
+      "CTS.csv": [
+        "CTS",
+        "cts",
+        1
+      ],
+      "Randomized.csv": [
+        "Random",
+        "random",
+        1
+      ]
+    },
+    "match_grid": {
+      "Heuristic.csv": "Exact-K1.csv"
+    },
+    "cr_floor": 0.72,
+    "gate_trim": true,
+    "drop_last": {
+      "Exact-K1.csv": 3,
+      "Heuristic.csv": 2
+    },
+    "min_seeds": 3
+  }
+}

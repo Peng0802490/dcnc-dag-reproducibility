@@ -1,0 +1,63 @@
+{
+  "experiment": "A",
+  "B0": 0,
+  "horizon_T": 2000000,
+  "sampling_interval": 2000,
+  "seeds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "lambdas": [
+    0.5,
+    0.6,
+    0.7,
+    0.76,
+    0.8,
+    0.85,
+    0.9,
+    0.95
+  ],
+  "policies": [
+    "FIFO",
+    "NTO"
+  ],
+  "arrivals": "bernoulli, nested common random numbers across lambda",
+  "arithmetic": "int",
+  "tiebreak": "completion",
+  "work": [
+    0.01,
+    0.99,
+    0.01,
+    0.01,
+    0.01,
+    0.99
+  ],
+  "stage_node": [
+    0,
+    1,
+    1,
+    1,
+    1,
+    0
+  ],
+  "node_capacity": 1.0,
+  "lambda_star": 0.9803921568627451
+}

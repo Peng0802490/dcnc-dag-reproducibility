@@ -1,0 +1,101 @@
+{
+    "service_chain_id": "ESC_semantic_comm_v1",
+    "version": "2025-07-25",
+    "description": "语义通信示例：编码 → 传输 → 解码",
+    "nodes": [
+        {
+            "id": "src",
+            "label": "ϕ_s",
+            "group_id": null,
+            "type": "source",
+            "r_cpu": 0,
+            "xi_flow": 1
+        },
+        {
+            "id": "enc_lite",
+            "label": "Encoder_Lite",
+            "group_id": "G1",
+            "type": "function",
+            "r_cpu": 1,
+            "xi_flow": 0.9
+        },
+        {
+            "id": "enc_deep",
+            "label": "Encoder_Deep",
+            "group_id": "G1",
+            "type": "function",
+            "r_cpu": 3,
+            "xi_flow": 0.6
+        },
+        {
+            "id": "chan",
+            "label": "Channel",
+            "group_id": null,
+            "type": "function",
+            "r_cpu": 0,
+            "xi_flow": 1
+        },
+        {
+            "id": "dec_fast",
+            "label": "Decoder_Fast",
+            "group_id": "G2",
+            "type": "function",
+            "r_cpu": 2,
+            "xi_flow": 1
+        },
+        {
+            "id": "dec_full",
+            "label": "Decoder_Full",
+            "group_id": "G2",
+            "type": "function",
+            "r_cpu": 4,
+            "xi_flow": 1.1
+        },
+        {
+            "id": "sink",
+            "label": "ϕ_t",
+            "group_id": null,
+            "type": "sink",
+            "r_cpu": 0,
+            "xi_flow": 1
+        }
+    ],
+    "edges": [
+        {
+            "from": "src",
+            "to": "enc_lite"
+        },
+        {
+            "from": "src",
+            "to": "enc_deep"
+        },
+        {
+            "from": "enc_lite",
+            "to": "chan"
+        },
+        {
+            "from": "enc_deep",
+            "to": "chan"
+        },
+        {
+            "from": "chan",
+            "to": "dec_fast"
+        },
+        {
+            "from": "chan",
+            "to": "dec_full"
+        },
+        {
+            "from": "dec_fast",
+            "to": "sink"
+        },
+        {
+            "from": "dec_full",
+            "to": "sink"
+        }
+    ],
+    "metadata": {
+        "author": "Peng Li",
+        "created_at": "2025-07-25"
+    }
+}

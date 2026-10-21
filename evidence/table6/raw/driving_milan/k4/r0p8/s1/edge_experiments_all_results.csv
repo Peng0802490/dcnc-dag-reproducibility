@@ -1,0 +1,2 @@
+case,policy,seed,total_slots,total_arrival_rate,per_commodity_arrival_rate,interference_model,fixed_k,dcnc_solver,avg_delay_completed,avg_delay_with_penalty,delivered_packets,pending_packets,dynamic_edges,num_compute_nodes,routing_oracle_calls,routing_cache_hits,routing_oracle_wall_time_sec,simulation_wall_time_sec,dynvmp_calls,dynvmp_wall_time_sec
+driving_milan,DCNC-DAG,1,100000,0.8,0.8,primary,4,dynvmp_bridge,162.67314562670197,300.9123183434167,160108,222,8,11,23979,31167,223570.80080316495,223894.735687538,23979,223570.80080316495

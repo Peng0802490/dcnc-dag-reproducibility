@@ -1,0 +1,37 @@
+{
+  "ablation_run_count": 60,
+  "checks_passed": true,
+  "first_reliably_flagged_rate": 1.05,
+  "lp_lambda_star": 1.0,
+  "lp_mapping_rates": [
+    0.5,
+    0.5
+  ],
+  "main_run_count": 35,
+  "maximum_standard_errors_main": {
+    "completed_throughput": 0.00031878833102860066,
+    "completion_ratio": 0.00042424257941898476,
+    "share_m1_requests": 7.173973922030843e-05
+  },
+  "object_count_sensitivity_first_flagged_rate": 1.03,
+  "object_count_sensitivity_resolution_percent": 3.0000000000000027,
+  "overload_resolution_percent": 5.000000000000004,
+  "raw_run_count": 95,
+  "seeds_per_point": 5,
+  "sha256": {
+    "lp_decomposition.csv": "0b8d16411a45c0b432dccade7b4206e71c523c22c73c3359e4eeec531d4d9b4f",
+    "metadata.json": "cbce6c4308ed25dd3306926fb61d8e39ec37ca3c5a8bb17b9d84b07def410b3c",
+    "runs.csv": "5282826539ddc0c178ca6edd7e0163e893ca9d14ca9f64cfddb1721bbdca27c4",
+    "summary.csv": "c58750eb8a7017f1c0dbd125c734e38f8e33a88944da967042b5338eaf75fc11"
+  },
+  "single_m1_at_0p99": {
+    "completed_throughput": 0.49996799999999997,
+    "completed_throughput_se": 3.741657386768782e-06,
+    "completion_ratio": 0.5051162347995901
+  },
+  "single_mapping_capacities": [
+    0.5,
+    0.5
+  ],
+  "slots_per_run": 100000
+}

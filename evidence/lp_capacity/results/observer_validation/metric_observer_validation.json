@@ -1,0 +1,91 @@
+{
+  "acceptance_tolerance_physical_workload_slope": 1e-12,
+  "checks_passed": true,
+  "exact_numeric_max_absolute_differences": {
+    "completed_requests": 0.0,
+    "completed_throughput": 0.0,
+    "completion_ratio": 0.0,
+    "mapping_calls": 0.0,
+    "share_m1_calls": 0.0,
+    "share_m1_requests": 0.0,
+    "total_arrivals": 0.0
+  },
+  "incremental_runs_sha256": "5282826539ddc0c178ca6edd7e0163e893ca9d14ca9f64cfddb1721bbdca27c4",
+  "interpretation": "Incremental collection changes only measurement cost. All compared simulation behavior is bit-exact; the sub-1e-12 physical slope difference is floating-point summation order.",
+  "matched_groups": [
+    {
+      "arrival_rate": 0.95,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 0.98,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 0.99,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 1.01,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 1.03,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 1.05,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 1.1,
+      "matched_seeds": 5,
+      "policy": "mixed"
+    },
+    {
+      "arrival_rate": 0.45,
+      "matched_seeds": 5,
+      "policy": "single_m1"
+    },
+    {
+      "arrival_rate": 0.49,
+      "matched_seeds": 5,
+      "policy": "single_m1"
+    },
+    {
+      "arrival_rate": 0.5,
+      "matched_seeds": 5,
+      "policy": "single_m1"
+    },
+    {
+      "arrival_rate": 0.51,
+      "matched_seeds": 5,
+      "policy": "single_m1"
+    },
+    {
+      "arrival_rate": 0.55,
+      "matched_seeds": 5,
+      "policy": "single_m1"
+    },
+    {
+      "arrival_rate": 0.95,
+      "matched_seeds": 4,
+      "policy": "single_m1"
+    }
+  ],
+  "matched_rows": 64,
+  "path_hashes_match_exactly": true,
+  "scan_reference_is_partial_and_non_paper_facing": true,
+  "scan_runs_sha256": "e74305514579d6ea18062bbde2c863be232c8f114597d420c1dc498d01662ec8",
+  "slope_max_absolute_differences": {
+    "physical_object_backlog_tail_slope": 0.0,
+    "physical_workload_tail_slope": 4.807265696626928e-14,
+    "virtual_workload_tail_slope": 0.0
+  }
+}

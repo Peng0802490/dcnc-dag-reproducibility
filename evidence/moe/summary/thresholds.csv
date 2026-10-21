@@ -1,0 +1,9 @@
+model,policy,lambda_hat,first_rejected_rate,ratio_at_lambda_hat,n_grid_points
+mixtral,DCNC-DAG-H,1.16,1.19,0.9910555618189539,28
+mixtral,Lazarus-style,0.35,0.38,0.9620380619232725,28
+mixtral,FlexMoE-style,0.46,0.48,0.9503838603479674,28
+llama,DCNC-DAG-H,1.02,1.05,0.9506031153129888,28
+llama,Lazarus-style,0.28,0.3,0.9526990695359242,28
+llama,FlexMoE-style,0.38,0.4,0.9716134916364212,28
+mixtral,RATIO_vs_better_baseline,2.5217391304347823,,,
+llama,RATIO_vs_better_baseline,2.6842105263157894,,,

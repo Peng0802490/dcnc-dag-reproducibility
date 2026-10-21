@@ -1,0 +1,98 @@
+{
+  "service_chain_id": "branch_aggregation_task",
+  "version": "2026-04-28",
+  "description": "representative service DAG combining fan-out branches and aggregation",
+  "nodes": [
+    {
+      "id": "A",
+      "type": "source",
+      "r": 1.5,
+      "in": 1.2
+    },
+    {
+      "id": "B",
+      "type": "source",
+      "r": 1.0,
+      "in": 0.8
+    },
+    {
+      "id": "C",
+      "type": "function",
+      "r": 1.5
+    },
+    {
+      "id": "D",
+      "type": "function",
+      "r": 2.0
+    },
+    {
+      "id": "E",
+      "type": "function",
+      "r": 1.2
+    },
+    {
+      "id": "F",
+      "type": "function",
+      "r": 2.5
+    },
+    {
+      "id": "G",
+      "type": "function",
+      "r": 3.0
+    },
+    {
+      "id": "H",
+      "type": "sink",
+      "r": 1.0,
+      "out": 1.0
+    }
+  ],
+  "edges": [
+    {
+      "from": "A",
+      "to": "C",
+      "xi": 1.0
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "xi": 1.5
+    },
+    {
+      "from": "C",
+      "to": "E",
+      "xi": 0.75
+    },
+    {
+      "from": "B",
+      "to": "F",
+      "xi": 1.25
+    },
+    {
+      "from": "D",
+      "to": "G",
+      "xi": 0.8
+    },
+    {
+      "from": "E",
+      "to": "G",
+      "xi": 1.2
+    },
+    {
+      "from": "F",
+      "to": "G",
+      "xi": 0.6
+    },
+    {
+      "from": "G",
+      "to": "H",
+      "xi": 1.0
+    }
+  ],
+  "metadata": {
+    "author": "Peng Li",
+    "created_at": "2026-04-28",
+    "dag_type": "branch_aggregation",
+    "scaling_factor_policy": "random values selected from representative compression, unchanged, and expansion factors"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": 2,
+  "audit_date": "2026-10-20",
+  "status": "exact",
+  "paper_pdf_sha256": "b093e7abe5138e9ad71548bf70e1fc0e54b7d8681a664337369b474b30fcd006",
+  "paper_claims": {
+    "mixtral": {
+      "DCNC-DAG-H": 1.16,
+      "Lazarus-style": 0.35,
+      "FlexMoE-style": 0.46,
+      "gain": 2.52
+    },
+    "llama": {
+      "DCNC-DAG-H": 1.02,
+      "Lazarus-style": 0.28,
+      "FlexMoE-style": 0.38,
+      "gain": 2.68
+    }
+  },
+  "conclusion": "Table 5 of the latest designated paper matches the canonical 50k campaign. The old September mismatch is historical, not a current gate. Fig. 4 is backed separately by the included 100k campaign.",
+  "historical_claim": {
+    "status": "mismatch",
+    "completion_gate": 0.95,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "horizon": 50000,
+    "grid_points_per_policy": 28,
+    "rows_per_model": 252,
+    "paper": {
+      "mixtral": {
+        "DCNC-DAG-H": 1.16,
+        "Lazarus-style": 0.35,
+        "FlexMoE-style": 0.52,
+        "gain": 2.23
+      },
+      "llama": {
+        "DCNC-DAG-H": 1.02,
+        "Lazarus-style": 0.28,
+        "FlexMoE-style": 0.44,
+        "gain": 2.32
+      }
+    },
+    "observed": {
+      "mixtral": {
+        "DCNC-DAG-H": 1.16,
+        "Lazarus-style": 0.35,
+        "FlexMoE-style": 0.46,
+        "gain": 2.5217391304347823
+      },
+      "llama": {
+        "DCNC-DAG-H": 1.02,
+        "Lazarus-style": 0.28,
+        "FlexMoE-style": 0.38,
+        "gain": 2.6842105263157894
+      }
+    },
+    "evidence": "evidence/moe/summary/thresholds.csv",
+    "raw_evidence": "evidence/moe/raw",
+    "audit_evidence": "evidence/moe/history/audit_20260927.json"
+  },
+  "figure_evidence": "evidence/moe_censored"
+}

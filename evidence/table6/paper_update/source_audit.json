@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "verification_scope": "latex-source; updated compiled PDF not supplied or checked",
+  "previous_project": {
+    "filename": "Appendices_for___Throughput_Optimal_Control_of_Distributed_Computing_Networks_for_Service_DAGs__.zip",
+    "sha256": "0ff4bc2e434ce4c6cae85d677949e349b50a7a4249624c8d5fb973ccfa9cd217"
+  },
+  "project": {
+    "filename": "DCNC_DAG_Table6_timing_updated_project.zip",
+    "sha256": "7e3e4d8f240ae000656c3de4371ec3d43bfaaf703416439afcfb234a820f2fb4"
+  },
+  "members": [
+    {
+      "path": "Source/DAG_AD.pdf",
+      "before_sha256": "02db60732bd2ab3a1c890133cd58d59be16c59e0ad1cc397c956ff456da837a0",
+      "after_sha256": "02db60732bd2ab3a1c890133cd58d59be16c59e0ad1cc397c956ff456da837a0"
+    },
+    {
+      "path": "Source/DAG_AD_2.pdf",
+      "before_sha256": "fb620e885fba174d37d3225493fb7e7691791bc67622a6079f3c00d1f8023b65",
+      "after_sha256": "fb620e885fba174d37d3225493fb7e7691791bc67622a6079f3c00d1f8023b65"
+    },
+    {
+      "path": "Source/driving_milan_K.pdf",
+      "before_sha256": "1df539b31d7ba8e754cf4a963d40b29d9becc28be0b7fffbdad2d38b9b0b4574",
+      "after_sha256": "1df539b31d7ba8e754cf4a963d40b29d9becc28be0b7fffbdad2d38b9b0b4574"
+    },
+    {
+      "path": "Source/driving_milan_delay.pdf",
+      "before_sha256": "e9099b62315da08f3026e798ce8069f2ad792b59521307371e4d732a7f55746f",
+      "after_sha256": "e9099b62315da08f3026e798ce8069f2ad792b59521307371e4d732a7f55746f"
+    },
+    {
+      "path": "Source/driving_random_K.pdf",
+      "before_sha256": "ca5dfeb0f8399c9edf0ed6c8f19bf2eb7d6c2723684328cd35b4879ccd4dbebb",
+      "after_sha256": "ca5dfeb0f8399c9edf0ed6c8f19bf2eb7d6c2723684328cd35b4879ccd4dbebb"
+    },
+    {
+      "path": "Source/driving_random_delay.pdf",
+      "before_sha256": "44accfa50e45c200acdcf82cb3b9ca01062f9f824be91cc4c67fb6006f8341a4",
+      "after_sha256": "44accfa50e45c200acdcf82cb3b9ca01062f9f824be91cc4c67fb6006f8341a4"
+    },
+    {
+      "path": "Source/fig6_backlog_lambda_0p80.pdf",
+      "before_sha256": "615c593bb5242bf3ba5a67bf11ed08736d1ab80cd535404cc5ff8d52c9a668fe",
+      "after_sha256": "615c593bb5242bf3ba5a67bf11ed08736d1ab80cd535404cc5ff8d52c9a668fe"
+    },
+    {
+      "path": "Source/llama_skewed_completed_delay.pdf",
+      "before_sha256": "1f249d7275cd7197870540657913e4828960dee466ecaed72157a309bce86ada",
+      "after_sha256": "1f249d7275cd7197870540657913e4828960dee466ecaed72157a309bce86ada"
+    },
+    {
+      "path": "Source/mixtral_skewed_completed_delay.pdf",
+      "before_sha256": "40963e88814e6cfd28ba29d55fe82fe5608eae3df5bc295111d0bd225ef23919",
+      "after_sha256": "40963e88814e6cfd28ba29d55fe82fe5608eae3df5bc295111d0bd225ef23919"
+    },
+    {
+      "path": "Source/random_flocklab_delay.pdf",
+      "before_sha256": "39e0844d3a99d28a8e80fe71bf0f713d51db898f1450c50e009e672e04baa571",
+      "after_sha256": "39e0844d3a99d28a8e80fe71bf0f713d51db898f1450c50e009e672e04baa571"
+    },
+    {
+      "path": "Source/random_milan_delay.pdf",
+      "before_sha256": "8d5dd627f0aa6ac62460e9380649c0fdcb773385709e4a46b8997e553fc261c6",
+      "after_sha256": "8d5dd627f0aa6ac62460e9380649c0fdcb773385709e4a46b8997e553fc261c6"
+    },
+    {
+      "path": "Source/random_random_delay.pdf",
+      "before_sha256": "783a268be71638b2394bfc59def7839a63e472e32d939af4c271fde74a711a0c",
+      "after_sha256": "783a268be71638b2394bfc59def7839a63e472e32d939af4c271fde74a711a0c"
+    },
+    {
+      "path": "Source/random_roofnet_delay.pdf",
+      "before_sha256": "4690675f3d8ea6734636eafb1963e859dee050f08f81d3ed5dcfd7424c4997b9",
+      "after_sha256": "4690675f3d8ea6734636eafb1963e859dee050f08f81d3ed5dcfd7424c4997b9"
+    },
+    {
+      "path": "Source/sipht31_avg_delay_completed.pdf",
+      "before_sha256": "65917e0ae07cec596b91877ca1e130ffa337118339d1feff446e26c0d3653bb6",
+      "after_sha256": "65917e0ae07cec596b91877ca1e130ffa337118339d1feff446e26c0d3653bb6"
+    },
+    {
+      "path": "Source/srasearch22_avg_delay_completed.pdf",
+      "before_sha256": "711e69df918dc0bb1e6132f9c28525a714a22073f6f9e65e7c241ad62722b3e1",
+      "after_sha256": "711e69df918dc0bb1e6132f9c28525a714a22073f6f9e65e7c241ad62722b3e1"
+    },
+    {
+      "path": "TMC_Appendices.tex",
+      "before_sha256": "3961a235112a29e49470a194a1d5b4307722cdc695e5e49a267470968dd16145",
+      "after_sha256": "1729ae49e98603ab06bd87e583c8e3c700fea4ff28ca2d366eb062bec95e3711"
+    },
+    {
+      "path": "TMC_Main.tex",
+      "before_sha256": "687e39d718e5345c81340b435e3aa7985c1bbff0df08b162d626d4352add31e2",
+      "after_sha256": "e0c6b3004d9862a6074325f6e074838c791c8d55c4909907b5b4ad240f4c68ad"
+    },
+    {
+      "path": "reference_TMC.bib",
+      "before_sha256": "e656831220bdfda8ba935feae430ae19c11e97b326091771150dc497b1933f91",
+      "after_sha256": "e656831220bdfda8ba935feae430ae19c11e97b326091771150dc497b1933f91"
+    }
+  ],
+  "changed_source_lines": {
+    "TMC_Main.tex": [
+      863,
+      864,
+      865,
+      866,
+      867,
+      886
+    ],
+    "TMC_Appendices.tex": [
+      578
+    ]
+  },
+  "excerpts": [
+    {
+      "path": "table6.tex",
+      "source_file": "TMC_Main.tex",
+      "first_line": 849,
+      "last_line": 871,
+      "sha256": "2f5ecb769fcd78c689b2e095f8cdd76a0a58e568fc9451e2df7456d477f38cc5"
+    },
+    {
+      "path": "reductions.tex",
+      "source_file": "TMC_Main.tex",
+      "first_line": 886,
+      "last_line": 886,
+      "sha256": "6ff70b55540300887b3f88233b5649e11e206e29653d4eb01b534050fddf4a4f"
+    },
+    {
+      "path": "appendix_overhead.tex",
+      "source_file": "TMC_Appendices.tex",
+      "first_line": 578,
+      "last_line": 578,
+      "sha256": "dac0f8dc3ef4813e938bb0aec081ced971abdfe75495f8df95d31c7787a8bbed"
+    }
+  ]
+}

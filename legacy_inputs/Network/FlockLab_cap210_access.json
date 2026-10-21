@@ -1,0 +1,3035 @@
+{
+  "network_id": "FlockLab-sky-2019-07-cap210-access",
+  "version": "2026-04-23-code-compatible",
+  "description": "Code-compatible FlockLab Sky/TelosB July 2019 wireless link-quality network; all edges are dynamic, p_on derived from official CSV PRR.",
+  "nodes": [
+    {
+      "id": "1",
+      "role": "COMPUTE",
+      "capacity": 4
+    },
+    {
+      "id": "2",
+      "role": "COMPUTE",
+      "capacity": 7
+    },
+    {
+      "id": "3",
+      "role": "COMPUTE",
+      "capacity": 7
+    },
+    {
+      "id": "4",
+      "role": "COMPUTE",
+      "capacity": 6
+    },
+    {
+      "id": "6",
+      "role": "COMPUTE",
+      "capacity": 6
+    },
+    {
+      "id": "7",
+      "role": "COMPUTE",
+      "capacity": 8
+    },
+    {
+      "id": "8",
+      "role": "COMPUTE",
+      "capacity": 7
+    },
+    {
+      "id": "10",
+      "role": "COMPUTE",
+      "capacity": 3
+    },
+    {
+      "id": "11",
+      "role": "COMPUTE",
+      "capacity": 9
+    },
+    {
+      "id": "13",
+      "role": "COMPUTE",
+      "capacity": 5
+    },
+    {
+      "id": "14",
+      "role": "COMPUTE",
+      "capacity": 3
+    },
+    {
+      "id": "15",
+      "role": "COMPUTE",
+      "capacity": 4
+    },
+    {
+      "id": "16",
+      "role": "COMPUTE",
+      "capacity": 3
+    },
+    {
+      "id": "17",
+      "role": "COMPUTE",
+      "capacity": 7
+    },
+    {
+      "id": "18",
+      "role": "COMPUTE",
+      "capacity": 6
+    },
+    {
+      "id": "19",
+      "role": "COMPUTE",
+      "capacity": 2
+    },
+    {
+      "id": "20",
+      "role": "COMPUTE",
+      "capacity": 7
+    },
+    {
+      "id": "22",
+      "role": "COMPUTE",
+      "capacity": 10
+    },
+    {
+      "id": "23",
+      "role": "COMPUTE",
+      "capacity": 6
+    },
+    {
+      "id": "24",
+      "role": "COMPUTE",
+      "capacity": 4
+    },
+    {
+      "id": "25",
+      "role": "COMPUTE",
+      "capacity": 6
+    },
+    {
+      "id": "26",
+      "role": "COMPUTE",
+      "capacity": 8
+    },
+    {
+      "id": "27",
+      "role": "COMPUTE",
+      "capacity": 7
+    },
+    {
+      "id": "28",
+      "role": "COMPUTE",
+      "capacity": 2
+    },
+    {
+      "id": "32",
+      "role": "COMPUTE",
+      "capacity": 2
+    },
+    {
+      "id": "33",
+      "role": "COMPUTE",
+      "capacity": 10
+    }
+  ],
+  "edges": [
+    {
+      "from": "1",
+      "to": "2",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.011984,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "3",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.171048,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "4",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.014126,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "6",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.072665,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "8",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.016477,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "15",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.201697,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "16",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.001273,
+      "tests": 247
+    },
+    {
+      "from": "1",
+      "to": "33",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.313985,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "1",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.011892,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "3",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.362475,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "4",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.009049,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "6",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.310577,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "8",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.015018,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "15",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.109047,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "16",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.064555,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "28",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.120094,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "32",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.062276,
+      "tests": 247
+    },
+    {
+      "from": "2",
+      "to": "33",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.010514,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "1",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.166811,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "2",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.402091,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "4",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.018012,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "6",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.016613,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "8",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.254304,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "10",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.063004,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "13",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.100315,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "15",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.147363,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "16",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.015064,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "18",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.306143,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "20",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.370396,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "22",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.028053,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "23",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.077617,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "24",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.014573,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "25",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.232595,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "26",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.089538,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "27",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.158544,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "28",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.003465,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "32",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.379054,
+      "tests": 247
+    },
+    {
+      "from": "3",
+      "to": "33",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.001553,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "1",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.062885,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "2",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.062076,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "3",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.069314,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "6",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.369897,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "8",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.086198,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "15",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.068343,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "16",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.109738,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "28",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.013243,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "32",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.377091,
+      "tests": 247
+    },
+    {
+      "from": "4",
+      "to": "33",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.107169,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "1",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.055636,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "2",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.036135,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "3",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.025094,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "4",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.384824,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "8",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.381851,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "13",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.002373,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "15",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.37273,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "16",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.004727,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "17",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.011367,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "18",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.168133,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "19",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.000636,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "20",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.215096,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "22",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.194391,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "23",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.161159,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "24",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.347171,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "27",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.402488,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "28",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.001902,
+      "tests": 247
+    },
+    {
+      "from": "6",
+      "to": "33",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.381846,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "10",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.09303,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "11",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.013527,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "13",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.12751,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "14",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.010198,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "17",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.18154,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "19",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.162718,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "20",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.333778,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "25",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.083204,
+      "tests": 247
+    },
+    {
+      "from": "7",
+      "to": "26",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.218456,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "1",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.012964,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "2",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.012895,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "3",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.285135,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "4",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.068389,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "6",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.427492,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "15",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.006008,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "16",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.198196,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "28",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.283662,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "32",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.028978,
+      "tests": 247
+    },
+    {
+      "from": "8",
+      "to": "33",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.047549,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "3",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.078005,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "7",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.102564,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "11",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.033674,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "13",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.028032,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "14",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.142605,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "15",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.395615,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "20",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.1579,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "23",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.255332,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "25",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.088642,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "26",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.219678,
+      "tests": 247
+    },
+    {
+      "from": "10",
+      "to": "32",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.049474,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "7",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.015937,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "10",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.031212,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "13",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.051819,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "14",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.016342,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "17",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.366133,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "19",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.030061,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "20",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.395138,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "25",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.017766,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "26",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.064404,
+      "tests": 247
+    },
+    {
+      "from": "11",
+      "to": "32",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.013011,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "3",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.110645,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "6",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.051596,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "7",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.101464,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "10",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.078981,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "11",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.067774,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "14",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.12071,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "16",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.001909,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "17",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.067244,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "18",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.139917,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "19",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.067044,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "20",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.061382,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "22",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.154543,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "23",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.063518,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "24",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.366489,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "25",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.060938,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "26",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.111984,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "27",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.272076,
+      "tests": 247
+    },
+    {
+      "from": "13",
+      "to": "28",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.126965,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "7",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.041995,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "10",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.168911,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "11",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.04249,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "13",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.147713,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "17",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.228843,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "19",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.194083,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "20",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.216544,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "25",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.04227,
+      "tests": 247
+    },
+    {
+      "from": "14",
+      "to": "26",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.100336,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "1",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.231217,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "2",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.151315,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "3",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.160837,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "4",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.018631,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "6",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.371308,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "8",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.015974,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "10",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.397045,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "16",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.137773,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "28",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.085763,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "32",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.031063,
+      "tests": 247
+    },
+    {
+      "from": "15",
+      "to": "33",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.360529,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "1",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.001273,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "2",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.001902,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "3",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.018043,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "4",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.15574,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "6",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.004124,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "8",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.288611,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "15",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.185487,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "18",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.227743,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "20",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.304929,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "22",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.005988,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "23",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.383572,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "24",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.110857,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "27",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.40646,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "28",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.190203,
+      "tests": 247
+    },
+    {
+      "from": "16",
+      "to": "33",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.035245,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "6",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.016514,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "7",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.237611,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "11",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.36241,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "13",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.066347,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "14",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.239583,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "18",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.116815,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "19",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.065483,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "20",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.063108,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "23",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.222136,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "24",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.351113,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "25",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.198407,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "26",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.233149,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "27",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.000636,
+      "tests": 247
+    },
+    {
+      "from": "17",
+      "to": "28",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.275908,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "3",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.291551,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "6",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.160054,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "13",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.075141,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "16",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.23865,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "17",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.095218,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "19",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.218462,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "20",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.203902,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "22",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.00227,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "23",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.046893,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "24",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.046985,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "27",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.005004,
+      "tests": 247
+    },
+    {
+      "from": "18",
+      "to": "28",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.004116,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "6",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.00201,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "7",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.20346,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "11",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.011485,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "13",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.017923,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "14",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.253125,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "16",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.000898,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "17",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.021642,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "18",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.289491,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "20",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.012562,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "22",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.047581,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "23",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.116891,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "24",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.348975,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "25",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.191674,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "26",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.336205,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "27",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.236964,
+      "tests": 247
+    },
+    {
+      "from": "19",
+      "to": "28",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.369038,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "3",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.409072,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "6",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.232248,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "7",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.364005,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "10",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.157949,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "11",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.411284,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "13",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.002729,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "14",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.218519,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "16",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.354044,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "17",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.028068,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "18",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.195762,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "19",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.018057,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "22",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.136364,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "23",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.013551,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "24",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.08662,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "25",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.178549,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "26",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.008415,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "27",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.362423,
+      "tests": 247
+    },
+    {
+      "from": "20",
+      "to": "28",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.065704,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "3",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.044109,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "6",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.135421,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "13",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.121344,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "16",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.004599,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "18",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.014514,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "19",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.043205,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "20",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.144665,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "23",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.141267,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "24",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.148326,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "27",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.12736,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "28",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.000636,
+      "tests": 247
+    },
+    {
+      "from": "22",
+      "to": "33",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.247407,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "3",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.068203,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "6",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.192076,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "10",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.309544,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "13",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.05961,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "16",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.404392,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "17",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.215339,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "18",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.077641,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "19",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.141857,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "20",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.060896,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "22",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.14061,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "24",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.123902,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "25",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.24687,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "26",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.389485,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "27",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.062766,
+      "tests": 247
+    },
+    {
+      "from": "23",
+      "to": "28",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.061232,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "3",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.003025,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "6",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.352901,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "13",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.378185,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "16",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.172558,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "17",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.334255,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "18",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.036261,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "19",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.358181,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "20",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.089633,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "22",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.131092,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "23",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.081954,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "26",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.293264,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "27",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.089633,
+      "tests": 247
+    },
+    {
+      "from": "24",
+      "to": "28",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.105176,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "3",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.222124,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "7",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.100761,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "10",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.091256,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "11",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.056049,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "13",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.057676,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "14",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.055993,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "17",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.182429,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "19",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.201273,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "20",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.192297,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "23",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.300118,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "26",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.056113,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "28",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.421387,
+      "tests": 247
+    },
+    {
+      "from": "25",
+      "to": "32",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.313914,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "3",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.093938,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "7",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.261841,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "10",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.244437,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "11",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.072915,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "13",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.130076,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "14",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.108161,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "17",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.20095,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "19",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.347513,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "20",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.035445,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "23",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.380446,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "24",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.276309,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "25",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.03198,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "28",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.074309,
+      "tests": 247
+    },
+    {
+      "from": "26",
+      "to": "32",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.19324,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "3",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.292718,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "6",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.383202,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "13",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.302806,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "16",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.370183,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "17",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.0255,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "18",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.005181,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "19",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.183662,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "20",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.292705,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "22",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.106844,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "23",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.010488,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "24",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.090685,
+      "tests": 247
+    },
+    {
+      "from": "27",
+      "to": "28",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.066558,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "2",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.007706,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "3",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.004449,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "4",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.025532,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "6",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.001902,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "8",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.389186,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "13",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.158331,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "15",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.131802,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "16",
+      "capacity": 7,
+      "dynamic": false,
+      "p_on_std": 0.202524,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "17",
+      "capacity": 2,
+      "dynamic": false,
+      "p_on_std": 0.206164,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "18",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.016277,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "19",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.34196,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "20",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.086711,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "22",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.0,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "23",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.023798,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "24",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.123525,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "25",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.378414,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "26",
+      "capacity": 5,
+      "dynamic": false,
+      "p_on_std": 0.091933,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "27",
+      "capacity": 3,
+      "dynamic": false,
+      "p_on_std": 0.090941,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "32",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.008272,
+      "tests": 247
+    },
+    {
+      "from": "28",
+      "to": "33",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.259122,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "3",
+      "capacity": 10,
+      "dynamic": false,
+      "p_on_std": 0.406732,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "4",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.376422,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "8",
+      "capacity": 4,
+      "dynamic": false,
+      "p_on_std": 0.095505,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "10",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.028872,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "15",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.017889,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "25",
+      "capacity": 9,
+      "dynamic": false,
+      "p_on_std": 0.182602,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "26",
+      "capacity": 8,
+      "dynamic": false,
+      "p_on_std": 0.188512,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "28",
+      "capacity": 6,
+      "dynamic": false,
+      "p_on_std": 0.006392,
+      "tests": 247
+    },
+    {
+      "from": "32",
+      "to": "33",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.290466,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "1",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.236307,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "2",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.014405,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "3",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.001553,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "4",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.063419,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "6",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.347435,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "8",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.016883,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "15",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.217511,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "16",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.033852,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "22",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.419001,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "28",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.174331,
+      "tests": 247
+    },
+    {
+      "from": "33",
+      "to": "32",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "p_on_std": 0.38483,
+      "tests": 247
+    }
+  ],
+  "metadata": {
+    "official_facts": {
+      "platform": "Sky / TelosB",
+      "rf_channel": 26,
+      "tx_power": 0,
+      "payload_bytes": 8,
+      "node_ids_present_in_csv": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "6",
+        "7",
+        "8",
+        "10",
+        "11",
+        "13",
+        "14",
+        "15",
+        "16",
+        "17",
+        "18",
+        "19",
+        "20",
+        "22",
+        "23",
+        "24",
+        "25",
+        "26",
+        "27",
+        "28",
+        "32",
+        "33"
+      ],
+      "num_nodes_present_in_csv": 26,
+      "num_directed_pairs_with_positive_reception": 338,
+      "num_directed_pairs_with_zero_mean_reception": 312,
+      "measurement_rounds_per_pair": 247
+    },
+    "determination_rules": {
+      "topology": "One directed wireless link is included iff the official CSV shows strictly positive mean packet reception for that sender/receiver pair over July 2019.",
+      "edge_capacity": "Set to 1.0 as a normalized per-slot successful-service unit; the empirical wireless behavior is represented by p_on.",
+      "dynamic_links": "All included directed links are dynamic because the benchmark is a time-varying wireless link-quality dataset.",
+      "p_on": "Empirical mean packet reception ratio = mean(rcv_total/100) over all tests for the sender/receiver pair.",
+      "node_capacity": "The benchmark has no edge-compute capacity field. To fit the uploaded simulator schema, all nodes are given the same normalized compute capacity 1.0 because the selected official dataset uses a single homogeneous platform (Sky/TelosB)."
+    },
+    "simulator_ready": true,
+    "caveats": [
+      "The node capacities are a normalized overlay assumption required by the simulator, not a measured benchmark quantity.",
+      "The FlockLab benchmark natively describes wireless link quality, not edge-compute capacities."
+    ],
+    "benchmark": "FlockLab",
+    "official_source": "https://zenodo.org/records/3354718",
+    "simulator_capacity_overlay": "homogeneous normalized capacities; not official compute/throughput data",
+    "node_capacity_rule": "all nodes capacity=1.0 because FlockLab dataset has homogeneous embedded nodes and no edge-compute capacity field",
+    "edge_capacity_rule": "all edges capacity=1.0 normalized service unit; packet reception reliability encoded by p_on",
+    "dynamic_edge_rule": "all measured directed edges with monthly mean PRR > 0 are dynamic",
+    "capacity_model": "node and directed-arc capacities i.i.d. uniform on {2,...,10}, seed 20260720",
+    "dynamic_model": "only arcs incident to source/sink endpoints are dynamic (p_on=0.8)"
+  }
+}

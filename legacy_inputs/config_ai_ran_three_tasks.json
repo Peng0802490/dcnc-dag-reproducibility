@@ -1,0 +1,210 @@
+{
+  "simulation": {
+    "random_seed": 1,
+    "recommended_total_rate_grid": [
+      0.12,
+      0.18,
+      0.24,
+      0.3,
+      0.36
+    ],
+    "recommended_interference_model": "primary"
+  },
+  "network": {
+    "file": "Network/AI_RAN_SmartFactory_24.json"
+  },
+  "service_dags": [
+    {
+      "name": "task1_env_twin",
+      "file": "DAG/task1_env_twin.json",
+      "sources": {
+        "src_amr1_rgbd": "amr1",
+        "src_amr2_rgbd": "amr2",
+        "src_vis1_rgbd": "vis1"
+      },
+      "sinks": {
+        "sink_twin": "twin",
+        "sink_broadcast": "plc1"
+      },
+      "allowed": {
+        "src_amr1_rgbd": [
+          "amr1",
+          "ecpu1",
+          "egpu1"
+        ],
+        "src_amr2_rgbd": [
+          "amr2",
+          "ecpu1",
+          "egpu1"
+        ],
+        "src_vis1_rgbd": [
+          "vis1",
+          "ecpu2",
+          "egpu2"
+        ],
+        "det_amr1": [
+          "amr1",
+          "ecpu1",
+          "egpu1",
+          "egpu2"
+        ],
+        "det_amr2": [
+          "amr2",
+          "ecpu1",
+          "egpu1",
+          "egpu2"
+        ],
+        "det_vis1": [
+          "vis1",
+          "ecpu2",
+          "egpu1",
+          "egpu2"
+        ],
+        "slam_amr1": [
+          "amr1",
+          "ecpu1",
+          "ecpu2",
+          "planner"
+        ],
+        "slam_amr2": [
+          "amr2",
+          "ecpu1",
+          "ecpu2",
+          "planner"
+        ],
+        "fusion_map": [
+          "fusion",
+          "twin",
+          "egpu1",
+          "egpu2",
+          "ecpu2"
+        ],
+        "sink_twin": [
+          "twin",
+          "ecpu2"
+        ],
+        "sink_broadcast": [
+          "ctrl",
+          "planner",
+          "ecpu1"
+        ]
+      }
+    },
+    {
+      "name": "task2_handoff_assembly",
+      "file": "DAG/task2_handoff_assembly.json",
+      "sources": {
+        "src_detect": "vis2",
+        "src_arm1_state": "arm1",
+        "src_arm2_state": "arm2"
+      },
+      "sinks": {
+        "sink_arm1_cmd": "arm1",
+        "sink_arm2_cmd": "arm2"
+      },
+      "allowed": {
+        "src_detect": [
+          "vis2",
+          "mmr1",
+          "ecpu1",
+          "egpu1"
+        ],
+        "src_arm1_state": [
+          "arm1",
+          "ctrl",
+          "ecpu2"
+        ],
+        "src_arm2_state": [
+          "arm2",
+          "ctrl",
+          "ecpu2"
+        ],
+        "pose_track": [
+          "egpu1",
+          "egpu2",
+          "ecpu1",
+          "mmr1"
+        ],
+        "grasp_plan": [
+          "planner",
+          "egpu1",
+          "ecpu1",
+          "ecpu2"
+        ],
+        "handoff_plan": [
+          "planner",
+          "ctrl",
+          "ecpu2",
+          "egpu2"
+        ],
+        "sink_arm1_cmd": [
+          "ctrl",
+          "ecpu2"
+        ],
+        "sink_arm2_cmd": [
+          "ctrl",
+          "ecpu2"
+        ]
+      }
+    },
+    {
+      "name": "task3_transport_control",
+      "file": "DAG/task3_transport_control.json",
+      "sources": {
+        "src_fleet_state": "amr3",
+        "src_task_queue": "plc1",
+        "src_event_map": "amr4"
+      },
+      "sinks": {
+        "sink_path": "amr3",
+        "sink_cmd": "amr4"
+      },
+      "allowed": {
+        "src_fleet_state": [
+          "amr3",
+          "ctrl",
+          "ecpu1"
+        ],
+        "src_task_queue": [
+          "plc1",
+          "ctrl",
+          "ecpu2"
+        ],
+        "src_event_map": [
+          "amr4",
+          "twin",
+          "ecpu1"
+        ],
+        "assign": [
+          "planner",
+          "ctrl",
+          "ecpu1",
+          "ecpu2"
+        ],
+        "global_plan": [
+          "planner",
+          "twin",
+          "ecpu2",
+          "egpu2"
+        ],
+        "local_replan": [
+          "ctrl",
+          "ecpu1",
+          "ecpu2",
+          "amr3",
+          "amr4",
+          "mmr1"
+        ],
+        "sink_path": [
+          "planner",
+          "ctrl",
+          "ecpu1"
+        ],
+        "sink_cmd": [
+          "ctrl",
+          "ecpu1"
+        ]
+      }
+    }
+  ]
+}

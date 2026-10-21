@@ -1,0 +1,93 @@
+{
+  "service_chain_id": "task3_transport_control",
+  "version": "2026-04-23",
+  "description": "Collaborative transport, collision-aware path planning, and control. Lightweight state/task/event flows merge into assignment and planning stages, then split into path and control outputs.",
+  "metadata": {
+    "task_type": "motion_control",
+    "normalization_rule": "Relative xi/r values preserve the report pattern: low-bandwidth but high-frequency planning and control sensitivity."
+  },
+  "nodes": [
+    {
+      "id": "src_fleet_state",
+      "type": "source",
+      "r": 0.6,
+      "in": 0.25
+    },
+    {
+      "id": "src_task_queue",
+      "type": "source",
+      "r": 0.4,
+      "in": 0.15
+    },
+    {
+      "id": "src_event_map",
+      "type": "source",
+      "r": 0.4,
+      "in": 0.2
+    },
+    {
+      "id": "assign",
+      "type": "function",
+      "r": 1.0
+    },
+    {
+      "id": "global_plan",
+      "type": "function",
+      "r": 1.6
+    },
+    {
+      "id": "local_replan",
+      "type": "function",
+      "r": 2.0
+    },
+    {
+      "id": "sink_path",
+      "type": "sink",
+      "r": 0.7,
+      "out": 0.25
+    },
+    {
+      "id": "sink_cmd",
+      "type": "sink",
+      "r": 0.8,
+      "out": 0.12
+    }
+  ],
+  "edges": [
+    {
+      "from": "src_fleet_state",
+      "to": "assign",
+      "xi": 0.25
+    },
+    {
+      "from": "src_task_queue",
+      "to": "assign",
+      "xi": 0.1
+    },
+    {
+      "from": "assign",
+      "to": "global_plan",
+      "xi": 0.18
+    },
+    {
+      "from": "src_event_map",
+      "to": "global_plan",
+      "xi": 0.14
+    },
+    {
+      "from": "global_plan",
+      "to": "local_replan",
+      "xi": 0.22
+    },
+    {
+      "from": "global_plan",
+      "to": "sink_path",
+      "xi": 0.35
+    },
+    {
+      "from": "local_replan",
+      "to": "sink_cmd",
+      "xi": 0.12
+    }
+  ]
+}

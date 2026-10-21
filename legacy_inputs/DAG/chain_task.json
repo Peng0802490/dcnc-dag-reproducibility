@@ -1,0 +1,72 @@
+{
+  "service_chain_id": "sequential_chain_task",
+  "version": "2026-04-28",
+  "description": "representative linear service DAG for sequential analytics",
+  "nodes": [
+    {
+      "id": "A",
+      "type": "source",
+      "r": 1.5,
+      "in": 1.0
+    },
+    {
+      "id": "B",
+      "type": "function",
+      "r": 1.2
+    },
+    {
+      "id": "C",
+      "type": "function",
+      "r": 2.0
+    },
+    {
+      "id": "D",
+      "type": "function",
+      "r": 1.5
+    },
+    {
+      "id": "E",
+      "type": "function",
+      "r": 2.5
+    },
+    {
+      "id": "F",
+      "type": "sink",
+      "r": 1.0,
+      "out": 1.0
+    }
+  ],
+  "edges": [
+    {
+      "from": "A",
+      "to": "B",
+      "xi": 0.8
+    },
+    {
+      "from": "B",
+      "to": "C",
+      "xi": 1.25
+    },
+    {
+      "from": "C",
+      "to": "D",
+      "xi": 0.75
+    },
+    {
+      "from": "D",
+      "to": "E",
+      "xi": 1.5
+    },
+    {
+      "from": "E",
+      "to": "F",
+      "xi": 1.0
+    }
+  ],
+  "metadata": {
+    "author": "Peng Li",
+    "created_at": "2026-04-28",
+    "dag_type": "chain",
+    "scaling_factor_policy": "random values selected from representative compression, unchanged, and expansion factors"
+  }
+}

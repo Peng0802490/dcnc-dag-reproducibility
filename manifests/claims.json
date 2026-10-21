@@ -1,0 +1,328 @@
+{
+  "schema_version": 1,
+  "artifact_version": "0.1.0",
+  "status_date": "2026-10-21",
+  "release_ready": true,
+  "paper": {
+    "role": "historical-pdf-baseline; current Table 6 authority is paper_project",
+    "filename": "Appendices_for___Throughput_Optimal_Control_of_Distributed_Computing_Networks_for_Service_DAGs__.pdf",
+    "sha256": "B093E7ABE5138E9AD71548BF70E1FC0E54B7D8681A664337369B474B30FCD006",
+    "title": "Throughput-Optimal Control of Distributed Computing Networks for Service DAGs",
+    "authors": [
+      {
+        "given_names": "Peng",
+        "family_names": "Li"
+      },
+      {
+        "given_names": "Jianan",
+        "family_names": "Zhang"
+      },
+      {
+        "given_names": "Jaime",
+        "family_names": "Llorca"
+      },
+      {
+        "given_names": "Xinzhe",
+        "family_names": "Fu"
+      },
+      {
+        "given_names": "Xiang",
+        "family_names": "Cheng"
+      },
+      {
+        "given_names": "Chen",
+        "family_names": "Chen"
+      }
+    ]
+  },
+  "paper_project": {
+    "kind": "latex-project",
+    "filename": "DCNC_DAG_Table6_timing_updated_project.zip",
+    "sha256": "7e3e4d8f240ae000656c3de4371ec3d43bfaaf703416439afcfb234a820f2fb4",
+    "compiled_pdf_verified": false,
+    "evidence": "evidence/table6/paper_update/source_audit.json"
+  },
+  "source_provenance": {
+    "paper_authority": "user-designated corrected LaTeX project, pinned by SHA-256; previous PDF retained as historical baseline",
+    "paper_repo_local_head": "2a39631820d2b4271ee2de2a641225d0e49ebcc2",
+    "paper_repo_origin_master": "a7bccccec4a792df4da199449eea499d532a0ebb",
+    "paper_repo_review_note": "Updated project changes only Table 6 timing, its reductions, and appendix run counts relative to the supplied previous project. All 16 other members are byte-identical. Updated compiled PDF not supplied or verified. Parent worktree changes preserved.",
+    "paper_repo_sync_state": "informational: pull blocked by preserved local changes",
+    "simulator_source": "server snapshot; source directory had no Git metadata",
+    "simulator_identity": "SHA256SUMS.txt and manifests/files.json"
+  },
+  "open_gates": [],
+  "publication_decision": {
+    "date": "2026-10-21",
+    "first_party_license": "MIT",
+    "paper_alignment": "verified-updated-latex-project",
+    "release_preparation_authorized": true,
+    "public_release_authorized": false,
+    "manuscript_method_expansion": "declined-by-owner",
+    "note": "Owner requested release preparation after the corrected source project was checked, without adding manuscript method prose. Preparation does not authorize automatic upload. Timing scope remains documented in the artifact."
+  },
+  "claims": {
+    "lp_capacity": {
+      "status": "exact",
+      "lambda_star": 1.0,
+      "evidence": "evidence/lp_capacity"
+    },
+    "driving": {
+      "status": "exact",
+      "thresholds": {
+        "Milan": {
+          "DCNC-DAG": 0.8892,
+          "DCNC-DAG-H": 0.7348,
+          "CTS": 0.2973,
+          "Randomized": 0.1936
+        },
+        "Random": {
+          "DCNC-DAG": 0.517,
+          "DCNC-DAG-H": 0.46,
+          "CTS": 0.16,
+          "Randomized": 0.156
+        }
+      },
+      "evidence": "evidence/main_sweeps"
+    },
+    "random_dag": {
+      "status": "exact",
+      "exact_thresholds": {
+        "Milan": 1.2223,
+        "Random": 0.6467,
+        "RoofNet": 1.9712,
+        "FlockLab": 3.432
+      },
+      "best_baseline_thresholds": {
+        "Milan": 0.4605,
+        "Random": 0.1549,
+        "RoofNet": 0.472,
+        "FlockLab": 0.62
+      },
+      "flocklab_figure_display_endpoint": 3.12,
+      "evidence": "evidence/main_sweeps"
+    },
+    "workflow": {
+      "status": "exact",
+      "thresholds": {
+        "SRA-Search-22": {
+          "DCNC-DAG-H": 0.14,
+          "CTS": 0.085,
+          "Random": 0.03
+        },
+        "SIPHT-31": {
+          "DCNC-DAG-H": 0.3,
+          "CTS": 0.22,
+          "Random": 0.07
+        }
+      },
+      "evidence": "evidence/workflow/workflow_three_seed_thresholds.csv"
+    },
+    "frame_length": {
+      "status": "exact",
+      "records": 480,
+      "seeds": [
+        1,
+        2,
+        3
+      ],
+      "slots": 100000,
+      "thresholds": {
+        "Milan": {
+          "1": 0.8918,
+          "4": 0.8918,
+          "16": 0.8918,
+          "64": 0.8428,
+          "256": 0.8428
+        },
+        "Random": {
+          "1": 0.546,
+          "4": 0.546,
+          "16": 0.546,
+          "64": 0.546,
+          "256": 0.516
+        }
+      },
+      "evidence": "evidence/main_sweeps/k100k.jsonl"
+    },
+    "fifo_nto": {
+      "status": "exact-redraw",
+      "lambda_0_8_horizon": 10000000,
+      "fifo_mean_final_backlog": 1915175.8,
+      "nto_mean_final_backlog": 16.8,
+      "evidence": "evidence/fifo/data/aggregate_final_summary.csv"
+    },
+    "moe": {
+      "status": "exact",
+      "completion_gate": 0.95,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "horizon": 50000,
+      "grid_points_per_policy": 28,
+      "rows_per_model": 252,
+      "paper": {
+        "mixtral": {
+          "DCNC-DAG-H": 1.16,
+          "Lazarus-style": 0.35,
+          "FlexMoE-style": 0.46,
+          "gain": 2.52
+        },
+        "llama": {
+          "DCNC-DAG-H": 1.02,
+          "Lazarus-style": 0.28,
+          "FlexMoE-style": 0.38,
+          "gain": 2.68
+        }
+      },
+      "observed": {
+        "mixtral": {
+          "DCNC-DAG-H": 1.16,
+          "Lazarus-style": 0.35,
+          "FlexMoE-style": 0.46,
+          "gain": 2.5217391304347823
+        },
+        "llama": {
+          "DCNC-DAG-H": 1.02,
+          "Lazarus-style": 0.28,
+          "FlexMoE-style": 0.38,
+          "gain": 2.6842105263157894
+        }
+      },
+      "evidence": "evidence/moe/summary/thresholds.csv",
+      "raw_evidence": "evidence/moe/raw",
+      "audit_evidence": "evidence/moe/audit.json"
+    },
+    "table6": {
+      "status": "exact-at-paper-precision",
+      "campaign_status": "complete",
+      "invocation_status": "exact-at-paper-precision",
+      "timing_status": "exact-source-provenance",
+      "paper_source_sha256": "7e3e4d8f240ae000656c3de4371ec3d43bfaaf703416439afcfb234a820f2fb4",
+      "paper_update_evidence": "evidence/table6/paper_update",
+      "historical_pdf_sha256": "B093E7ABE5138E9AD71548BF70E1FC0E54B7D8681A664337369B474B30FCD006",
+      "expected_jobs": 150,
+      "seeds": [
+        1,
+        2,
+        3
+      ],
+      "slots": 100000,
+      "solver": "dynvmp_bridge",
+      "paper_calls": {
+        "driving_milan": {
+          "1": 36302.9,
+          "4": 18365.0,
+          "16": 5944.1,
+          "64": 1562.5,
+          "256": 391.0
+        },
+        "driving_random": {
+          "1": 25432.3,
+          "4": 16273.9,
+          "16": 5931.1,
+          "64": 1562.5,
+          "256": 391.0
+        }
+      },
+      "paper_seconds_per_slot": {
+        "driving_milan": {
+          "1": 2.825,
+          "4": 1.626,
+          "16": 0.528,
+          "64": 0.139,
+          "256": 0.0349
+        },
+        "driving_random": {
+          "1": 11.028,
+          "4": 7.254,
+          "16": 2.991,
+          "64": 0.852,
+          "256": 0.209
+        }
+      },
+      "historical_pdf_seconds_per_slot": {
+        "driving_milan": {
+          "1": 1.91,
+          "4": 1.13,
+          "16": 0.391,
+          "64": 0.104,
+          "256": 0.0261
+        },
+        "driving_random": {
+          "1": 11.33,
+          "4": 7.77,
+          "16": 3.32,
+          "64": 0.942,
+          "256": 0.23
+        }
+      },
+      "observed_calls": {
+        "driving_milan": {
+          "1": 36302.86666666667,
+          "4": 18365.0,
+          "16": 5944.066666666667,
+          "64": 1562.4666666666667,
+          "256": 391.0
+        },
+        "driving_random": {
+          "1": 25432.333333333332,
+          "4": 16273.933333333332,
+          "16": 5931.066666666667,
+          "64": 1562.4666666666667,
+          "256": 391.0
+        }
+      },
+      "observed_seconds_per_slot": {
+        "driving_milan": {
+          "1": 2.8248867384320375,
+          "4": 1.6255674018198536,
+          "16": 0.527968016455499,
+          "64": 0.13936592881791535,
+          "256": 0.0349391163343592
+        },
+        "driving_random": {
+          "1": 11.02802555797141,
+          "4": 7.254061973400831,
+          "16": 2.990582653220312,
+          "64": 0.852132440975674,
+          "256": 0.2089379150136417
+        }
+      },
+      "raw_evidence": "evidence/table6/raw",
+      "summary_evidence": "evidence/table6/summary/paper_table_k_runtime_across_rates.csv",
+      "server_capture": "evidence/table6/server_capture_20261020.json",
+      "command_matrix_sha256": "b607519876c1a025e92da9aa24962c4dc9915996e18e4d30e6bcc1139f912502",
+      "runtime_fingerprint": "evidence/table6/runtime_fingerprint.json",
+      "timing_audit": "evidence/table6/timing_audit.json",
+      "legacy_20k_evidence": "evidence/table6/legacy_20k_summary.csv",
+      "manuscript_intermediate_evidence": "evidence/table6/paper_intermediate_20260912.md",
+      "progress_evidence": "evidence/table6/progress.json",
+      "evidence": "evidence/table6/commands.csv"
+    },
+    "moe_figure": {
+      "status": "exact-numeric-data",
+      "evidence": "evidence/moe_censored",
+      "horizon": 100000,
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "runs": 321,
+      "aggregate_points": 107,
+      "displayed_points": 106,
+      "metric": "all-request finite-horizon delay lower bound",
+      "omitted_points": [
+        {
+          "model": "llama",
+          "policy": "DCNC-DAG-H",
+          "arrival_rate": 1.05
+        }
+      ],
+      "presentation_note": "Paper metric/horizon wording review deferred by user; no manuscript changes in this artifact."
+    }
+  }
+}

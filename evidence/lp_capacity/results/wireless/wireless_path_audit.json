@@ -1,0 +1,46 @@
+{
+  "all_16_states_observed": true,
+  "chi_square_p_value": 0.33424213089799976,
+  "configured_p_on": 0.85,
+  "degrees_of_freedom": 15,
+  "dynamic_edge_order": [
+    [
+      "uA",
+      "uC1"
+    ],
+    [
+      "uC1",
+      "uD"
+    ],
+    [
+      "uA",
+      "uC2"
+    ],
+    [
+      "uC2",
+      "uD"
+    ]
+  ],
+  "interpretation": "Path hashes and per-seed marginals exactly match the formal campaign; the distributional statistics are diagnostic checks of the configured independent Bernoulli(0.85) edge process.",
+  "marginal_on_fractions": {
+    "edge_1:uA->uC1": 0.85024,
+    "edge_2:uC1->uD": 0.849556,
+    "edge_3:uA->uC2": 0.850336,
+    "edge_4:uC2->uD": 0.848866
+  },
+  "max_absolute_marginal_error": 0.0011339999999999684,
+  "max_absolute_pairwise_correlation": 0.0028693490629138904,
+  "pairwise_pearson_correlations": {
+    "edge_1_edge_2": -0.00011361073074190648,
+    "edge_1_edge_3": -0.0010187145429015538,
+    "edge_1_edge_4": 0.0005803254095242651,
+    "edge_2_edge_3": 0.0028693490629138904,
+    "edge_2_edge_4": -0.0018680281784758618,
+    "edge_3_edge_4": -0.0007772802240891358
+  },
+  "passed": true,
+  "pearson_chi_square": 16.746516675557533,
+  "seed_count": 5,
+  "slots_per_seed": 100000,
+  "total_slot_samples": 500000
+}

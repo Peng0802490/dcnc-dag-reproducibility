@@ -1,0 +1,25 @@
+FIFO/NTO backlog-timeline sanity checks
+==============================================================
+
+11.1 arrival-rate check  A_cum(T)/T ~= lambda
+     maximum |A_cum(T)/T - lambda| over 380 runs: 0.000764
+
+11.2 nested arrivals across rates (per seed, full indicator arrays)
+     checked seeds 1-20 over all 8 rates on the first 2e5 slots
+     result: PASS
+
+11.3 FIFO/NTO arrival coupling
+     compared 190 (experiment, lambda, seed) cells
+     result: PASS
+
+11.4 backlog identity  I(t) = A_cum(t) - kappa(t)  with B0 = 0
+     maximum discrepancy over 380380 sampled points: 0
+
+11.5 capacity boundary
+     u1 load per request = 0.01 + 0.99 = 1.00
+     v1 load per request = 0.99 + 0.01 + 0.01 + 0.01 = 1.02
+     lambda* = min(1/1.00, 1/1.02) = 0.980392
+     workloads and placement unchanged (WORK_DEFAULT, STAGE_NODE)
+
+extra: I(t) equals the sum of the six stage counts at every sampled point
+     maximum discrepancy: 0

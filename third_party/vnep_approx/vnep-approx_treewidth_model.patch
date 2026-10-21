@@ -1,0 +1,24 @@
+--- a/vnep_approx/treewidth_model.py
+
++++ b/vnep_approx/treewidth_model.py
+
+@@ -1302,7 +1302,7 @@
+
+         result = None
+         # There is probably a better way...
+         curr_dir = os.getcwd()
+-        PACE_TD_ALGORITHM_PATH = os.getenv("PACE_TD_ALGORITHM_PATH")
++        PACE_TD_ALGORITHM_PATH = os.getenv("PACE_TD_ALGORITHM_PATH") or os.getenv("PACE")
+         if PACE_TD_ALGORITHM_PATH is None:
+             raise ValueError("PACE_TD_ALGORITHM_PATH environment variable is not set!")
+         os.chdir(PACE_TD_ALGORITHM_PATH)
+@@ -3079,7 +3079,7 @@
+
+                     ij_cost = self.substrate.get_shortest_paths_cost(u, v)
+                     if ij_cost is None:
+                         return INFINITY
+-                    cost += ij_cost
++                    cost += self.request.get_edge_demand((i, j)) * ij_cost
+         return cost
+ 
+     def shortest_path(self, start, target, min_capacity):

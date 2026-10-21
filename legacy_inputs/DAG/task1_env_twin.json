@@ -1,0 +1,133 @@
+{
+  "service_chain_id": "task1_env_twin",
+  "version": "2026-04-23",
+  "description": "Collaborative environment perception and digital-twin update. Two AMR streams plus one fixed-vision stream merge at an edge fusion stage and split toward twin update and downstream status broadcast.",
+  "metadata": {
+    "task_type": "environment_perception",
+    "normalization_rule": "Relative xi/r values preserve the report bottleneck pattern: heavy uplink + edge fusion."
+  },
+  "nodes": [
+    {
+      "id": "src_amr1_rgbd",
+      "type": "source",
+      "r": 0.6,
+      "in": 2.5
+    },
+    {
+      "id": "src_amr2_rgbd",
+      "type": "source",
+      "r": 0.6,
+      "in": 2.5
+    },
+    {
+      "id": "src_vis1_rgbd",
+      "type": "source",
+      "r": 0.5,
+      "in": 2.0
+    },
+    {
+      "id": "det_amr1",
+      "type": "function",
+      "r": 3.2
+    },
+    {
+      "id": "det_amr2",
+      "type": "function",
+      "r": 3.2
+    },
+    {
+      "id": "det_vis1",
+      "type": "function",
+      "r": 3.0
+    },
+    {
+      "id": "slam_amr1",
+      "type": "function",
+      "r": 1.2
+    },
+    {
+      "id": "slam_amr2",
+      "type": "function",
+      "r": 1.2
+    },
+    {
+      "id": "fusion_map",
+      "type": "function",
+      "r": 2.2
+    },
+    {
+      "id": "sink_twin",
+      "type": "sink",
+      "r": 0.8,
+      "out": 0.8
+    },
+    {
+      "id": "sink_broadcast",
+      "type": "sink",
+      "r": 0.7,
+      "out": 0.6
+    }
+  ],
+  "edges": [
+    {
+      "from": "src_amr1_rgbd",
+      "to": "det_amr1",
+      "xi": 3.0
+    },
+    {
+      "from": "src_amr1_rgbd",
+      "to": "slam_amr1",
+      "xi": 2.4
+    },
+    {
+      "from": "src_amr2_rgbd",
+      "to": "det_amr2",
+      "xi": 3.0
+    },
+    {
+      "from": "src_amr2_rgbd",
+      "to": "slam_amr2",
+      "xi": 2.4
+    },
+    {
+      "from": "src_vis1_rgbd",
+      "to": "det_vis1",
+      "xi": 2.6
+    },
+    {
+      "from": "det_amr1",
+      "to": "fusion_map",
+      "xi": 0.6
+    },
+    {
+      "from": "det_amr2",
+      "to": "fusion_map",
+      "xi": 0.6
+    },
+    {
+      "from": "det_vis1",
+      "to": "fusion_map",
+      "xi": 0.6
+    },
+    {
+      "from": "slam_amr1",
+      "to": "fusion_map",
+      "xi": 0.9
+    },
+    {
+      "from": "slam_amr2",
+      "to": "fusion_map",
+      "xi": 0.9
+    },
+    {
+      "from": "fusion_map",
+      "to": "sink_twin",
+      "xi": 0.8
+    },
+    {
+      "from": "fusion_map",
+      "to": "sink_broadcast",
+      "xi": 0.6
+    }
+  ]
+}

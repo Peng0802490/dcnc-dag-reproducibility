@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "status": "paper-timing-mismatch",
+  "audit_date": "2026-10-20",
+  "paper_source": {
+    "filename": "Appendices_for___Throughput_Optimal_Control_of_Distributed_Computing_Networks_for_Service_DAGs__.pdf",
+    "sha256": "B093E7ABE5138E9AD71548BF70E1FC0E54B7D8681A664337369B474B30FCD006",
+    "table": 6,
+    "horizon": 100000,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "seconds_per_slot": {
+      "driving_milan": {
+        "1": 1.91,
+        "4": 1.13,
+        "16": 0.391,
+        "64": 0.104,
+        "256": 0.0261
+      },
+      "driving_random": {
+        "1": 11.33,
+        "4": 7.77,
+        "16": 3.32,
+        "64": 0.942,
+        "256": 0.23
+      }
+    },
+    "calls": {
+      "driving_milan": {
+        "1": 36302.9,
+        "4": 18365.0,
+        "16": 5944.1,
+        "64": 1562.5,
+        "256": 391.0
+      },
+      "driving_random": {
+        "1": 25432.3,
+        "4": 16273.9,
+        "16": 5931.1,
+        "64": 1562.5,
+        "256": 391.0
+      }
+    },
+    "source_commit": "defdbafd17aae3a10fa1d71f398eb879dee2ac42",
+    "source_commit_note": "Historical values originated in this commit and remain unchanged in the latest user-designated 2026-10-16 PDF. The latest PDF, not this old TeX revision, is the current authority."
+  },
+  "legacy_20k_campaign": {
+    "evidence": "evidence/table6/legacy_20k_summary.csv",
+    "remote_source": "results_k_runtime_20000/main/final_table/paper_table_k_runtime_across_rates.csv",
+    "remote_source_sha256": "064a04081f989e85835609429e2cd9534510c57d48036bab4b41c7df8e1f101e",
+    "horizon": 20000,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "scheduler_panes": 75,
+    "scheduler_evidence_remote": "results_k_runtime_20000/scheduler_main/scheduler_progress.log",
+    "scheduler_evidence_sha256": "6b511de77517da3316c36aba6320a0249c4b5bcc2f065a5ac0660b69bec6684c",
+    "completeness_note": "All rows use 15 runs and five rates except driving_random/K=256, which uses five runs and two rates."
+  },
+  "manuscript_intermediate": {
+    "evidence": "evidence/table6/paper_intermediate_20260912.md",
+    "source_parent_filename": "table6_updated_data.md",
+    "source_sha256": "e0b4545ff0a6d848692801224038d4291b2506dc50cbf112c6fdde34fc48bfc6",
+    "source_last_write_local": "2026-09-12 21:15:51",
+    "source_tracking_state": "untracked in the parent paper repository at audit time",
+    "classification": "manuscript-adjacent intermediate; not raw simulation provenance",
+    "rows": [
+      {
+        "case": "driving_milan",
+        "fixed_k": 1,
+        "lambda_hat": 0.89,
+        "calls": 36280.1,
+        "seconds_per_slot": 1.91
+      },
+      {
+        "case": "driving_milan",
+        "fixed_k": 4,
+        "lambda_hat": 0.89,
+        "calls": 18384.6,
+        "seconds_per_slot": 1.13
+      },
+      {
+        "case": "driving_milan",
+        "fixed_k": 16,
+        "lambda_hat": 0.89,
+        "calls": 5946.3,
+        "seconds_per_slot": 0.391
+      },
+      {
+        "case": "driving_milan",
+        "fixed_k": 64,
+        "lambda_hat": 0.84,
+        "calls": 1562.5,
+        "seconds_per_slot": 0.104
+      },
+      {
+        "case": "driving_milan",
+        "fixed_k": 256,
+        "lambda_hat": 0.84,
+        "calls": 391.0,
+        "seconds_per_slot": 0.0261
+      },
+      {
+        "case": "driving_random",
+        "fixed_k": 1,
+        "lambda_hat": 0.55,
+        "calls": 25440.7,
+        "seconds_per_slot": 5.67
+      },
+      {
+        "case": "driving_random",
+        "fixed_k": 4,
+        "lambda_hat": 0.55,
+        "calls": 16287.2,
+        "seconds_per_slot": 3.89
+      },
+      {
+        "case": "driving_random",
+        "fixed_k": 16,
+        "lambda_hat": 0.55,
+        "calls": 5934.5,
+        "seconds_per_slot": 1.66
+      },
+      {
+        "case": "driving_random",
+        "fixed_k": 64,
+        "lambda_hat": 0.55,
+        "calls": 1562.5,
+        "seconds_per_slot": 0.471
+      },
+      {
+        "case": "driving_random",
+        "fixed_k": 256,
+        "lambda_hat": 0.52,
+        "calls": 391.0,
+        "seconds_per_slot": 0.115
+      }
+    ],
+    "relationship_to_paper": {
+      "timing_ratio_definition": "paper_seconds_per_slot / intermediate_seconds_per_slot",
+      "call_relative_difference_definition": "(paper_calls - intermediate_calls) / intermediate_calls",
+      "driving_milan": {
+        "timing_ratio_mean": 1.0,
+        "max_abs_timing_ratio_deviation_from_one": 0.0,
+        "max_abs_call_relative_difference": 0.0010661096787527903
+      },
+      "driving_random": {
+        "timing_ratio_mean": 1.9991331274964523,
+        "max_abs_timing_ratio_deviation_from_two": 0.0025706940874037354,
+        "max_abs_call_relative_difference": 0.0008165921705388951
+      }
+    }
+  },
+  "paper_to_legacy_comparison": [
+    {
+      "case": "driving_milan",
+      "fixed_k": 1,
+      "legacy_seconds_per_slot": 3.538708585244316,
+      "paper_seconds_per_slot": 1.91,
+      "paper_to_legacy_ratio": 0.5397449250169585
+    },
+    {
+      "case": "driving_milan",
+      "fixed_k": 4,
+      "legacy_seconds_per_slot": 2.086443094009934,
+      "paper_seconds_per_slot": 1.13,
+      "paper_to_legacy_ratio": 0.541591574312827
+    },
+    {
+      "case": "driving_milan",
+      "fixed_k": 16,
+      "legacy_seconds_per_slot": 0.7245218868964398,
+      "paper_seconds_per_slot": 0.391,
+      "paper_to_legacy_ratio": 0.5396662365512597
+    },
+    {
+      "case": "driving_milan",
+      "fixed_k": 64,
+      "legacy_seconds_per_slot": 0.19207366524216876,
+      "paper_seconds_per_slot": 0.104,
+      "paper_to_legacy_ratio": 0.5414589234228326
+    },
+    {
+      "case": "driving_milan",
+      "fixed_k": 256,
+      "legacy_seconds_per_slot": 0.04833543236224135,
+      "paper_seconds_per_slot": 0.0261,
+      "paper_to_legacy_ratio": 0.5399765497988367
+    },
+    {
+      "case": "driving_random",
+      "fixed_k": 1,
+      "legacy_seconds_per_slot": 14.824639832611526,
+      "paper_seconds_per_slot": 11.33,
+      "paper_to_legacy_ratio": 0.7642681460008117
+    },
+    {
+      "case": "driving_random",
+      "fixed_k": 4,
+      "legacy_seconds_per_slot": 10.16465998031159,
+      "paper_seconds_per_slot": 7.77,
+      "paper_to_legacy_ratio": 0.7644131741788907
+    },
+    {
+      "case": "driving_random",
+      "fixed_k": 16,
+      "legacy_seconds_per_slot": 4.338024028257783,
+      "paper_seconds_per_slot": 3.32,
+      "paper_to_legacy_ratio": 0.7653254058471745
+    },
+    {
+      "case": "driving_random",
+      "fixed_k": 64,
+      "legacy_seconds_per_slot": 1.231496804431632,
+      "paper_seconds_per_slot": 0.942,
+      "paper_to_legacy_ratio": 0.7649228131247507
+    },
+    {
+      "case": "driving_random",
+      "fixed_k": 256,
+      "legacy_seconds_per_slot": 0.3519549534193054,
+      "paper_seconds_per_slot": 0.23,
+      "paper_to_legacy_ratio": 0.6534927204896431
+    }
+  ],
+  "ratio_summary": {
+    "driving_milan_all_k": {
+      "mean": 0.5404876418205429,
+      "sample_standard_deviation": 0.0009551969457433791,
+      "coefficient_of_variation": 0.0017672873010119918,
+      "maximum_relative_deviation_from_mean": 0.002042474993023124
+    },
+    "driving_random_complete_five_rate_rows_k_1_to_64": {
+      "mean": 0.764732384787907,
+      "sample_standard_deviation": 0.0004848883004986648,
+      "coefficient_of_variation": 0.000634062725920968,
+      "maximum_relative_deviation_from_mean": 0.0007754622018167905
+    }
+  },
+  "measurement_boundary": {
+    "reported_accumulator": "Simulation._compute_mapping_with_runtime measures cfg.solver.compute with time.perf_counter and accumulates routing_oracle_wall_time_sec.",
+    "included_work": "For dynvmp_bridge this includes Python-side payload construction, temporary-file I/O, wrapper/process startup, the Python 2 DynVMP solve, result parsing, and concurrent host contention.",
+    "excluded_work": "Queue updates, physical scheduling, plotting, and result aggregation are outside the routing-oracle accumulator."
+  },
+  "current_100k_campaign": {
+    "status": "complete-imported",
+    "raw_evidence": "evidence/table6/raw",
+    "summary_evidence": "evidence/table6/summary/paper_table_k_runtime_across_rates.csv",
+    "server_capture": "evidence/table6/server_capture_20261020.json",
+    "completed_server_local": "2026-10-17 13:25:08",
+    "server_timezone": "UTC+08:00",
+    "runtime_fingerprint": "evidence/table6/runtime_fingerprint.json",
+    "jobs": 150,
+    "horizon": 100000,
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "scheduler_panes": 75,
+    "classification": "valid full-protocol rerun for deterministic invocation counts and a documented loaded-host timing measurement; not an isolated single-worker benchmark"
+  },
+  "findings": [
+    "All 150 successful 100k run rows were imported with byte-exact server hashes on 2026-10-20. All ten mean invocation counts round to the printed paper values.",
+    "The ten mean time-per-slot values differ from the paper. The imported rerun is reproducible evidence of its own loaded-host timing, not provenance for the old absolute values.",
+    "An untracked manuscript-adjacent intermediate dated 2026-09-12 has call counts within 0.107% of the paper values; its Milan times equal the paper values while its Random times are approximately half the paper values after rounding.",
+    "The manuscript intermediate is a lineage clue, not raw timing provenance: no source CSV, run rows, or documented transformation that generated it was found.",
+    "The paper absolute times are nearly constant topology-specific rescalings of the legacy 20k time-per-slot values for every complete five-rate row.",
+    "The near-constant ratios are evidence of a possible rescaling or a distinct benchmark, but they do not prove how the paper values were produced.",
+    "No scaling formula, 100k raw timing table, or generation script supporting the paper values was found in the available paper Git history or server project.",
+    "Both campaigns were configured for 75 concurrent panes on a 64-core host; actual concurrency declines as jobs finish. Their wall-clock values include workload interference and must be reported with that protocol."
+  ],
+  "release_acceptance_rule": {
+    "invocation_counts": "All 150 successful rows are imported; the ten recomputed means round to the paper values.",
+    "paper_value_provenance": "The printed absolute-time values require archived run-level evidence that regenerates them; a rerun with different values cannot retroactively validate the existing table.",
+    "rerun_timing": "The completed campaign is archived as a loaded-host measurement with up to 75 scheduler panes. Do not describe it as an isolated solver latency benchmark.",
+    "gate": "Keep table6-paper-timing-disagrees-with-raw-results open until the paper is reconciled with the imported timing or the original supporting evidence is supplied."
+  }
+}

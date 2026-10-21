@@ -1,0 +1,8 @@
+[
+ {"case":"driving_milan","config":"config_driving_Milan.json","from_case":"driving_milan","slots":20000,"seeds":[1,2,3],"fixed_k":[1,4,16,64,256]},
+ {"case":"driving_random","config":"config_driving_Random.json","from_case":"driving_random","slots":20000,"seeds":[1,2,3],"fixed_k":[1,4,16,64,256]},
+ {"case":"r6_milan","config":"config_random6_Milan.json","from_case":"r6_milan","slots":20000,"seeds":[1,2,3],"fixed_k":[1]},
+ {"case":"r6_random","config":"config_random6_Random.json","from_case":"r6_random","slots":20000,"seeds":[1,2,3],"fixed_k":[1]},
+ {"case":"r6_roofnet","config":"config_random6_Roofnet38_cap210.json","from_case":"r6_roofnet","slots":20000,"seeds":[1,2,3],"fixed_k":[1]},
+ {"case":"r6_flocklab","config":"config_random6_FlockLab_cap210.json","from_case":"r6_flocklab","slots":20000,"seeds":[1,2,3],"fixed_k":[1]}
+]

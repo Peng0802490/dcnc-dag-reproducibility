@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-09-27",
+  "paper_pdf_sha256": "0e8d88c39e1d291944a3798e4464c275e82578951f2ff2338a1063822bbaff5b",
+  "paper_claims": {
+    "mixtral": {
+      "DCNC-DAG-H": 1.16,
+      "Lazarus-style": 0.35,
+      "FlexMoE-style": 0.52,
+      "gain": 2.23
+    },
+    "llama": {
+      "DCNC-DAG-H": 1.02,
+      "Lazarus-style": 0.28,
+      "FlexMoE-style": 0.44,
+      "gain": 2.32
+    }
+  },
+  "manuscript_source_lineage": {
+    "parent_git_commit": "defdbafd17aae3a10fa1d71f398eb879dee2ac42",
+    "commit_date": "2026-09-26T13:12:56Z",
+    "source_path": "TMC (2)-integrated.tex",
+    "source_git_blob": "b591ed089831e36875bffe90c65003c6da122a5c",
+    "source_sha256": "aa9ea4a077c8a2675c1752c276290e10fce6a9d7628b2825f80c43193954560b",
+    "source_bytes": 102745,
+    "table_label": "tab:sim_largedag_thresholds",
+    "table_rows_match_paper_claims": true,
+    "source_was_added_in_commit": true,
+    "raw_or_summary_data_files_changed_in_commit": false,
+    "companion_source_retained_legacy_moe_scale": "TMC (2).tex still reports 10.0/6.0 and 9.0/7.0 in the same commit",
+    "figure_blobs": {
+      "Source/mixtral_skewed_completed_delay.pdf": {
+        "git_blob": "68914af0c175a5967a7b4514aa43ad85f94fc1b7",
+        "sha256": "e5d4e586f181bc8f838269ef4a12b0f03d879b4d0337d18282d5683b19cdb9dd",
+        "bytes": 34128
+      },
+      "Source/llama_skewed_completed_delay.pdf": {
+        "git_blob": "ad34ac0f6da6ecb8ac927cb8e4bf023bae4d0a89",
+        "sha256": "b17782234d814221b0832568f8785719d312317ee24f8397d56823e65ac83a9c",
+        "bytes": 34441
+      }
+    },
+    "conclusion": "The exact table source is now identified, but the introducing commit contains no raw or summarized campaign data that can regenerate its off-grid FlexMoE values."
+  },
+  "located_campaigns": {
+    "legacy_milan": {
+      "thresholds_sha256": "c6e50222aa1ab4209c13e99bccea11fbf23a67b35c8538c86fa30ff8e7c99c68",
+      "mixtral": [1.1, 0.21, 0.4, 2.75],
+      "llama": [1.0, 0.17, 0.36, 2.7777777777777777]
+    },
+    "canonical_milan_v2": {
+      "thresholds_sha256": "ee257a7a1cffc5ac1c76db25b8bec04aabf5a78c5ea5a73309fae49bb820c71e",
+      "mixtral_raw_sha256": "6e1a5397c1835f5bc3960775cc1e5648a242b525831cc8e7e3fe51404e4a6184",
+      "llama_raw_sha256": "e0a60a191677a39e95feab1bd8bc41c97c4619d7836da6ee11d87fb1765ebd70",
+      "config_sha256": "0e9bf171a643ab52645f4bebfd9cf567d734e568f46f6606f0aa93329ca9c9c8",
+      "local_remote_hashes_match": true,
+      "rows_per_model": 252,
+      "seeds": [0, 1, 2],
+      "horizon": 50000,
+      "grid_points_per_policy": 28,
+      "completion_gate": 0.95,
+      "mixtral": [1.16, 0.35, 0.46, 2.5217391304347823],
+      "llama": [1.02, 0.28, 0.38, 2.6842105263157894]
+    }
+  },
+  "canonical_file_hashes": {
+    "evidence/moe/summary/thresholds.csv": "ee257a7a1cffc5ac1c76db25b8bec04aabf5a78c5ea5a73309fae49bb820c71e",
+    "evidence/moe/raw/mixtral_runs.csv": "6e1a5397c1835f5bc3960775cc1e5648a242b525831cc8e7e3fe51404e4a6184",
+    "evidence/moe/raw/llama_runs.csv": "e0a60a191677a39e95feab1bd8bc41c97c4619d7836da6ee11d87fb1765ebd70",
+    "evidence/moe/config/experiment_config.json": "0e9bf171a643ab52645f4bebfd9cf567d734e568f46f6606f0aa93329ca9c9c8"
+  },
+  "paper_flexmoe_values_present_in_canonical_grid": {
+    "mixtral_0.52": false,
+    "llama_0.44": false
+  },
+  "threshold_convention_checks": {
+    "paper_protocol_gate": 0.95,
+    "paper_protocol_pdf_page": 14,
+    "models": {
+      "mixtral": {
+        "last_accepted_rate": 0.46,
+        "last_accepted_mean_completion": 0.9503838603479674,
+        "first_rejected_rate": 0.48,
+        "first_rejected_mean_completion": 0.9291183807811315,
+        "linear_crossing_at_0.95": 0.46036101734434065,
+        "paper_rate": 0.52,
+        "paper_rate_bracket": [0.5, 0.6],
+        "linear_mean_completion_at_paper_rate": 0.9123706319574877,
+        "max_mean_completed_throughput": 0.6552266666666666,
+        "arrival_rate_at_max_mean_completed_throughput": 0.8,
+        "linear_mean_completed_throughput_at_paper_rate": 0.4767826666666667,
+        "per_seed_0.95_thresholds": {
+          "0": 0.44,
+          "1": 0.46,
+          "2": 0.44
+        }
+      },
+      "llama": {
+        "last_accepted_rate": 0.38,
+        "last_accepted_mean_completion": 0.9716134916364213,
+        "first_rejected_rate": 0.4,
+        "first_rejected_mean_completion": 0.9387980855711112,
+        "linear_crossing_at_0.95": 0.3931727711023326,
+        "paper_rate": 0.44,
+        "paper_rate_bracket": [0.4, 0.45],
+        "linear_mean_completion_at_paper_rate": 0.9144553343818169,
+        "max_mean_completed_throughput": 0.57218,
+        "arrival_rate_at_max_mean_completed_throughput": 0.7,
+        "linear_mean_completed_throughput_at_paper_rate": 0.4027613333333333,
+        "per_seed_0.95_thresholds": {
+          "0": 0.38,
+          "1": 0.38,
+          "2": 0.38
+        }
+      }
+    }
+  },
+  "search_scope": [
+    "all local MoE threshold, summary, raw, configuration, and plot-data files",
+    "all MoE threshold and summary files under the active simulation project on paper-server",
+    "server-wide filename inventory for MoE, Mixtral, and Llama artifacts; exactly two MoE threshold files were present",
+    "parent paper Git history, including the exact source commit that introduced the integrated table"
+  ],
+  "remote_server_revalidation": {
+    "project_directory": "dcnc_dag_py3",
+    "checked_at": "2026-09-27T19:26:30+08:00",
+    "method": "read-only server-wide filename inventory followed by SHA-256 verification",
+    "moe_threshold_file_count": 2,
+    "threshold_files": [
+      {
+        "path": "results_moe_milan/moe_milan/summary/thresholds.csv",
+        "sha256": "c6e50222aa1ab4209c13e99bccea11fbf23a67b35c8538c86fa30ff8e7c99c68"
+      },
+      {
+        "path": "results_moe_milan/moe_milan_v2/summary/thresholds.csv",
+        "sha256": "ee257a7a1cffc5ac1c76db25b8bec04aabf5a78c5ea5a73309fae49bb820c71e"
+      }
+    ],
+    "other_campaign_classification": "Other located AI-benchmark and skewed-MoE summaries use different macro-rate protocols and are not evidence for the sub-unit Milan-v2 table.",
+    "paper_flexmoe_values_supported": false
+  },
+  "conclusion": "No located raw or summarized campaign supports the PDF FlexMoE thresholds 0.52 and 0.44.",
+  "safe_resolution_options": [
+    "correct the paper table to the canonical raw-data values 0.46 and 0.38, with gains 2.52 and 2.68",
+    "run, archive, and independently verify a replacement campaign before retaining the PDF values"
+  ]
+}

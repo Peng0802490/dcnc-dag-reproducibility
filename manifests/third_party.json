@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "notice_file": "THIRD_PARTY.md",
+  "required_notice_fragments": [
+    "third_party/alib",
+    "third_party/vnep_approx",
+    "Creative Commons Attribution 4.0 International",
+    "10.5281/zenodo.3354718",
+    "Romain Jacob",
+    "Internet Topology Zoo",
+    "wfcommons/WfInstances",
+    "GNU Lesser General Public License v3.0",
+    "Pegasus Workflow Gallery",
+    "Apache License 2.0",
+    "No raw WfInstances JSON or Pegasus Gallery archive is redistributed in this artifact"
+  ],
+  "license_files": [
+    {
+      "component": "alib",
+      "path": "third_party/alib/LICENSE",
+      "spdx": "MIT",
+      "sha256": "c64caf016eb207a64afcb1a6b4afacc9b6a81f9ed51e3a5ee79e9b7d4db3d79c"
+    },
+    {
+      "component": "vnep-approx",
+      "path": "third_party/vnep_approx/LICENSE",
+      "spdx": "MIT",
+      "sha256": "c64caf016eb207a64afcb1a6b4afacc9b6a81f9ed51e3a5ee79e9b7d4db3d79c"
+    }
+  ],
+  "data_sources": {
+    "internet_topology_zoo": {
+      "classification": "vendored data inside the byte-pinned alib server snapshot",
+      "path": "third_party/alib/alib/data/topologyZoo_orig",
+      "license": "CC-BY-4.0",
+      "local_notice": "third_party/alib/alib/data/topologyZoo_orig/LICENSE.md",
+      "local_notice_sha256": "86d4da3592e7e9326baa7ceaa3b8406056835d3678d7c658163ec0aa4236f130",
+      "upstream_license": "https://github.com/mroughan/InternetTopologyZoo/blob/main/LICENSE",
+      "expected_files_by_extension": {".gml": 261, ".graphml": 261}
+    },
+    "flocklab": {
+      "classification": "adapted data",
+      "license": "CC-BY-4.0",
+      "source_title": "Wireless Link Quality Estimation on FlockLab - and Beyond",
+      "source_doi": "10.5281/zenodo.3354718",
+      "source_record": "https://zenodo.org/records/3354718",
+      "license_evidence": "https://api.datacite.org/dois/10.5281/zenodo.3354718",
+      "license_verified_date": "2026-09-27",
+      "source_version": "v1.0.0",
+      "source_file": "2019-07_FlockLab_sky.csv",
+      "source_file_md5": "819ed76ca1680fc7857a82a62a50e830",
+      "official_source_field": "https://zenodo.org/records/3354718",
+      "derived_files": [
+        {"path": "legacy_inputs/Network/FlockLab.json", "sha256": "6d425ada18068504e5ec2d256f27e0cc9d2218fe3d946e2d2615c9409ae04b75"},
+        {"path": "legacy_inputs/Network/FlockLab_cap210.json", "sha256": "3d2ff44d25f257a04035717767817f17394b784a807cc8eba00e8eba3b519848"},
+        {"path": "legacy_inputs/Network/FlockLab_cap210_access.json", "sha256": "ce23a2a2e2f62b1928832ad3383c9bd755080e521c87517dd769b56019d1ee81"}
+      ]
+    },
+    "wfcommons_sra_search": {
+      "classification": "first-party structural adaptation from a public workflow instance",
+      "source_repository": "https://github.com/wfcommons/WfInstances",
+      "source_file": "srasearch-chameleon-10a-004.json",
+      "metadata_source_workflow": "srasearch-chameleon-10a-004.json",
+      "source_repository_license": "LGPL-3.0-only",
+      "raw_source_redistributed": false,
+      "derived_file": "legacy_inputs/DAG/workflow_srasearch22.json",
+      "derived_sha256": "c910f9744ddca19ac5e78edd21a9049b4e671b56756a7cdbec3d23c8c73b8676"
+    },
+    "pegasus_sipht": {
+      "classification": "first-party structural reconstruction from a public workflow run",
+      "source_page": "https://pegasus.isi.edu/workflow_gallery/gallery/sipht/index.php",
+      "source_run": "Pegasus SIPHT Run 1",
+      "metadata_source_workflow": "Pegasus SIPHT Run 1, wf_uuid af788fd3-9d28-41a8-83c7-6f5c1e614cc2",
+      "upstream_project_license": "Apache-2.0",
+      "license_scope_note": "The Gallery page does not separately label the archived run; this artifact does not redistribute that archive and uses only its task/dependency structure as a reference.",
+      "raw_source_redistributed": false,
+      "derived_file": "legacy_inputs/DAG/workflow_sipht31.json",
+      "derived_sha256": "b143a0398329e557b24253666df674946f1513c9b20499eb2e59ed9311e2f923"
+    }
+  }
+}

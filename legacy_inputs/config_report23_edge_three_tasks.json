@@ -1,0 +1,323 @@
+{
+  "simulation": {
+    "random_seed": 1,
+    "recommended_total_rate_grid_smoke": [
+      0.1,
+      0.2
+    ],
+    "recommended_total_rate_grid_pilot": [
+      0.1,
+      0.2,
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6,
+      1.8,
+      2.0,
+      2.2,
+      2.4
+    ],
+    "recommended_total_rate_grid_main_template": [
+      0.4,
+      0.6,
+      0.8,
+      1.0,
+      1.2,
+      1.4,
+      1.6
+    ],
+    "recommended_interference_model": "primary",
+    "recommended_fixed_k": 4,
+    "resource_normalization": {
+      "comm_norm_mbps": 122.9,
+      "comp_norm_gops": 54.01
+    },
+    "network_note": "AI_RAN_SmartFactory_24 edge-end collaborative network; mobile ingress links use metadata.dynamic_edges with p_on=0.85."
+  },
+  "network": {
+    "file": "Network/AI_RAN_SmartFactory_24.json"
+  },
+  "service_dags": [
+    {
+      "name": "report23_task1_env_twin",
+      "file": "DAG/report23_task1_env_twin_norm.json",
+      "sources": {
+        "src_rgbd_preprocess": "amr1",
+        "src_lidar_preprocess": "amr2",
+        "src_status_input": "vis1"
+      },
+      "sinks": {
+        "sink_twin_update": "twin",
+        "sink_status_broadcast": "plc1"
+      },
+      "allowed": {
+        "src_rgbd_preprocess": [
+          "amr1",
+          "ecpu1",
+          "ecpu2",
+          "egpu1",
+          "egpu2",
+          "fusion",
+          "planner"
+        ],
+        "src_lidar_preprocess": [
+          "amr2",
+          "mmr1",
+          "ecpu1",
+          "ecpu2",
+          "egpu1",
+          "egpu2",
+          "fusion",
+          "planner"
+        ],
+        "src_status_input": [
+          "vis1",
+          "plc1",
+          "ecpu1",
+          "ecpu2",
+          "ctrl",
+          "fusion"
+        ],
+        "object_detection": [
+          "amr1",
+          "amr2",
+          "vis1",
+          "egpu1",
+          "egpu2",
+          "ecpu1",
+          "ecpu2",
+          "fusion",
+          "planner"
+        ],
+        "local_mapping_feature": [
+          "amr1",
+          "amr2",
+          "mmr1",
+          "planner",
+          "ctrl",
+          "ecpu1",
+          "ecpu2",
+          "twin",
+          "fusion",
+          "egpu1",
+          "egpu2"
+        ],
+        "map_state_fusion": [
+          "fusion",
+          "twin",
+          "egpu1",
+          "egpu2",
+          "ecpu1",
+          "ecpu2",
+          "planner"
+        ],
+        "digital_twin_update": [
+          "twin",
+          "fusion",
+          "ecpu2",
+          "egpu2",
+          "planner"
+        ],
+        "sink_twin_update": [
+          "twin",
+          "fusion",
+          "ecpu2",
+          "egpu2",
+          "planner"
+        ],
+        "sink_status_broadcast": [
+          "plc1",
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2"
+        ]
+      }
+    },
+    {
+      "name": "report23_task2_handoff_assembly",
+      "file": "DAG/report23_task2_handoff_assembly_norm.json",
+      "sources": {
+        "src_rgbd_roi_preprocess": "vis2",
+        "src_pointcloud_roi_preprocess": "mmr1",
+        "src_arm_state": "arm1",
+        "src_assembly_target": "plc1"
+      },
+      "sinks": {
+        "sink_execution_feedback": "ctrl"
+      },
+      "allowed": {
+        "src_rgbd_roi_preprocess": [
+          "vis2",
+          "mmr1",
+          "ecpu1",
+          "ecpu2",
+          "egpu1",
+          "egpu2",
+          "fusion",
+          "planner"
+        ],
+        "src_pointcloud_roi_preprocess": [
+          "mmr1",
+          "vis2",
+          "ecpu1",
+          "ecpu2",
+          "egpu1",
+          "egpu2",
+          "fusion",
+          "planner"
+        ],
+        "src_arm_state": [
+          "arm1",
+          "arm2",
+          "ctrl",
+          "ecpu1",
+          "ecpu2",
+          "planner"
+        ],
+        "src_assembly_target": [
+          "plc1",
+          "ctrl",
+          "ecpu1",
+          "ecpu2",
+          "planner"
+        ],
+        "object_pose_estimation": [
+          "vis2",
+          "mmr1",
+          "egpu1",
+          "egpu2",
+          "ecpu1",
+          "ecpu2",
+          "fusion",
+          "planner"
+        ],
+        "grasp_collision_check": [
+          "planner",
+          "ctrl",
+          "egpu1",
+          "egpu2",
+          "ecpu1",
+          "ecpu2",
+          "mmr1"
+        ],
+        "handoff_assembly_plan": [
+          "planner",
+          "ctrl",
+          "ecpu1",
+          "ecpu2",
+          "egpu1",
+          "egpu2"
+        ],
+        "servo_feedback_processing": [
+          "ctrl",
+          "arm1",
+          "arm2",
+          "plc1",
+          "ecpu1",
+          "ecpu2",
+          "planner"
+        ],
+        "sink_execution_feedback": [
+          "ctrl",
+          "arm1",
+          "arm2",
+          "plc1",
+          "planner",
+          "ecpu1",
+          "ecpu2"
+        ]
+      }
+    },
+    {
+      "name": "report23_task3_transport_control",
+      "file": "DAG/report23_task3_transport_control_norm.json",
+      "sources": {
+        "src_state_queue_input": "amr3",
+        "src_local_obstacle_update": "amr4",
+        "src_global_map_input": "twin"
+      },
+      "sinks": {
+        "sink_control_cmd": "amr4",
+        "sink_event_feedback": "ctrl"
+      },
+      "allowed": {
+        "src_state_queue_input": [
+          "amr3",
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2"
+        ],
+        "src_local_obstacle_update": [
+          "amr4",
+          "mmr1",
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2",
+          "egpu1",
+          "egpu2"
+        ],
+        "src_global_map_input": [
+          "twin",
+          "fusion",
+          "planner",
+          "ecpu1",
+          "ecpu2"
+        ],
+        "assignment_priority": [
+          "planner",
+          "ctrl",
+          "ecpu1",
+          "ecpu2",
+          "twin"
+        ],
+        "global_path_conflict": [
+          "planner",
+          "twin",
+          "fusion",
+          "ecpu1",
+          "ecpu2",
+          "egpu2"
+        ],
+        "local_replan_avoidance": [
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2",
+          "amr3",
+          "amr4",
+          "mmr1"
+        ],
+        "feedback_replan_trigger": [
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2",
+          "amr3",
+          "amr4"
+        ],
+        "sink_control_cmd": [
+          "amr4",
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2"
+        ],
+        "sink_event_feedback": [
+          "ctrl",
+          "planner",
+          "ecpu1",
+          "ecpu2",
+          "plc1"
+        ]
+      }
+    }
+  ]
+}

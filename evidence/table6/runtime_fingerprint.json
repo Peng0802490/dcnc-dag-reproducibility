@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "captured_server_local": "2026-09-27 15:45:41 +08:00",
+  "campaign": {
+    "remote_result_root": "results_k_runtime_100000_seed123_20260927",
+    "jobs": 150,
+    "slots": 100000,
+    "seeds": [1, 2, 3],
+    "scheduler_panes": 75,
+    "solver": "dynvmp_bridge",
+    "tree_decomposition_mode": "heuristic"
+  },
+  "host": {
+    "label": "paper-server",
+    "operating_system": "Ubuntu 22.04.5 LTS",
+    "kernel": "Linux 6.8.0-138-generic",
+    "architecture": "x86_64",
+    "cpu_model": "AMD EPYC 7763 64-Core Processor",
+    "logical_cpus": 128,
+    "sockets": 1,
+    "cores_per_socket": 64,
+    "threads_per_core": 2,
+    "numa_nodes": 1,
+    "memory_bytes": 270057938944
+  },
+  "software": {
+    "main_python": "3.10.20",
+    "dynvmp_python": "2.7.15",
+    "dynvmp_gurobipy": "9.1.2",
+    "main_environment": "environment_dcnc_dag.yml",
+    "dynvmp_environment": "environment_dynvmp_py2.yml"
+  },
+  "release_file_sha256": {
+    "environment_dcnc_dag.yml": "57149d4212ce0d069f5e462f44cbb72a1bddf990ab0f0664387d76160026a803",
+    "environment_dynvmp_py2.yml": "3499aa4b3fa63952c6860f0c2639e88115764f500c781800c929ac99ffb70d18",
+    "tools/dynvmp_bridge.py": "df05e0ad2cc248603a4e56f3a3eaafdfea8b61bc77c4ac683e853408b5ab5079",
+    "tools/run_dynvmp_bridge.sh": "ae2e5e7aa898e22bde32974503475a1aca577281e7739ccc17ba868b46986b0f",
+    "scripts/run_edge_experiments.py": "26d4350e761fabf600e6f3324054647b46f0100b8296aca5afa7bf5a3ab88d55",
+    "evidence/table6/commands.csv": "b607519876c1a025e92da9aa24962c4dc9915996e18e4d30e6bcc1139f912502",
+    "evidence/table6/runtime/run_dynvmp_bridge.remote.sh": "388b80ccec0b1f4133eb2826cc5901317af7ed02e30a573be6b3d233e069e7f1"
+  },
+  "remote_executed_sha256": {
+    "tools/dynvmp_bridge.py": "df05e0ad2cc248603a4e56f3a3eaafdfea8b61bc77c4ac683e853408b5ab5079",
+    "tools/run_dynvmp_bridge.sh": "388b80ccec0b1f4133eb2826cc5901317af7ed02e30a573be6b3d233e069e7f1",
+    "scripts/run_edge_experiments.py": "26d4350e761fabf600e6f3324054647b46f0100b8296aca5afa7bf5a3ab88d55",
+    "experiments/k_runtime/k_runtime_main_commands_100000slots_seed123_20260927.csv": "b607519876c1a025e92da9aa24962c4dc9915996e18e4d30e6bcc1139f912502"
+  },
+  "wrapper_relationship": {
+    "executed_copy": "evidence/table6/runtime/run_dynvmp_bridge.remote.sh",
+    "delivery_copy": "tools/run_dynvmp_bridge.sh",
+    "classification": "delivery path adaptation only",
+    "differences": [
+      "prefer the vendored third_party/alib and third_party/vnep_approx trees",
+      "allow ALIB_SRC and VNEP_SRC overrides",
+      "place generated alib runtime files under .runtime"
+    ],
+    "core_bridge_bytes_identical": true
+  },
+  "third_party_source_audit": {
+    "method": "relative-path and SHA-256 comparison excluding caches and bytecode; remote-only egg-info files and one conversion log were classified as generated",
+    "alib": {
+      "release_source_files": 772,
+      "remote_noncache_files": 779,
+      "common_files": 772,
+      "mismatched_common_files": 0,
+      "release_only_files": 0,
+      "remote_only_generated_files": 7
+    },
+    "vnep_approx": {
+      "release_source_files": 61,
+      "remote_noncache_files": 67,
+      "common_files": 61,
+      "mismatched_common_files": 0,
+      "release_only_files": 0,
+      "remote_only_generated_files": 6
+    }
+  },
+  "timing_note": "Wall-clock timing depends on the host and concurrent load; reproduce the protocol and invocation counts exactly and report timing with this host fingerprint."
+}

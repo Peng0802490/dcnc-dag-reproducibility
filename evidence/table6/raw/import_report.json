@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "imported_utc": "2026-10-20T04:32:41+00:00",
+  "input_root_name": "results_k_runtime_100000_seed123_20260927",
+  "commands_sha256": "b607519876c1a025e92da9aa24962c4dc9915996e18e4d30e6bcc1139f912502",
+  "expected_jobs": 150,
+  "imported_jobs": 150,
+  "result_filename": "edge_experiments_all_results.csv"
+}

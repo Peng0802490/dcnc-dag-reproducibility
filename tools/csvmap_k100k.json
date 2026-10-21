@@ -1,0 +1,24 @@
+{
+  "driving_milan_K": {
+    "case": "k100k_milan",
+    "max_delay": 4000,
+    "curves": {
+      "Exact-K1.csv":   ["DCNC-DAG", "exact_dp", 1],
+      "Exact-K4.csv":   ["DCNC-DAG", "exact_dp", 4],
+      "Exact-K16.csv":  ["DCNC-DAG", "exact_dp", 16],
+      "Exact-K64.csv":  ["DCNC-DAG", "exact_dp", 64],
+      "Exact-K256.csv": ["DCNC-DAG", "exact_dp", 256]
+    }
+  },
+  "driving_random_K": {
+    "case": "k100k_random",
+    "max_delay": 4000,
+    "curves": {
+      "Exact-K1.csv":   ["DCNC-DAG", "exact_dp", 1],
+      "Exact-K4.csv":   ["DCNC-DAG", "exact_dp", 4],
+      "Exact-K16.csv":  ["DCNC-DAG", "exact_dp", 16],
+      "Exact-K64.csv":  ["DCNC-DAG", "exact_dp", 64],
+      "Exact-K256.csv": ["DCNC-DAG", "exact_dp", 256]
+    }
+  }
+}

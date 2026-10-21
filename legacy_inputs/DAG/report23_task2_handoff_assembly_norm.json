@@ -1,0 +1,157 @@
+{
+  "service_chain_id": "report23_task2_handoff_assembly_norm",
+  "version": "2026-04-30-report23-edge",
+  "description": "Report Sec. 2.3 task 2: collaborative part localization, grasp handoff, and assembly.",
+  "metadata": {
+    "source_document_section": "2.3 智能制造场景典型任务建模与需求刻画",
+    "task_type": "collaborative_manipulation_assembly",
+    "resource_units_raw": {
+      "communication": "Mb/s",
+      "computation": "GOPS/s"
+    },
+    "normalization": {
+      "communication": "xi = raw_mbps / COMM_NORM_MBPS",
+      "computation": "r = raw_gops / COMP_NORM_GOPS",
+      "COMM_NORM_MBPS": 122.9,
+      "COMP_NORM_GOPS": 54.01,
+      "scope": "global max normalization across the three report-2.3 DAGs"
+    },
+    "notes": [
+      "Ranges in the report were instantiated by representative midpoints unless a single value was given.",
+      "Source-node `in` denotes raw external input load; DAG-edge `xi` denotes post-stage logical traffic.",
+      "The simulator treats all `r`, `in`, `out`, and `xi` fields as unitless normalized loads."
+    ],
+    "substrate_workload_note": "Used with AI_RAN_SmartFactory_24 edge-end collaborative network, not Milan."
+  },
+  "nodes": [
+    {
+      "id": "src_rgbd_roi_preprocess",
+      "type": "source",
+      "r": 0.000648,
+      "raw_compute_gops": 0.035,
+      "in": 0.213181,
+      "raw_input_mbps": 26.2
+    },
+    {
+      "id": "src_pointcloud_roi_preprocess",
+      "type": "source",
+      "r": 0.000231,
+      "raw_compute_gops": 0.0125,
+      "in": 0.052482,
+      "raw_input_mbps": 6.45
+    },
+    {
+      "id": "src_arm_state",
+      "type": "source",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "in": 0.003255,
+      "raw_input_mbps": 0.4
+    },
+    {
+      "id": "src_assembly_target",
+      "type": "source",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "in": 0.000651,
+      "raw_input_mbps": 0.08
+    },
+    {
+      "id": "object_pose_estimation",
+      "type": "function",
+      "r": 1.0,
+      "raw_compute_gops": 54.01
+    },
+    {
+      "id": "grasp_collision_check",
+      "type": "function",
+      "r": 0.00038,
+      "raw_compute_gops": 0.0205
+    },
+    {
+      "id": "handoff_assembly_plan",
+      "type": "function",
+      "r": 0.000185,
+      "raw_compute_gops": 0.01
+    },
+    {
+      "id": "servo_feedback_processing",
+      "type": "function",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001
+    },
+    {
+      "id": "sink_execution_feedback",
+      "type": "sink",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "out": 0.000651,
+      "raw_output_mbps": 0.08
+    }
+  ],
+  "edges": [
+    {
+      "from": "src_rgbd_roi_preprocess",
+      "to": "object_pose_estimation",
+      "xi": 0.005207,
+      "raw_mbps": 0.64,
+      "content": "RGB-D ROI feature / detection candidate feature"
+    },
+    {
+      "from": "src_pointcloud_roi_preprocess",
+      "to": "object_pose_estimation",
+      "xi": 0.002604,
+      "raw_mbps": 0.32,
+      "content": "point-cloud ROI feature / geometry descriptor"
+    },
+    {
+      "from": "object_pose_estimation",
+      "to": "grasp_collision_check",
+      "xi": 9e-05,
+      "raw_mbps": 0.011,
+      "content": "object category, 6D pose, confidence and geometry summary"
+    },
+    {
+      "from": "object_pose_estimation",
+      "to": "handoff_assembly_plan",
+      "xi": 9e-05,
+      "raw_mbps": 0.011,
+      "content": "pose estimate consumed by assembly planner"
+    },
+    {
+      "from": "src_arm_state",
+      "to": "handoff_assembly_plan",
+      "xi": 0.003255,
+      "raw_mbps": 0.4,
+      "content": "arm joint state and gripper state"
+    },
+    {
+      "from": "src_assembly_target",
+      "to": "handoff_assembly_plan",
+      "xi": 0.000651,
+      "raw_mbps": 0.08,
+      "content": "assembly target, process constraints and workstation state"
+    },
+    {
+      "from": "grasp_collision_check",
+      "to": "handoff_assembly_plan",
+      "xi": 0.000236,
+      "raw_mbps": 0.029,
+      "content": "top grasp candidates and collision-check result"
+    },
+    {
+      "from": "handoff_assembly_plan",
+      "to": "servo_feedback_processing",
+      "xi": 0.004638,
+      "raw_mbps": 0.57,
+      "content": "handoff path and assembly action sequence"
+    },
+    {
+      "from": "servo_feedback_processing",
+      "to": "sink_execution_feedback",
+      "xi": 0.000651,
+      "raw_mbps": 0.08,
+      "content": "execution result and abnormal feedback"
+    }
+  ]
+}

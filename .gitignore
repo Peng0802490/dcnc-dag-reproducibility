@@ -1,0 +1,10 @@
+/.runtime/
+/results/
+/results_paper_edge/
+/dist/
+/build/
+**/*.egg-info/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage

@@ -1,0 +1,164 @@
+{
+  "checks": {
+    "each_single_mapping_capacity_is_0p5": true,
+    "full_capacity_is_1": true,
+    "unique_boundary_rates_are_0p5_0p5": true,
+    "wireless_constraints_are_nonbinding_at_lambda_1": true
+  },
+  "instance": "new_section_7_2_wireless_mixed_mapping",
+  "link_capacity": 2.0,
+  "num_primary_matchings_before_state_filter": 22,
+  "num_wireless_states": 16,
+  "p_on": 0.85,
+  "results": [
+    {
+      "link_loads": [
+        0.2,
+        0.2,
+        0.2,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.2
+      ],
+      "link_services": [
+        0.2,
+        0.2,
+        0.2,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.2
+      ],
+      "mapping_rates": [
+        0.5,
+        0.5
+      ],
+      "name": "full_mixed_mapping",
+      "node_loads": [
+        0.1,
+        0.1,
+        0.5,
+        0.5,
+        0.1
+      ],
+      "num_activation_variables": 232,
+      "objective": 1.0,
+      "state_probability_sum": 1.0
+    },
+    {
+      "link_loads": [
+        0.1,
+        0.1,
+        0.1,
+        0.5,
+        0.5,
+        0.0,
+        0.0,
+        0.1
+      ],
+      "link_services": [
+        0.1,
+        0.1,
+        0.1842375,
+        0.5,
+        0.5,
+        0.30000000000000004,
+        0.0,
+        0.3157625
+      ],
+      "mapping_rates": [
+        0.5,
+        0.0
+      ],
+      "name": "single_m1",
+      "node_loads": [
+        0.05,
+        0.05,
+        0.5,
+        0.0,
+        0.05
+      ],
+      "num_activation_variables": 232,
+      "objective": 0.5,
+      "state_probability_sum": 1.0
+    },
+    {
+      "link_loads": [
+        0.1,
+        0.1,
+        0.1,
+        0.0,
+        0.0,
+        0.5,
+        0.5,
+        0.1
+      ],
+      "link_services": [
+        0.21675,
+        0.28325,
+        0.1,
+        0.0,
+        0.0,
+        0.49999999999999994,
+        0.5,
+        0.1
+      ],
+      "mapping_rates": [
+        0.0,
+        0.5
+      ],
+      "name": "single_m2",
+      "node_loads": [
+        0.05,
+        0.05,
+        0.0,
+        0.5,
+        0.05
+      ],
+      "num_activation_variables": 232,
+      "objective": 0.5,
+      "state_probability_sum": 1.0
+    },
+    {
+      "link_loads": [
+        0.2857142857142857,
+        0.2857142857142857,
+        0.2857142857142857,
+        0.7142857142857142,
+        0.7142857142857142,
+        0.7142857142857142,
+        0.7142857142857142,
+        0.2857142857142857
+      ],
+      "link_services": [
+        0.2857142857142857,
+        0.2857142857142857,
+        0.2857142857142857,
+        0.7142857142857144,
+        0.7142857142857142,
+        0.7142857142857142,
+        0.7142857142857144,
+        0.2857142857142858
+      ],
+      "mapping_rates": [
+        0.7142857142857142,
+        0.7142857142857142
+      ],
+      "name": "wireless_only_equal_mixture",
+      "node_loads": [
+        0.14285714285714285,
+        0.14285714285714285,
+        0.7142857142857142,
+        0.7142857142857142,
+        0.14285714285714285
+      ],
+      "num_activation_variables": 232,
+      "objective": 1.4285714285714284,
+      "state_probability_sum": 1.0
+    }
+  ],
+  "wireless_equal_mixture_headroom_ratio": 1.4285714285714284
+}

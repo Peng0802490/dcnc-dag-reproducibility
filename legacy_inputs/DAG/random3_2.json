@@ -1,0 +1,16 @@
+{
+  "service_chain_id": "DAG2",
+  "version": "2025-08-21",
+  "description": "converted from Service_DAG DAG2",
+  "nodes": [
+    { "id": "DAG2_s3", "type": "source",   "r": 2, "in": 4 },
+    { "id": "DAG2_s2", "type": "sink",     "r": 4, "out": 2 },
+    { "id": "DAG2_s1", "type": "function", "r": 1 }
+  ],
+  "edges": [
+    { "from": "DAG2_s3", "to": "DAG2_s1", "xi": 3 },
+    { "from": "DAG2_s3", "to": "DAG2_s2", "xi": 1 },
+    { "from": "DAG2_s1", "to": "DAG2_s2", "xi": 5 }
+  ],
+  "metadata": { "author": "Peng Li", "created_at": "2025-08-21" }
+}

@@ -1,0 +1,35 @@
+DCNC-DAG K-runtime validation report
+============================================================
+Input root: evidence\table6\raw
+Found result CSV files: 150
+Loaded rows after filtering: 150
+Commands CSV: evidence\table6\commands.csv
+Commands in CSV: 150
+
+Run counts by case and K:
+          case  fixed_k  num_runs  num_rates
+ driving_milan        1        15          5
+ driving_milan        4        15          5
+ driving_milan       16        15          5
+ driving_milan       64        15          5
+ driving_milan      256        15          5
+driving_random        1        15          5
+driving_random        4        15          5
+driving_random       16        15          5
+driving_random       64        15          5
+driving_random      256        15          5
+
+Core mean values by case and K:
+          case  fixed_k  mean_dynvmp_calls  mean_dynvmp_wall_time_sec  mean_simulation_wall_time_sec  dynvmp_call_reduction_vs_k1  dynvmp_time_reduction_vs_k1  simulation_time_reduction_vs_k1
+ driving_milan        1       36302.866667               2.824887e+05                   2.828127e+05                     0.000000                     0.000000                         0.000000
+ driving_milan        4       18365.000000               1.625567e+05                   1.628944e+05                     0.494117                     0.424555                         0.424020
+ driving_milan       16        5944.066667               5.279680e+04                   5.312499e+04                     0.836265                     0.813101                         0.812155
+ driving_milan       64        1562.466667               1.393659e+04                   1.429518e+04                     0.956960                     0.950665                         0.949454
+ driving_milan      256         391.000000               3.493912e+03                   3.913081e+03                     0.989230                     0.987632                         0.986164
+driving_random        1       25432.333333               1.102803e+06                   1.103089e+06                     0.000000                     0.000000                         0.000000
+driving_random        4       16273.933333               7.254062e+05                   7.257056e+05                     0.360109                     0.342216                         0.342115
+driving_random       16        5931.066667               2.990583e+05                   2.993954e+05                     0.766790                     0.728820                         0.728584
+driving_random       64        1562.466667               8.521324e+04                   8.554492e+04                     0.938564                     0.922730                         0.922450
+driving_random      256         391.000000               2.089379e+04                   2.120212e+04                     0.984626                     0.981054                         0.980779
+
+Suspicious rows: 0

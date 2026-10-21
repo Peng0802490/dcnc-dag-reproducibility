@@ -1,0 +1,83 @@
+{
+    "service_chain_id": "autonomous_driving",
+    "version": "2025-08-19",
+    "description": "autonomous driving example",
+    "nodes": [
+        {
+            "id": "A",
+            "type": "source",
+            "r": 2,
+            "in": 1.5
+        },
+        {
+            "id": "B",
+            "type": "source",
+            "r": 2,
+            "in": 2
+        },
+        {
+            "id": "C",
+            "type": "source",
+            "r": 1,
+            "in": 0.5
+        },
+        {
+            "id": "E",
+            "type": "function",
+            "r": 3
+        },
+        {
+            "id": "F",
+            "type": "sink",
+            "r": 1.5,
+            "out": 1
+        },
+        {
+            "id": "G",
+            "type": "function",
+            "r": 1.5
+        },
+        {
+            "id": "H",
+            "type": "sink",
+            "r": 2,
+            "out": 1
+        }
+        
+    ],
+    "edges": [
+        {
+            "from": "A",
+            "to": "E",
+            "xi": 1.5
+        },{
+            "from": "B",
+            "to": "E",
+            "xi": 1.5
+        },{
+            "from": "B",
+            "to": "F",
+            "xi": 1.5
+        },{
+            "from": "C",
+            "to": "F",
+            "xi": 0.5
+        },{
+            "from": "E",
+            "to": "G",
+            "xi": 2
+        },{
+            "from": "G",
+            "to": "H",
+            "xi": 1
+        },{
+            "from": "F",
+            "to": "H",
+            "xi": 1
+        }
+    ],
+    "metadata": {
+        "author": "Peng Li",
+        "created_at": "2025-08-19"
+    }
+}

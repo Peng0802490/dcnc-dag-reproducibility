@@ -1,0 +1,23 @@
+\begin{table}[htbp]
+\centering
+\caption{Effect of frame length on the empirical supported rate and exact mapping overhead.}
+\label{tab:sim_frame_overhead}
+\footnotesize
+\setlength{\tabcolsep}{2.1pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular*}{\columnwidth}{@{\extracolsep{\fill}}crrrrrr@{}}
+\toprule
+& \multicolumn{3}{c}{Milan} & \multicolumn{3}{c}{Random} \\
+\cmidrule(lr){2-4}\cmidrule(l){5-7}
+\(\Tf\) & \(\hat\lambda\) & \shortstack{Map.\\calls} & \shortstack{Map. time/\\slot (s)}
+          & \(\hat\lambda\) & \shortstack{Map.\\calls} & \shortstack{Map. time/\\slot (s)} \\
+\midrule
+1   & 0.89 & 36302.9 & 2.825  & 0.55 & 25432.3 & 11.028 \\
+4   & 0.89 & 18365.0 & 1.626  & 0.55 & 16273.9 &  7.254 \\
+16  & 0.89 &  5944.1 & 0.528  & 0.55 &  5931.1 &  2.991 \\
+64  & 0.84 &  1562.5 & 0.139  & 0.55 &  1562.5 &  0.852 \\
+256 & 0.84 &   391.0 & 0.0349 & 0.52 &   391.0 &  0.209 \\
+\bottomrule
+\end{tabular*}
+\tabnote{\(\hat\lambda\) uses the threshold/delay rate grids. Map. calls is the number of exact mapping invocations per commodity over \(10^5\) slots; Map. time/slot is their cumulative wall-clock time divided by that horizon. Both overhead measures are averaged over three seeds on separate five-point rate grids (Appendix~\ref{app:sim_configurations}).}
+\end{table}

@@ -1,0 +1,615 @@
+{
+  "network_id": "AI_RAN_SmartFactory_24",
+  "version": "2026-04-23",
+  "description": "24-node end-edge collaborative physical network for the three smart-manufacturing Service-DAG tasks.",
+  "metadata": {
+    "design_note": "4 terminal-access sectors + 2 aggregation gateways + 2 edge islands. Mobile ingress links are ON/OFF; fixed industrial links are always on.",
+    "recommended_interference_model": "primary",
+    "dynamic_edges": [
+      {
+        "from": "amr1",
+        "to": "ru1",
+        "p_on": 0.85
+      },
+      {
+        "from": "amr2",
+        "to": "ru1",
+        "p_on": 0.85
+      },
+      {
+        "from": "amr3",
+        "to": "ru2",
+        "p_on": 0.85
+      },
+      {
+        "from": "amr4",
+        "to": "ru3",
+        "p_on": 0.85
+      },
+      {
+        "from": "mmr1",
+        "to": "ru3",
+        "p_on": 0.85
+      },
+      {
+        "from": "ru1",
+        "to": "amr1",
+        "p_on": 0.85
+      },
+      {
+        "from": "ru1",
+        "to": "amr2",
+        "p_on": 0.85
+      },
+      {
+        "from": "ru2",
+        "to": "amr3",
+        "p_on": 0.85
+      },
+      {
+        "from": "ru3",
+        "to": "amr4",
+        "p_on": 0.85
+      },
+      {
+        "from": "ru3",
+        "to": "mmr1",
+        "p_on": 0.85
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "amr1",
+      "role": "COMPUTE",
+      "capacity": 2.0
+    },
+    {
+      "id": "amr2",
+      "role": "COMPUTE",
+      "capacity": 2.0
+    },
+    {
+      "id": "amr3",
+      "role": "COMPUTE",
+      "capacity": 2.0
+    },
+    {
+      "id": "amr4",
+      "role": "COMPUTE",
+      "capacity": 2.0
+    },
+    {
+      "id": "mmr1",
+      "role": "COMPUTE",
+      "capacity": 2.4
+    },
+    {
+      "id": "arm1",
+      "role": "COMPUTE",
+      "capacity": 2.2
+    },
+    {
+      "id": "arm2",
+      "role": "COMPUTE",
+      "capacity": 2.2
+    },
+    {
+      "id": "vis1",
+      "role": "COMPUTE",
+      "capacity": 1.6
+    },
+    {
+      "id": "vis2",
+      "role": "COMPUTE",
+      "capacity": 1.6
+    },
+    {
+      "id": "plc1",
+      "role": "COMPUTE",
+      "capacity": 1.8
+    },
+    {
+      "id": "ru1",
+      "role": "FORWARD",
+      "capacity": null
+    },
+    {
+      "id": "ru2",
+      "role": "FORWARD",
+      "capacity": null
+    },
+    {
+      "id": "ru3",
+      "role": "FORWARD",
+      "capacity": null
+    },
+    {
+      "id": "ru4",
+      "role": "FORWARD",
+      "capacity": null
+    },
+    {
+      "id": "ag1",
+      "role": "FORWARD",
+      "capacity": null
+    },
+    {
+      "id": "ag2",
+      "role": "FORWARD",
+      "capacity": null
+    },
+    {
+      "id": "egpu1",
+      "role": "COMPUTE",
+      "capacity": 9.0
+    },
+    {
+      "id": "egpu2",
+      "role": "COMPUTE",
+      "capacity": 9.0
+    },
+    {
+      "id": "ecpu1",
+      "role": "COMPUTE",
+      "capacity": 6.0
+    },
+    {
+      "id": "ecpu2",
+      "role": "COMPUTE",
+      "capacity": 6.0
+    },
+    {
+      "id": "fusion",
+      "role": "COMPUTE",
+      "capacity": 7.0
+    },
+    {
+      "id": "twin",
+      "role": "COMPUTE",
+      "capacity": 6.0
+    },
+    {
+      "id": "planner",
+      "role": "COMPUTE",
+      "capacity": 6.5
+    },
+    {
+      "id": "ctrl",
+      "role": "COMPUTE",
+      "capacity": 5.5
+    }
+  ],
+  "edges": [
+    {
+      "from": "amr1",
+      "to": "ru1",
+      "capacity": 2.4
+    },
+    {
+      "from": "ru1",
+      "to": "amr1",
+      "capacity": 2.4
+    },
+    {
+      "from": "amr2",
+      "to": "ru1",
+      "capacity": 2.4
+    },
+    {
+      "from": "ru1",
+      "to": "amr2",
+      "capacity": 2.4
+    },
+    {
+      "from": "amr3",
+      "to": "ru2",
+      "capacity": 2.4
+    },
+    {
+      "from": "ru2",
+      "to": "amr3",
+      "capacity": 2.4
+    },
+    {
+      "from": "amr4",
+      "to": "ru3",
+      "capacity": 2.4
+    },
+    {
+      "from": "ru3",
+      "to": "amr4",
+      "capacity": 2.4
+    },
+    {
+      "from": "mmr1",
+      "to": "ru3",
+      "capacity": 2.2
+    },
+    {
+      "from": "ru3",
+      "to": "mmr1",
+      "capacity": 2.2
+    },
+    {
+      "from": "arm1",
+      "to": "ru3",
+      "capacity": 2.8
+    },
+    {
+      "from": "ru3",
+      "to": "arm1",
+      "capacity": 2.8
+    },
+    {
+      "from": "arm2",
+      "to": "ru4",
+      "capacity": 2.8
+    },
+    {
+      "from": "ru4",
+      "to": "arm2",
+      "capacity": 2.8
+    },
+    {
+      "from": "vis1",
+      "to": "ru4",
+      "capacity": 3.0
+    },
+    {
+      "from": "ru4",
+      "to": "vis1",
+      "capacity": 3.0
+    },
+    {
+      "from": "vis2",
+      "to": "ru2",
+      "capacity": 3.0
+    },
+    {
+      "from": "ru2",
+      "to": "vis2",
+      "capacity": 3.0
+    },
+    {
+      "from": "plc1",
+      "to": "ru4",
+      "capacity": 2.5
+    },
+    {
+      "from": "ru4",
+      "to": "plc1",
+      "capacity": 2.5
+    },
+    {
+      "from": "ru1",
+      "to": "ag1",
+      "capacity": 4.5
+    },
+    {
+      "from": "ag1",
+      "to": "ru1",
+      "capacity": 4.5
+    },
+    {
+      "from": "ru2",
+      "to": "ag1",
+      "capacity": 4.5
+    },
+    {
+      "from": "ag1",
+      "to": "ru2",
+      "capacity": 4.5
+    },
+    {
+      "from": "ru3",
+      "to": "ag2",
+      "capacity": 4.5
+    },
+    {
+      "from": "ag2",
+      "to": "ru3",
+      "capacity": 4.5
+    },
+    {
+      "from": "ru4",
+      "to": "ag2",
+      "capacity": 4.5
+    },
+    {
+      "from": "ag2",
+      "to": "ru4",
+      "capacity": 4.5
+    },
+    {
+      "from": "ru2",
+      "to": "ag2",
+      "capacity": 3.5
+    },
+    {
+      "from": "ag2",
+      "to": "ru2",
+      "capacity": 3.5
+    },
+    {
+      "from": "ru3",
+      "to": "ag1",
+      "capacity": 3.5
+    },
+    {
+      "from": "ag1",
+      "to": "ru3",
+      "capacity": 3.5
+    },
+    {
+      "from": "ru1",
+      "to": "ru2",
+      "capacity": 3.0
+    },
+    {
+      "from": "ru2",
+      "to": "ru1",
+      "capacity": 3.0
+    },
+    {
+      "from": "ru3",
+      "to": "ru4",
+      "capacity": 3.0
+    },
+    {
+      "from": "ru4",
+      "to": "ru3",
+      "capacity": 3.0
+    },
+    {
+      "from": "ag1",
+      "to": "ag2",
+      "capacity": 6.0
+    },
+    {
+      "from": "ag2",
+      "to": "ag1",
+      "capacity": 6.0
+    },
+    {
+      "from": "ag1",
+      "to": "egpu1",
+      "capacity": 7.0
+    },
+    {
+      "from": "egpu1",
+      "to": "ag1",
+      "capacity": 7.0
+    },
+    {
+      "from": "ag1",
+      "to": "ecpu1",
+      "capacity": 6.0
+    },
+    {
+      "from": "ecpu1",
+      "to": "ag1",
+      "capacity": 6.0
+    },
+    {
+      "from": "ag1",
+      "to": "fusion",
+      "capacity": 6.5
+    },
+    {
+      "from": "fusion",
+      "to": "ag1",
+      "capacity": 6.5
+    },
+    {
+      "from": "ag1",
+      "to": "planner",
+      "capacity": 6.0
+    },
+    {
+      "from": "planner",
+      "to": "ag1",
+      "capacity": 6.0
+    },
+    {
+      "from": "ag2",
+      "to": "egpu2",
+      "capacity": 7.0
+    },
+    {
+      "from": "egpu2",
+      "to": "ag2",
+      "capacity": 7.0
+    },
+    {
+      "from": "ag2",
+      "to": "ecpu2",
+      "capacity": 6.0
+    },
+    {
+      "from": "ecpu2",
+      "to": "ag2",
+      "capacity": 6.0
+    },
+    {
+      "from": "ag2",
+      "to": "twin",
+      "capacity": 6.5
+    },
+    {
+      "from": "twin",
+      "to": "ag2",
+      "capacity": 6.5
+    },
+    {
+      "from": "ag2",
+      "to": "ctrl",
+      "capacity": 6.0
+    },
+    {
+      "from": "ctrl",
+      "to": "ag2",
+      "capacity": 6.0
+    },
+    {
+      "from": "ag1",
+      "to": "egpu2",
+      "capacity": 5.0
+    },
+    {
+      "from": "egpu2",
+      "to": "ag1",
+      "capacity": 5.0
+    },
+    {
+      "from": "ag2",
+      "to": "egpu1",
+      "capacity": 5.0
+    },
+    {
+      "from": "egpu1",
+      "to": "ag2",
+      "capacity": 5.0
+    },
+    {
+      "from": "ag1",
+      "to": "ecpu2",
+      "capacity": 5.0
+    },
+    {
+      "from": "ecpu2",
+      "to": "ag1",
+      "capacity": 5.0
+    },
+    {
+      "from": "ag2",
+      "to": "ecpu1",
+      "capacity": 5.0
+    },
+    {
+      "from": "ecpu1",
+      "to": "ag2",
+      "capacity": 5.0
+    },
+    {
+      "from": "egpu1",
+      "to": "egpu2",
+      "capacity": 8.0
+    },
+    {
+      "from": "egpu2",
+      "to": "egpu1",
+      "capacity": 8.0
+    },
+    {
+      "from": "ecpu1",
+      "to": "ecpu2",
+      "capacity": 5.0
+    },
+    {
+      "from": "ecpu2",
+      "to": "ecpu1",
+      "capacity": 5.0
+    },
+    {
+      "from": "fusion",
+      "to": "twin",
+      "capacity": 5.5
+    },
+    {
+      "from": "twin",
+      "to": "fusion",
+      "capacity": 5.5
+    },
+    {
+      "from": "planner",
+      "to": "ctrl",
+      "capacity": 5.0
+    },
+    {
+      "from": "ctrl",
+      "to": "planner",
+      "capacity": 5.0
+    },
+    {
+      "from": "fusion",
+      "to": "planner",
+      "capacity": 4.5
+    },
+    {
+      "from": "planner",
+      "to": "fusion",
+      "capacity": 4.5
+    },
+    {
+      "from": "ecpu1",
+      "to": "fusion",
+      "capacity": 4.5
+    },
+    {
+      "from": "fusion",
+      "to": "ecpu1",
+      "capacity": 4.5
+    },
+    {
+      "from": "ecpu2",
+      "to": "planner",
+      "capacity": 4.5
+    },
+    {
+      "from": "planner",
+      "to": "ecpu2",
+      "capacity": 4.5
+    },
+    {
+      "from": "twin",
+      "to": "ctrl",
+      "capacity": 4.5
+    },
+    {
+      "from": "ctrl",
+      "to": "twin",
+      "capacity": 4.5
+    },
+    {
+      "from": "egpu1",
+      "to": "fusion",
+      "capacity": 5.5
+    },
+    {
+      "from": "fusion",
+      "to": "egpu1",
+      "capacity": 5.5
+    },
+    {
+      "from": "egpu2",
+      "to": "planner",
+      "capacity": 5.5
+    },
+    {
+      "from": "planner",
+      "to": "egpu2",
+      "capacity": 5.5
+    },
+    {
+      "from": "ecpu1",
+      "to": "ctrl",
+      "capacity": 4.5
+    },
+    {
+      "from": "ctrl",
+      "to": "ecpu1",
+      "capacity": 4.5
+    },
+    {
+      "from": "ecpu2",
+      "to": "twin",
+      "capacity": 4.5
+    },
+    {
+      "from": "twin",
+      "to": "ecpu2",
+      "capacity": 4.5
+    }
+  ]
+}

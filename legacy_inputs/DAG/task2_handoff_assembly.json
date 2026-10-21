@@ -1,0 +1,98 @@
+{
+  "service_chain_id": "task2_handoff_assembly",
+  "version": "2026-04-23",
+  "description": "Collaborative part localization, grasp handoff, and assembly. Vision inference feeds pose and grasp generation; robot states merge at the handoff planner, then split into two control outputs.",
+  "metadata": {
+    "task_type": "collaborative_manipulation",
+    "normalization_rule": "Relative xi/r values preserve the report pattern: medium uplink, higher mid-stage planning cost, strict low-latency control outputs."
+  },
+  "nodes": [
+    {
+      "id": "src_detect",
+      "type": "source",
+      "r": 3.0,
+      "in": 1.6
+    },
+    {
+      "id": "src_arm1_state",
+      "type": "source",
+      "r": 0.4,
+      "in": 0.2
+    },
+    {
+      "id": "src_arm2_state",
+      "type": "source",
+      "r": 0.4,
+      "in": 0.2
+    },
+    {
+      "id": "pose_track",
+      "type": "function",
+      "r": 1.5
+    },
+    {
+      "id": "grasp_plan",
+      "type": "function",
+      "r": 1.8
+    },
+    {
+      "id": "handoff_plan",
+      "type": "function",
+      "r": 2.2
+    },
+    {
+      "id": "sink_arm1_cmd",
+      "type": "sink",
+      "r": 0.6,
+      "out": 0.25
+    },
+    {
+      "id": "sink_arm2_cmd",
+      "type": "sink",
+      "r": 0.6,
+      "out": 0.25
+    }
+  ],
+  "edges": [
+    {
+      "from": "src_detect",
+      "to": "pose_track",
+      "xi": 1.4
+    },
+    {
+      "from": "pose_track",
+      "to": "grasp_plan",
+      "xi": 0.2
+    },
+    {
+      "from": "pose_track",
+      "to": "handoff_plan",
+      "xi": 0.15
+    },
+    {
+      "from": "src_arm1_state",
+      "to": "handoff_plan",
+      "xi": 0.08
+    },
+    {
+      "from": "src_arm2_state",
+      "to": "handoff_plan",
+      "xi": 0.08
+    },
+    {
+      "from": "grasp_plan",
+      "to": "handoff_plan",
+      "xi": 0.1
+    },
+    {
+      "from": "handoff_plan",
+      "to": "sink_arm1_cmd",
+      "xi": 0.25
+    },
+    {
+      "from": "handoff_plan",
+      "to": "sink_arm2_cmd",
+      "xi": 0.25
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "service_chain_id": "SRA_Search_22",
+  "version": "2026-04-30",
+  "description": "Public-workflow-derived service DAG based on the 22-task SRA-Search WfInstances structure: one reference-build task, ten read-extraction tasks, ten alignment tasks, and one merge task.",
+  "nodes": [
+    {
+      "id": "sra_build_reference",
+      "type": "source",
+      "r": 1.2,
+      "in": 0.5
+    },
+    {
+      "id": "sra_fasterq_dump_01",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_02",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_03",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_04",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_05",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_06",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_07",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_08",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_09",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_fasterq_dump_10",
+      "type": "source",
+      "r": 0.8,
+      "in": 1.5
+    },
+    {
+      "id": "sra_bowtie2_align_01",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_02",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_03",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_04",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_05",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_06",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_07",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_08",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_09",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_bowtie2_align_10",
+      "type": "function",
+      "r": 2.4
+    },
+    {
+      "id": "sra_merge_alignments",
+      "type": "sink",
+      "r": 0.7,
+      "out": 1.0
+    }
+  ],
+  "edges": [
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_01",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_01",
+      "to": "sra_bowtie2_align_01",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_01",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_02",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_02",
+      "to": "sra_bowtie2_align_02",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_02",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_03",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_03",
+      "to": "sra_bowtie2_align_03",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_03",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_04",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_04",
+      "to": "sra_bowtie2_align_04",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_04",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_05",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_05",
+      "to": "sra_bowtie2_align_05",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_05",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_06",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_06",
+      "to": "sra_bowtie2_align_06",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_06",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_07",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_07",
+      "to": "sra_bowtie2_align_07",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_07",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_08",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_08",
+      "to": "sra_bowtie2_align_08",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_08",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_09",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_09",
+      "to": "sra_bowtie2_align_09",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_09",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    },
+    {
+      "from": "sra_build_reference",
+      "to": "sra_bowtie2_align_10",
+      "xi": 0.4
+    },
+    {
+      "from": "sra_fasterq_dump_10",
+      "to": "sra_bowtie2_align_10",
+      "xi": 2.6
+    },
+    {
+      "from": "sra_bowtie2_align_10",
+      "to": "sra_merge_alignments",
+      "xi": 0.8
+    }
+  ],
+  "metadata": {
+    "author": "Peng Li",
+    "created_at": "2026-04-30",
+    "source_workflow": "srasearch-chameleon-10a-004.json",
+    "derivation": "task-level service DAG preserving the 3-layer, 20-path fan-out/fan-in structure; r and xi are normalized and clipped resource factors for DCNC-DAG simulation",
+    "notes": "10 sample branches; build_reference and fasterq_dump tasks are source functions; merge_alignments is the sink function"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "service_chain_id": "DAG3",
+  "version": "2025-08-21",
+  "description": "converted from Service_DAG DAG3",
+  "nodes": [
+    { "id": "DAG3_s1", "type": "source",   "r": 3, "in": 2 },
+    { "id": "DAG3_s2", "type": "function", "r": 2 },
+    { "id": "DAG3_s3", "type": "function", "r": 5 },
+    { "id": "DAG3_s4", "type": "sink",     "r": 1, "out": 4 }
+  ],
+  "edges": [
+    { "from": "DAG3_s2", "to": "DAG3_s4", "xi": 3 },
+    { "from": "DAG3_s1", "to": "DAG3_s4", "xi": 5 },
+    { "from": "DAG3_s3", "to": "DAG3_s4", "xi": 2 },
+    { "from": "DAG3_s1", "to": "DAG3_s3", "xi": 4 },
+    { "from": "DAG3_s3", "to": "DAG3_s2", "xi": 1 }
+  ],
+  "metadata": { "author": "Peng Li", "created_at": "2025-08-21" }
+}

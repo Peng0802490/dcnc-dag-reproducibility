@@ -1,0 +1,21 @@
+{
+  "service_chain_id": "DAG5_5",
+  "version": "2025-08-21",
+  "description": "converted from Service_DAG DAG5_5",
+  "nodes": [
+    { "id": "DAG5_5_s1", "type": "source",   "r": 3, "in": 5 },
+    { "id": "DAG5_5_s2", "type": "function", "r": 1 },
+    { "id": "DAG5_5_s3", "type": "function", "r": 5 },
+    { "id": "DAG5_5_s4", "type": "function", "r": 2 },
+    { "id": "DAG5_5_s5", "type": "sink",     "r": 4, "out": 1 }
+  ],
+  "edges": [
+    { "from": "DAG5_5_s1", "to": "DAG5_5_s2", "xi": 2 },
+    { "from": "DAG5_5_s1", "to": "DAG5_5_s3", "xi": 4 },
+    { "from": "DAG5_5_s2", "to": "DAG5_5_s4", "xi": 5 },
+    { "from": "DAG5_5_s3", "to": "DAG5_5_s4", "xi": 1 },
+    { "from": "DAG5_5_s2", "to": "DAG5_5_s5", "xi": 3 },
+    { "from": "DAG5_5_s4", "to": "DAG5_5_s5", "xi": 2 }
+  ],
+  "metadata": { "author": "Peng Li", "created_at": "2025-08-21" }
+}

@@ -1,0 +1,365 @@
+{
+  "service_chain_id": "SIPHT_31",
+  "version": "2026-04-30",
+  "description": "Public-workflow-derived service DAG based on Pegasus SIPHT Run 1. It uses the 31 task names from the public run and reconstructs the task-level dependency pattern from the Pegasus DAG graph.",
+  "nodes": [
+    {
+      "id": "Blast_ID000023",
+      "type": "source",
+      "r": 2.2,
+      "in": 1.2
+    },
+    {
+      "id": "Findterm_ID000001",
+      "type": "source",
+      "r": 1.2,
+      "in": 0.8
+    },
+    {
+      "id": "RNAMotif_ID000002",
+      "type": "source",
+      "r": 0.9,
+      "in": 0.8
+    },
+    {
+      "id": "Transterm_ID000003",
+      "type": "source",
+      "r": 0.9,
+      "in": 0.8
+    },
+    {
+      "id": "Patser_ID000004",
+      "type": "source",
+      "r": 0.5,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000005",
+      "type": "source",
+      "r": 0.58,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000006",
+      "type": "source",
+      "r": 0.66,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000007",
+      "type": "source",
+      "r": 0.74,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000008",
+      "type": "source",
+      "r": 0.82,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000009",
+      "type": "source",
+      "r": 0.5,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000010",
+      "type": "source",
+      "r": 0.58,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000011",
+      "type": "source",
+      "r": 0.66,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000012",
+      "type": "source",
+      "r": 0.74,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000013",
+      "type": "source",
+      "r": 0.82,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000014",
+      "type": "source",
+      "r": 0.5,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000015",
+      "type": "source",
+      "r": 0.58,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000016",
+      "type": "source",
+      "r": 0.66,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000017",
+      "type": "source",
+      "r": 0.74,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000018",
+      "type": "source",
+      "r": 0.82,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000019",
+      "type": "source",
+      "r": 0.5,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000020",
+      "type": "source",
+      "r": 0.58,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000021",
+      "type": "source",
+      "r": 0.66,
+      "in": 0.4
+    },
+    {
+      "id": "Patser_ID000022",
+      "type": "source",
+      "r": 0.74,
+      "in": 0.4
+    },
+    {
+      "id": "Blast_candidate_ID000024",
+      "type": "function",
+      "r": 0.4
+    },
+    {
+      "id": "Blast_QRNA_ID000025",
+      "type": "function",
+      "r": 2.6
+    },
+    {
+      "id": "FFN_parse_ID000026",
+      "type": "function",
+      "r": 0.4
+    },
+    {
+      "id": "Blast_synteny_ID000027",
+      "type": "function",
+      "r": 2.0
+    },
+    {
+      "id": "Blast_paralogues_ID000028",
+      "type": "function",
+      "r": 0.8
+    },
+    {
+      "id": "SRNA_ID000029",
+      "type": "function",
+      "r": 1.3
+    },
+    {
+      "id": "Patser_concate_ID000031",
+      "type": "function",
+      "r": 0.5
+    },
+    {
+      "id": "SRNA_annotate_ID000030",
+      "type": "sink",
+      "r": 0.8,
+      "out": 1.0
+    }
+  ],
+  "edges": [
+    {
+      "from": "Patser_ID000004",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000005",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000006",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000007",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000008",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000009",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000010",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000011",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000012",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000013",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000014",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000015",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000016",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000017",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000018",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000019",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000020",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000021",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Patser_ID000022",
+      "to": "Patser_concate_ID000031",
+      "xi": 0.35
+    },
+    {
+      "from": "Findterm_ID000001",
+      "to": "SRNA_ID000029",
+      "xi": 0.7
+    },
+    {
+      "from": "RNAMotif_ID000002",
+      "to": "SRNA_ID000029",
+      "xi": 0.7
+    },
+    {
+      "from": "Transterm_ID000003",
+      "to": "SRNA_ID000029",
+      "xi": 0.7
+    },
+    {
+      "from": "Patser_concate_ID000031",
+      "to": "SRNA_ID000029",
+      "xi": 1.2
+    },
+    {
+      "from": "Blast_ID000023",
+      "to": "Blast_candidate_ID000024",
+      "xi": 1.0
+    },
+    {
+      "from": "Blast_candidate_ID000024",
+      "to": "Blast_QRNA_ID000025",
+      "xi": 0.8
+    },
+    {
+      "from": "Blast_candidate_ID000024",
+      "to": "FFN_parse_ID000026",
+      "xi": 0.5
+    },
+    {
+      "from": "Blast_candidate_ID000024",
+      "to": "Blast_synteny_ID000027",
+      "xi": 0.6
+    },
+    {
+      "from": "Blast_candidate_ID000024",
+      "to": "Blast_paralogues_ID000028",
+      "xi": 0.6
+    },
+    {
+      "from": "SRNA_ID000029",
+      "to": "SRNA_annotate_ID000030",
+      "xi": 1.0
+    },
+    {
+      "from": "Blast_QRNA_ID000025",
+      "to": "SRNA_annotate_ID000030",
+      "xi": 0.7
+    },
+    {
+      "from": "FFN_parse_ID000026",
+      "to": "SRNA_annotate_ID000030",
+      "xi": 0.5
+    },
+    {
+      "from": "Blast_synteny_ID000027",
+      "to": "SRNA_annotate_ID000030",
+      "xi": 0.6
+    },
+    {
+      "from": "Blast_paralogues_ID000028",
+      "to": "SRNA_annotate_ID000030",
+      "xi": 0.6
+    },
+    {
+      "from": "Patser_concate_ID000031",
+      "to": "SRNA_annotate_ID000030",
+      "xi": 0.7
+    }
+  ],
+  "metadata": {
+    "author": "Peng Li",
+    "created_at": "2026-04-30",
+    "source_workflow": "Pegasus SIPHT Run 1, wf_uuid af788fd3-9d28-41a8-83c7-6f5c1e614cc2",
+    "derivation": "task-level service DAG preserving the public run task names, Patser fan-in, Blast branch, SRNA merge, and final SRNA annotation stage; r and xi are normalized simulation factors",
+    "notes": "31 service functions; many source functions are used because the Pegasus task graph omits the non-task create_dir node; SRNA_annotate_ID000030 is the service sink"
+  }
+}

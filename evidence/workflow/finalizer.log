@@ -1,0 +1,16 @@
+20/168 status=cached workflow=sipht31 policy=Random rate=0.0300 seed=2
+40/168 status=cached workflow=sipht31 policy=DCNC-DAG-H rate=0.0200 seed=1
+60/168 status=cached workflow=srasearch22 policy=Random rate=0.0275 seed=1
+80/168 status=cached workflow=srasearch22 policy=DCNC-DAG-H rate=0.1600 seed=1
+100/168 status=cached workflow=srasearch22 policy=Random rate=0.0025 seed=2
+120/168 status=ok workflow=sipht31 policy=Random rate=0.0650 seed=1
+140/168 status=ok workflow=sipht31 policy=DCNC-DAG-H rate=0.2500 seed=1
+160/168 status=ok workflow=sipht31 policy=CTS rate=0.1800 seed=1
+168/168 status=ok workflow=sipht31 policy=CTS rate=0.2250 seed=2
+     workflow     policy  lambda_hat  completion_ratio_at_lambda_hat  delay_at_lambda_hat  delay_se_at_lambda_hat
+     SIPHT-31        CTS       0.220                        0.983290           765.228008               75.998164
+     SIPHT-31 DCNC-DAG-H       0.300                        0.992810           529.271773               35.621365
+     SIPHT-31     Random       0.070                        0.983790          1843.647938              157.442618
+SRA-Search-22        CTS       0.085                        0.995095          1022.685744              249.790662
+SRA-Search-22 DCNC-DAG-H       0.140                        0.994898           288.006908               13.562498
+SRA-Search-22     Random       0.030                        0.988826           445.244718               30.199815

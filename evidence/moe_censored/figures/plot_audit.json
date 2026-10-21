@@ -1,0 +1,100 @@
+{
+  "source": "MoE_censored_delay_plot_data.csv",
+  "points": 106,
+  "metric": "mean_lower_bound",
+  "models": {
+    "llama": {
+      "points": 50,
+      "counts": {
+        "DCNC-DAG-H": 24,
+        "FlexMoE-style": 15,
+        "Lazarus-style": 11
+      },
+      "omitted_points": [
+        {
+          "policy": "DCNC-DAG-H",
+          "arrival_rate": 1.05,
+          "mean_lower_bound": 17523.12384986627
+        }
+      ],
+      "y_limits": [
+        0.0,
+        3000.0
+      ],
+      "pdf": "MoE_Llama_censored_delay_full_grid.pdf",
+      "png": "MoE_Llama_censored_delay_full_grid.png",
+      "font": "Times New Roman",
+      "axes_size_inches": [
+        4.585949825830078,
+        3.217561571348522
+      ],
+      "linewidth": 2.85131,
+      "markersize": 8.146599999999998,
+      "legend_columns": 2,
+      "curves": [
+        {
+          "label": "DCNC-DAG-H",
+          "color": "#1f77b4",
+          "marker": "D",
+          "points": 24
+        },
+        {
+          "label": "Lazarus-inspired",
+          "color": "#ff7f0e",
+          "marker": "s",
+          "points": 11
+        },
+        {
+          "label": "FlexMoE-inspired",
+          "color": "#2ca02c",
+          "marker": "^",
+          "points": 15
+        }
+      ]
+    },
+    "mixtral": {
+      "points": 56,
+      "counts": {
+        "DCNC-DAG-H": 28,
+        "FlexMoE-style": 16,
+        "Lazarus-style": 12
+      },
+      "omitted_points": [],
+      "y_limits": [
+        0.0,
+        5520.974337594852
+      ],
+      "pdf": "MoE_Mixtral_censored_delay_full_grid.pdf",
+      "png": "MoE_Mixtral_censored_delay_full_grid.png",
+      "font": "Times New Roman",
+      "axes_size_inches": [
+        4.585949825830078,
+        3.217561571348522
+      ],
+      "linewidth": 2.85131,
+      "markersize": 8.146599999999998,
+      "legend_columns": 2,
+      "curves": [
+        {
+          "label": "DCNC-DAG-H",
+          "color": "#1f77b4",
+          "marker": "D",
+          "points": 28
+        },
+        {
+          "label": "Lazarus-inspired",
+          "color": "#ff7f0e",
+          "marker": "s",
+          "points": 12
+        },
+        {
+          "label": "FlexMoE-inspired",
+          "color": "#2ca02c",
+          "marker": "^",
+          "points": 16
+        }
+      ]
+    }
+  },
+  "source_points": 107
+}

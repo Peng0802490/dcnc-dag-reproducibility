@@ -1,0 +1,2467 @@
+{
+  "network_id": "Roofnet-38-emulated-cap210-access",
+  "version": "2026-04-23-code-compatible",
+  "description": "Roofnet-inspired 38-node wireless mesh. Node count follows the 38-node ExOR/Roofnet testbed; links are an explicitly declared deterministic emulation because official link matrices are not available from the inspected official pages.",
+  "nodes": [
+    {
+      "id": "N1",
+      "role": "COMPUTE",
+      "capacity": 6,
+      "x_km": 0.9007,
+      "y_km": 0.1528
+    },
+    {
+      "id": "N2",
+      "role": "COMPUTE",
+      "capacity": 10,
+      "x_km": 0.4189,
+      "y_km": 1.2966
+    },
+    {
+      "id": "N3",
+      "role": "COMPUTE",
+      "capacity": 7,
+      "x_km": 0.194,
+      "y_km": 0.8919
+    },
+    {
+      "id": "N4",
+      "role": "COMPUTE",
+      "capacity": 4,
+      "x_km": 1.6505,
+      "y_km": 0.8005
+    },
+    {
+      "id": "N5",
+      "role": "COMPUTE",
+      "capacity": 8,
+      "x_km": 1.8449,
+      "y_km": 0.2293
+    },
+    {
+      "id": "N6",
+      "role": "COMPUTE",
+      "capacity": 7,
+      "x_km": 0.2408,
+      "y_km": 1.9648
+    },
+    {
+      "id": "N7",
+      "role": "COMPUTE",
+      "capacity": 4,
+      "x_km": 0.0057,
+      "y_km": 0.5294
+    },
+    {
+      "id": "N8",
+      "role": "COMPUTE",
+      "capacity": 8,
+      "x_km": 0.7978,
+      "y_km": 0.0631
+    },
+    {
+      "id": "N9",
+      "role": "COMPUTE",
+      "capacity": 9,
+      "x_km": 1.7766,
+      "y_km": 1.8952
+    },
+    {
+      "id": "N10",
+      "role": "COMPUTE",
+      "capacity": 7,
+      "x_km": 1.5079,
+      "y_km": 0.0848
+    },
+    {
+      "id": "N11",
+      "role": "COMPUTE",
+      "capacity": 4,
+      "x_km": 0.8085,
+      "y_km": 0.6212
+    },
+    {
+      "id": "N12",
+      "role": "COMPUTE",
+      "capacity": 6,
+      "x_km": 0.6371,
+      "y_km": 0.003
+    },
+    {
+      "id": "N13",
+      "role": "COMPUTE",
+      "capacity": 9,
+      "x_km": 1.0961,
+      "y_km": 1.7086
+    },
+    {
+      "id": "N14",
+      "role": "COMPUTE",
+      "capacity": 4,
+      "x_km": 1.5968,
+      "y_km": 0.5327
+    },
+    {
+      "id": "N15",
+      "role": "COMPUTE",
+      "capacity": 7,
+      "x_km": 0.1492,
+      "y_km": 0.9495
+    },
+    {
+      "id": "N16",
+      "role": "COMPUTE",
+      "capacity": 5,
+      "x_km": 1.61,
+      "y_km": 0.894
+    },
+    {
+      "id": "N17",
+      "role": "COMPUTE",
+      "capacity": 9,
+      "x_km": 1.5888,
+      "y_km": 1.6201
+    },
+    {
+      "id": "N18",
+      "role": "COMPUTE",
+      "capacity": 4,
+      "x_km": 1.985,
+      "y_km": 1.3619
+    },
+    {
+      "id": "N19",
+      "role": "COMPUTE",
+      "capacity": 2,
+      "x_km": 1.7101,
+      "y_km": 1.2191
+    },
+    {
+      "id": "N20",
+      "role": "COMPUTE",
+      "capacity": 2,
+      "x_km": 1.7779,
+      "y_km": 0.9415
+    },
+    {
+      "id": "N21",
+      "role": "COMPUTE",
+      "capacity": 6,
+      "x_km": 1.4906,
+      "y_km": 0.649
+    },
+    {
+      "id": "N22",
+      "role": "COMPUTE",
+      "capacity": 7,
+      "x_km": 0.4448,
+      "y_km": 0.0605
+    },
+    {
+      "id": "N23",
+      "role": "COMPUTE",
+      "capacity": 6,
+      "x_km": 1.1937,
+      "y_km": 0.9133
+    },
+    {
+      "id": "N24",
+      "role": "COMPUTE",
+      "capacity": 3,
+      "x_km": 1.0683,
+      "y_km": 1.8667
+    },
+    {
+      "id": "N25",
+      "role": "COMPUTE",
+      "capacity": 7,
+      "x_km": 1.6963,
+      "y_km": 1.271
+    },
+    {
+      "id": "N26",
+      "role": "COMPUTE",
+      "capacity": 9,
+      "x_km": 0.3536,
+      "y_km": 1.218
+    },
+    {
+      "id": "N27",
+      "role": "COMPUTE",
+      "capacity": 4,
+      "x_km": 1.3279,
+      "y_km": 0.6764
+    },
+    {
+      "id": "N28",
+      "role": "COMPUTE",
+      "capacity": 8,
+      "x_km": 1.1833,
+      "y_km": 0.2314
+    },
+    {
+      "id": "N29",
+      "role": "COMPUTE",
+      "capacity": 10,
+      "x_km": 1.5749,
+      "y_km": 0.1453
+    },
+    {
+      "id": "N30",
+      "role": "COMPUTE",
+      "capacity": 3,
+      "x_km": 0.9525,
+      "y_km": 1.6682
+    },
+    {
+      "id": "N31",
+      "role": "COMPUTE",
+      "capacity": 2,
+      "x_km": 0.217,
+      "y_km": 1.7396
+    },
+    {
+      "id": "N32",
+      "role": "COMPUTE",
+      "capacity": 10,
+      "x_km": 0.2173,
+      "y_km": 1.7627
+    },
+    {
+      "id": "N33",
+      "role": "COMPUTE",
+      "capacity": 2,
+      "x_km": 1.6317,
+      "y_km": 1.2323
+    },
+    {
+      "id": "N34",
+      "role": "COMPUTE",
+      "capacity": 9,
+      "x_km": 0.469,
+      "y_km": 0.4484
+    },
+    {
+      "id": "N35",
+      "role": "COMPUTE",
+      "capacity": 6,
+      "x_km": 1.3102,
+      "y_km": 1.0316
+    },
+    {
+      "id": "N36",
+      "role": "COMPUTE",
+      "capacity": 6,
+      "x_km": 0.2578,
+      "y_km": 0.1995
+    },
+    {
+      "id": "N37",
+      "role": "COMPUTE",
+      "capacity": 10,
+      "x_km": 1.5264,
+      "y_km": 0.4422
+    },
+    {
+      "id": "N38",
+      "role": "COMPUTE",
+      "capacity": 2,
+      "x_km": 0.9341,
+      "y_km": 1.3623
+    }
+  ],
+  "edges": [
+    {
+      "from": "N1",
+      "to": "N8",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.1365,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N1",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.1365,
+      "emulated": true
+    },
+    {
+      "from": "N1",
+      "to": "N11",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4774,
+      "emulated": true
+    },
+    {
+      "from": "N11",
+      "to": "N1",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4774,
+      "emulated": true
+    },
+    {
+      "from": "N1",
+      "to": "N12",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3032,
+      "emulated": true
+    },
+    {
+      "from": "N12",
+      "to": "N1",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3032,
+      "emulated": true
+    },
+    {
+      "from": "N1",
+      "to": "N22",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4652,
+      "emulated": true
+    },
+    {
+      "from": "N22",
+      "to": "N1",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4652,
+      "emulated": true
+    },
+    {
+      "from": "N1",
+      "to": "N28",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.2932,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N1",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.2932,
+      "emulated": true
+    },
+    {
+      "from": "N1",
+      "to": "N34",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5232,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N1",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5232,
+      "emulated": true
+    },
+    {
+      "from": "N2",
+      "to": "N3",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.463,
+      "emulated": true
+    },
+    {
+      "from": "N3",
+      "to": "N2",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.463,
+      "emulated": true
+    },
+    {
+      "from": "N2",
+      "to": "N15",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4396,
+      "emulated": true
+    },
+    {
+      "from": "N15",
+      "to": "N2",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4396,
+      "emulated": true
+    },
+    {
+      "from": "N2",
+      "to": "N26",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.1022,
+      "emulated": true
+    },
+    {
+      "from": "N26",
+      "to": "N2",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.1022,
+      "emulated": true
+    },
+    {
+      "from": "N2",
+      "to": "N31",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.4868,
+      "emulated": true
+    },
+    {
+      "from": "N31",
+      "to": "N2",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.4868,
+      "emulated": true
+    },
+    {
+      "from": "N2",
+      "to": "N32",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.5078,
+      "emulated": true
+    },
+    {
+      "from": "N32",
+      "to": "N2",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.5078,
+      "emulated": true
+    },
+    {
+      "from": "N2",
+      "to": "N38",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5194,
+      "emulated": true
+    },
+    {
+      "from": "N38",
+      "to": "N2",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5194,
+      "emulated": true
+    },
+    {
+      "from": "N3",
+      "to": "N7",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.4085,
+      "emulated": true
+    },
+    {
+      "from": "N7",
+      "to": "N3",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.4085,
+      "emulated": true
+    },
+    {
+      "from": "N3",
+      "to": "N15",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.073,
+      "emulated": true
+    },
+    {
+      "from": "N15",
+      "to": "N3",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.073,
+      "emulated": true
+    },
+    {
+      "from": "N3",
+      "to": "N26",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3631,
+      "emulated": true
+    },
+    {
+      "from": "N26",
+      "to": "N3",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3631,
+      "emulated": true
+    },
+    {
+      "from": "N3",
+      "to": "N34",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5218,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N3",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5218,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N14",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.2731,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N4",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.2731,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N16",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.1019,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N4",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.1019,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N19",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4228,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N4",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4228,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N20",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.1901,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N4",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.1901,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N21",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.2202,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N4",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.2202,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N23",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4705,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N4",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.4705,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N25",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4727,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N4",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.4727,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N27",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3457,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N4",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.3457,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N33",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.4322,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N4",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.4322,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N35",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.4113,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N4",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.4113,
+      "emulated": true
+    },
+    {
+      "from": "N4",
+      "to": "N37",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.3792,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N4",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.3792,
+      "emulated": true
+    },
+    {
+      "from": "N5",
+      "to": "N10",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.3667,
+      "emulated": true
+    },
+    {
+      "from": "N10",
+      "to": "N5",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3667,
+      "emulated": true
+    },
+    {
+      "from": "N5",
+      "to": "N14",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.392,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N5",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.392,
+      "emulated": true
+    },
+    {
+      "from": "N5",
+      "to": "N21",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.5493,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N5",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.5493,
+      "emulated": true
+    },
+    {
+      "from": "N5",
+      "to": "N29",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.2827,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N5",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.2827,
+      "emulated": true
+    },
+    {
+      "from": "N5",
+      "to": "N37",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.3832,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N5",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.3832,
+      "emulated": true
+    },
+    {
+      "from": "N6",
+      "to": "N31",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.2265,
+      "emulated": true
+    },
+    {
+      "from": "N31",
+      "to": "N6",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.2265,
+      "emulated": true
+    },
+    {
+      "from": "N6",
+      "to": "N32",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.2035,
+      "emulated": true
+    },
+    {
+      "from": "N32",
+      "to": "N6",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.2035,
+      "emulated": true
+    },
+    {
+      "from": "N7",
+      "to": "N15",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4439,
+      "emulated": true
+    },
+    {
+      "from": "N15",
+      "to": "N7",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4439,
+      "emulated": true
+    },
+    {
+      "from": "N7",
+      "to": "N34",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4704,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N7",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4704,
+      "emulated": true
+    },
+    {
+      "from": "N7",
+      "to": "N36",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4152,
+      "emulated": true
+    },
+    {
+      "from": "N36",
+      "to": "N7",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.4152,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N11",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5582,
+      "emulated": true
+    },
+    {
+      "from": "N11",
+      "to": "N8",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5582,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N12",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.1716,
+      "emulated": true
+    },
+    {
+      "from": "N12",
+      "to": "N8",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.1716,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N22",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.353,
+      "emulated": true
+    },
+    {
+      "from": "N22",
+      "to": "N8",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.353,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N28",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4206,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N8",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4206,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N34",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5064,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N8",
+      "capacity": 3,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5064,
+      "emulated": true
+    },
+    {
+      "from": "N8",
+      "to": "N36",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.557,
+      "emulated": true
+    },
+    {
+      "from": "N36",
+      "to": "N8",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.557,
+      "emulated": true
+    },
+    {
+      "from": "N9",
+      "to": "N17",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.333,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N9",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.333,
+      "emulated": true
+    },
+    {
+      "from": "N9",
+      "to": "N18",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.5725,
+      "emulated": true
+    },
+    {
+      "from": "N18",
+      "to": "N9",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.5725,
+      "emulated": true
+    },
+    {
+      "from": "N10",
+      "to": "N14",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.4566,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N10",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.4566,
+      "emulated": true
+    },
+    {
+      "from": "N10",
+      "to": "N21",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.5644,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N10",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.5644,
+      "emulated": true
+    },
+    {
+      "from": "N10",
+      "to": "N28",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3562,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N10",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3562,
+      "emulated": true
+    },
+    {
+      "from": "N10",
+      "to": "N29",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.0903,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N10",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.0903,
+      "emulated": true
+    },
+    {
+      "from": "N10",
+      "to": "N37",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3578,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N10",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3578,
+      "emulated": true
+    },
+    {
+      "from": "N11",
+      "to": "N23",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.4834,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N11",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.4834,
+      "emulated": true
+    },
+    {
+      "from": "N11",
+      "to": "N27",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.5223,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N11",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.5223,
+      "emulated": true
+    },
+    {
+      "from": "N11",
+      "to": "N28",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5408,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N11",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5408,
+      "emulated": true
+    },
+    {
+      "from": "N11",
+      "to": "N34",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3809,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N11",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3809,
+      "emulated": true
+    },
+    {
+      "from": "N12",
+      "to": "N22",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.2007,
+      "emulated": true
+    },
+    {
+      "from": "N22",
+      "to": "N12",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.2007,
+      "emulated": true
+    },
+    {
+      "from": "N12",
+      "to": "N34",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.476,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N12",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.476,
+      "emulated": true
+    },
+    {
+      "from": "N12",
+      "to": "N36",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.4272,
+      "emulated": true
+    },
+    {
+      "from": "N36",
+      "to": "N12",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.4272,
+      "emulated": true
+    },
+    {
+      "from": "N13",
+      "to": "N17",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.5005,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N13",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.5005,
+      "emulated": true
+    },
+    {
+      "from": "N13",
+      "to": "N24",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.1605,
+      "emulated": true
+    },
+    {
+      "from": "N24",
+      "to": "N13",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.1605,
+      "emulated": true
+    },
+    {
+      "from": "N13",
+      "to": "N30",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.1492,
+      "emulated": true
+    },
+    {
+      "from": "N30",
+      "to": "N13",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.1492,
+      "emulated": true
+    },
+    {
+      "from": "N13",
+      "to": "N38",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3823,
+      "emulated": true
+    },
+    {
+      "from": "N38",
+      "to": "N13",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3823,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N16",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.3616,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N14",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.3616,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N20",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.4471,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N14",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.4471,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N21",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.1575,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N14",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.1575,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N23",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.5544,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N14",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.5544,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N27",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3049,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N14",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3049,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N28",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5117,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N14",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5117,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N29",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.388,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N14",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.388,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N35",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.5753,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N14",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.5753,
+      "emulated": true
+    },
+    {
+      "from": "N14",
+      "to": "N37",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.1147,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N14",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.1147,
+      "emulated": true
+    },
+    {
+      "from": "N15",
+      "to": "N26",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3375,
+      "emulated": true
+    },
+    {
+      "from": "N26",
+      "to": "N15",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3375,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N19",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.3402,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N16",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3402,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N20",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.1745,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N16",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.1745,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N21",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.2726,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N16",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.2726,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N23",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4167,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N16",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.4167,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N25",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3867,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N16",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3867,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N27",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.3563,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N16",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3563,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N33",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.3389,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N16",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.3389,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N35",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3299,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N16",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.3299,
+      "emulated": true
+    },
+    {
+      "from": "N16",
+      "to": "N37",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.4595,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N16",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.4595,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N18",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.4729,
+      "emulated": true
+    },
+    {
+      "from": "N18",
+      "to": "N17",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.4729,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N19",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.419,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N17",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.419,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N24",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.5759,
+      "emulated": true
+    },
+    {
+      "from": "N24",
+      "to": "N17",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.5759,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N25",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.3653,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N17",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.3653,
+      "emulated": true
+    },
+    {
+      "from": "N17",
+      "to": "N33",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.3902,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N17",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3902,
+      "emulated": true
+    },
+    {
+      "from": "N18",
+      "to": "N19",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3097,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N18",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.3097,
+      "emulated": true
+    },
+    {
+      "from": "N18",
+      "to": "N20",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.4686,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N18",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.4686,
+      "emulated": true
+    },
+    {
+      "from": "N18",
+      "to": "N25",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3027,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N18",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.3027,
+      "emulated": true
+    },
+    {
+      "from": "N18",
+      "to": "N33",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3764,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N18",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.3764,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N20",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.2858,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N19",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.2858,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N25",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.0537,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N19",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.0537,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N33",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.0796,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N19",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.0796,
+      "emulated": true
+    },
+    {
+      "from": "N19",
+      "to": "N35",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.4418,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N19",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.4418,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N21",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.41,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N20",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.41,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N23",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.5849,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N20",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.5849,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N25",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.3395,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N20",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3395,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N27",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.5223,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N20",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.5223,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N33",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3255,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N20",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.3255,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N35",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.4763,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N20",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.4763,
+      "emulated": true
+    },
+    {
+      "from": "N20",
+      "to": "N37",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.5591,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N20",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.5591,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N23",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3975,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N21",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3975,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N27",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.1651,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N21",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.1651,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N28",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5185,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N21",
+      "capacity": 9,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5185,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N29",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.5107,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N21",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.5107,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N35",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.423,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N21",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.423,
+      "emulated": true
+    },
+    {
+      "from": "N21",
+      "to": "N37",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.2099,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N21",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.2099,
+      "emulated": true
+    },
+    {
+      "from": "N22",
+      "to": "N34",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3886,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N22",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3886,
+      "emulated": true
+    },
+    {
+      "from": "N22",
+      "to": "N36",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.233,
+      "emulated": true
+    },
+    {
+      "from": "N36",
+      "to": "N22",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.233,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N27",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.2722,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N23",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.2722,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N33",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.5418,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N23",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.5418,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N35",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.166,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N23",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.166,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N37",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.5767,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N23",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.5767,
+      "emulated": true
+    },
+    {
+      "from": "N23",
+      "to": "N38",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5187,
+      "emulated": true
+    },
+    {
+      "from": "N38",
+      "to": "N23",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5187,
+      "emulated": true
+    },
+    {
+      "from": "N24",
+      "to": "N30",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.2298,
+      "emulated": true
+    },
+    {
+      "from": "N30",
+      "to": "N24",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.2298,
+      "emulated": true
+    },
+    {
+      "from": "N24",
+      "to": "N38",
+      "capacity": 7,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5219,
+      "emulated": true
+    },
+    {
+      "from": "N38",
+      "to": "N24",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5219,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N33",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.0753,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N25",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.0753,
+      "emulated": true
+    },
+    {
+      "from": "N25",
+      "to": "N35",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.4543,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N25",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.4543,
+      "emulated": true
+    },
+    {
+      "from": "N26",
+      "to": "N31",
+      "capacity": 6,
+      "dynamic": false,
+      "distance_km": 0.5392,
+      "emulated": true
+    },
+    {
+      "from": "N31",
+      "to": "N26",
+      "capacity": 3,
+      "dynamic": false,
+      "distance_km": 0.5392,
+      "emulated": true
+    },
+    {
+      "from": "N26",
+      "to": "N32",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.5615,
+      "emulated": true
+    },
+    {
+      "from": "N32",
+      "to": "N26",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.5615,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N28",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4679,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N27",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4679,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N29",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.5857,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N27",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.5857,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N35",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.3556,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N27",
+      "capacity": 10,
+      "dynamic": false,
+      "distance_km": 0.3556,
+      "emulated": true
+    },
+    {
+      "from": "N27",
+      "to": "N37",
+      "capacity": 2,
+      "dynamic": false,
+      "distance_km": 0.307,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N27",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.307,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N29",
+      "capacity": 2,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.401,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N28",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.401,
+      "emulated": true
+    },
+    {
+      "from": "N28",
+      "to": "N37",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4027,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N28",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.4027,
+      "emulated": true
+    },
+    {
+      "from": "N29",
+      "to": "N37",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.3008,
+      "emulated": true
+    },
+    {
+      "from": "N37",
+      "to": "N29",
+      "capacity": 4,
+      "dynamic": false,
+      "distance_km": 0.3008,
+      "emulated": true
+    },
+    {
+      "from": "N30",
+      "to": "N38",
+      "capacity": 4,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3065,
+      "emulated": true
+    },
+    {
+      "from": "N38",
+      "to": "N30",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3065,
+      "emulated": true
+    },
+    {
+      "from": "N31",
+      "to": "N32",
+      "capacity": 7,
+      "dynamic": false,
+      "distance_km": 0.0231,
+      "emulated": true
+    },
+    {
+      "from": "N32",
+      "to": "N31",
+      "capacity": 5,
+      "dynamic": false,
+      "distance_km": 0.0231,
+      "emulated": true
+    },
+    {
+      "from": "N33",
+      "to": "N35",
+      "capacity": 9,
+      "dynamic": false,
+      "distance_km": 0.379,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N33",
+      "capacity": 8,
+      "dynamic": false,
+      "distance_km": 0.379,
+      "emulated": true
+    },
+    {
+      "from": "N34",
+      "to": "N36",
+      "capacity": 8,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3264,
+      "emulated": true
+    },
+    {
+      "from": "N36",
+      "to": "N34",
+      "capacity": 5,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.3264,
+      "emulated": true
+    },
+    {
+      "from": "N35",
+      "to": "N38",
+      "capacity": 10,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5008,
+      "emulated": true
+    },
+    {
+      "from": "N38",
+      "to": "N35",
+      "capacity": 6,
+      "dynamic": true,
+      "p_on": 0.8,
+      "distance_km": 0.5008,
+      "emulated": true
+    }
+  ],
+  "metadata": {
+    "benchmark": "Roofnet",
+    "official_basis": {
+      "node_count": "38-node Roofnet testbed reported in ExOR/SIGCOMM measurement paper",
+      "mesh_context": "Roofnet/MobiCom paper reports a rooftop 802.11b multi-hop mesh with average route about 3 hops",
+      "missing_official_data": "machine-readable loss/throughput matrix not present in inspected official pages"
+    },
+    "emulation_rules": {
+      "random_seed": 2005,
+      "area_km2": 4.0,
+      "placement": "uniform deterministic placement in a 2km x 2km square to emulate unplanned placement",
+      "radius_km": 0.59,
+      "radius_selection": "chosen so the connected graph average shortest path is close to Roofnet reported average hop count about 3",
+      "edge_capacity_rule": "capacity=1.0 normalized service unit on all wireless links",
+      "p_on_rule": "distance-decay reliability model p_on=clip(0.92 - 0.55*(d/radius)^2 + deterministic jitter, 0.08, 0.98)",
+      "dynamic_edge_rule": "all emulated wireless links are dynamic"
+    },
+    "graph_stats": {
+      "nodes": 38,
+      "directed_edges": 262,
+      "undirected_edges": 131,
+      "calibrated_avg_shortest_path_hops": 2.8847795163584635
+    },
+    "capacity_model": "node and directed-arc capacities i.i.d. uniform on {2,...,10}, seed 20260719",
+    "dynamic_model": "only arcs incident to source/sink endpoints are dynamic (p_on=0.8)"
+  }
+}

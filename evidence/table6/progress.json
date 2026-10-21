@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "checked_server_local": "2026-10-20 12:31:51",
+  "last_event_server_local": "2026-10-17 13:25:08",
+  "latest_sampled_log_server_local": "2026-10-17 13:25:07",
+  "completed": 150,
+  "running": 0,
+  "queued": 0,
+  "failed": 0,
+  "all_csv_files": 301,
+  "scheduler_active": false,
+  "sampled_logs_advancing": false,
+  "error_pattern_files": 0,
+  "remote_result_root": "results_k_runtime_100000_seed123_20260927",
+  "final": true
+}

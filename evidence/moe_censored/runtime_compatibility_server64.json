@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "matching_dependency_versions": {
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.8",
+    "scipy": "1.15.3"
+  },
+  "local_python": "3.10.20 (main, Aug  7 2026, 02:23:44) [MSC v.1944 64 bit (AMD64)]",
+  "server_python": "3.10.20 | packaged by conda-forge | (main, Mar  5 2026, 16:42:22) [GCC 14.3.0]",
+  "source_hashes_exactly_match": true,
+  "independent_100000_slot_replays": [
+    {
+      "key": "mixtral_FlexMoE-style_r0p05_s0_T100000",
+      "status": "EXACT_MATCH",
+      "seconds": 107.16696431813762
+    },
+    {
+      "key": "llama_Lazarus-style_r0p05_s1_T100000",
+      "status": "EXACT_MATCH",
+      "seconds": 108.11797444615513
+    },
+    {
+      "key": "mixtral_DCNC-DAG-H_r0p05_s0_T100000",
+      "status": "EXACT_MATCH",
+      "seconds": 116.00158808403648
+    }
+  ],
+  "unfinished_arrival_records_exactly_match": true
+}

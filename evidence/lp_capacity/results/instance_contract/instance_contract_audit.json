@@ -1,0 +1,325 @@
+{
+  "capacity": {
+    "gurobi": 1.0,
+    "gurobi_mapping_rates_by_C_node": {
+      "uC1": 0.5,
+      "uC2": 0.5
+    },
+    "scipy": 1.0,
+    "single_mapping_capacities": {
+      "uC1": 0.5,
+      "uC2": 0.5
+    }
+  },
+  "checks_passed": true,
+  "instance": {
+    "allowed": {
+      "A": [
+        "uA"
+      ],
+      "B": [
+        "uB"
+      ],
+      "C": [
+        "uC1",
+        "uC2"
+      ],
+      "D": [
+        "uD"
+      ]
+    },
+    "dag_edges": [
+      [
+        "A",
+        "B"
+      ],
+      [
+        "A",
+        "C"
+      ],
+      [
+        "B",
+        "D"
+      ],
+      [
+        "C",
+        "D"
+      ]
+    ],
+    "dag_topological_order": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "dependency_workloads": {
+      "A->B": 0.2,
+      "A->C": 1.0,
+      "B->D": 0.2,
+      "C->D": 1.0
+    },
+    "dst_nodes": {
+      "D": "d"
+    },
+    "function_workloads": {
+      "A": 0.1,
+      "B": 0.1,
+      "C": 1.0,
+      "D": 0.1
+    },
+    "links": [
+      {
+        "capacity": 2.0,
+        "from": "s",
+        "index": 1,
+        "p_on": 1.0,
+        "to": "uA"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uA",
+        "index": 2,
+        "p_on": 1.0,
+        "to": "uB"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uB",
+        "index": 3,
+        "p_on": 1.0,
+        "to": "uD"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uA",
+        "index": 4,
+        "p_on": 0.85,
+        "to": "uC1"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uC1",
+        "index": 5,
+        "p_on": 0.85,
+        "to": "uD"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uA",
+        "index": 6,
+        "p_on": 0.85,
+        "to": "uC2"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uC2",
+        "index": 7,
+        "p_on": 0.85,
+        "to": "uD"
+      },
+      {
+        "capacity": 2.0,
+        "from": "uD",
+        "index": 8,
+        "p_on": 1.0,
+        "to": "d"
+      }
+    ],
+    "nodes": [
+      {
+        "capacity": 0.0,
+        "id": "s",
+        "role": "FORWARD"
+      },
+      {
+        "capacity": 5.0,
+        "id": "uA",
+        "role": "COMPUTE"
+      },
+      {
+        "capacity": 5.0,
+        "id": "uB",
+        "role": "COMPUTE"
+      },
+      {
+        "capacity": 0.5,
+        "id": "uC1",
+        "role": "COMPUTE"
+      },
+      {
+        "capacity": 0.5,
+        "id": "uC2",
+        "role": "COMPUTE"
+      },
+      {
+        "capacity": 5.0,
+        "id": "uD",
+        "role": "COMPUTE"
+      },
+      {
+        "capacity": 0.0,
+        "id": "d",
+        "role": "FORWARD"
+      }
+    ],
+    "sink_workloads": {
+      "D": 0.2
+    },
+    "source_workloads": {
+      "A": 0.2
+    },
+    "src_nodes": {
+      "A": "s"
+    }
+  },
+  "mappings": [
+    {
+      "C_node": "uC1",
+      "assignment": {
+        "A": "uA",
+        "B": "uB",
+        "C": "uC1",
+        "D": "uD"
+      },
+      "link_loads": [
+        0.2,
+        0.2,
+        0.2,
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        0.2
+      ],
+      "node_loads": [
+        0.1,
+        0.1,
+        1.0,
+        0.0,
+        0.1
+      ],
+      "paths": {
+        "('A', 'B')": [
+          [
+            "uA",
+            "uB"
+          ]
+        ],
+        "('A', 'C')": [
+          [
+            "uA",
+            "uC1"
+          ]
+        ],
+        "('B', 'D')": [
+          [
+            "uB",
+            "uD"
+          ]
+        ],
+        "('C', 'D')": [
+          [
+            "uC1",
+            "uD"
+          ]
+        ],
+        "('D', ('D', 'D'))": [
+          [
+            "uD",
+            "d"
+          ]
+        ],
+        "(('S', 'A'), 'A')": [
+          [
+            "s",
+            "uA"
+          ]
+        ]
+      }
+    },
+    {
+      "C_node": "uC2",
+      "assignment": {
+        "A": "uA",
+        "B": "uB",
+        "C": "uC2",
+        "D": "uD"
+      },
+      "link_loads": [
+        0.2,
+        0.2,
+        0.2,
+        0.0,
+        0.0,
+        1.0,
+        1.0,
+        0.2
+      ],
+      "node_loads": [
+        0.1,
+        0.1,
+        0.0,
+        1.0,
+        0.1
+      ],
+      "paths": {
+        "('A', 'B')": [
+          [
+            "uA",
+            "uB"
+          ]
+        ],
+        "('A', 'C')": [
+          [
+            "uA",
+            "uC2"
+          ]
+        ],
+        "('B', 'D')": [
+          [
+            "uB",
+            "uD"
+          ]
+        ],
+        "('C', 'D')": [
+          [
+            "uC2",
+            "uD"
+          ]
+        ],
+        "('D', ('D', 'D'))": [
+          [
+            "uD",
+            "d"
+          ]
+        ],
+        "(('S', 'A'), 'A')": [
+          [
+            "s",
+            "uA"
+          ]
+        ]
+      }
+    }
+  ],
+  "state_activation_counts": [
+    8,
+    11,
+    11,
+    14,
+    11,
+    14,
+    15,
+    18,
+    11,
+    15,
+    14,
+    18,
+    14,
+    18,
+    18,
+    22
+  ],
+  "total_state_activation_variables": 232,
+  "wireless_state_count": 16
+}

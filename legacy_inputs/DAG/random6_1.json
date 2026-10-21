@@ -1,0 +1,23 @@
+{
+  "service_chain_id": "DAG6_1",
+  "version": "2025-08-21",
+  "description": "converted from Service_DAG DAG6_1",
+  "nodes": [
+    { "id": "DAG6_1_s1", "type": "source",   "r": 2, "in": 4 },
+    { "id": "DAG6_1_s2", "type": "function", "r": 5 },
+    { "id": "DAG6_1_s3", "type": "function", "r": 1 },
+    { "id": "DAG6_1_s4", "type": "function", "r": 3 },
+    { "id": "DAG6_1_s5", "type": "function", "r": 4 },
+    { "id": "DAG6_1_s6", "type": "sink",     "r": 2, "out": 5 }
+  ],
+  "edges": [
+    { "from": "DAG6_1_s1", "to": "DAG6_1_s2", "xi": 3 },
+    { "from": "DAG6_1_s1", "to": "DAG6_1_s3", "xi": 5 },
+    { "from": "DAG6_1_s2", "to": "DAG6_1_s4", "xi": 2 },
+    { "from": "DAG6_1_s3", "to": "DAG6_1_s4", "xi": 4 },
+    { "from": "DAG6_1_s3", "to": "DAG6_1_s5", "xi": 1 },
+    { "from": "DAG6_1_s4", "to": "DAG6_1_s6", "xi": 5 },
+    { "from": "DAG6_1_s5", "to": "DAG6_1_s6", "xi": 2 }
+  ],
+  "metadata": { "author": "Peng Li", "created_at": "2025-08-21" }
+}

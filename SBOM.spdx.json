@@ -1,0 +1,545 @@
+{
+  "SPDXID": "SPDXRef-DOCUMENT",
+  "creationInfo": {
+    "comment": "Deterministically generated from pyproject.toml, constraints-main.txt, and manifests/third_party.json.",
+    "created": "2026-09-27T00:00:00Z",
+    "creators": [
+      "Tool: scripts/generate_sbom.py"
+    ]
+  },
+  "dataLicense": "CC0-1.0",
+  "documentDescribes": [
+    "SPDXRef-Package-dcnc-dag-sim"
+  ],
+  "documentNamespace": "https://spdx.org/spdxdocs/dcnc-dag-reproducibility-0.1.0-57e3fc8cae0fc02fcd39",
+  "name": "dcnc-dag-sim-0.1.0",
+  "packages": [
+    {
+      "SPDXID": "SPDXRef-Package-dcnc-dag-sim",
+      "comment": "First-party reproducibility artifact. NOASSERTION is deliberate while the top-level license release gate remains open.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/dcnc-dag-sim@0.1.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "name": "dcnc-dag-sim",
+      "primaryPackagePurpose": "APPLICATION",
+      "versionInfo": "0.1.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-contourpy",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/contourpy@1.3.2",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "contourpy",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "1.3.2"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-cycler",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/cycler@0.12.1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "cycler",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "0.12.1"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-fonttools",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/fonttools@4.62.1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "fonttools",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "4.62.1"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-kiwisolver",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/kiwisolver@1.5.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "kiwisolver",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "1.5.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-matplotlib",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/matplotlib@3.10.8",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "matplotlib",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "3.10.8"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-networkx",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/networkx@3.4.2",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "networkx",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "3.4.2"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-numpy",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/numpy@2.2.6",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "numpy",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "2.2.6"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-pandas",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/pandas@2.3.3",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "pandas",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "2.3.3"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-pillow",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/pillow@12.1.1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "pillow",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "12.1.1"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-pyparsing",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/pyparsing@3.3.2",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "pyparsing",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "3.3.2"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-python-dateutil",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/python-dateutil@2.9.0.post0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "python-dateutil",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "2.9.0.post0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-pytz",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/pytz@2026.1.post1",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "pytz",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "2026.1.post1"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-pyyaml",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/pyyaml@6.0.3",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "pyyaml",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "6.0.3"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-scipy",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/scipy@1.15.3",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "scipy",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "1.15.3"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-six",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/six@1.17.0",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "six",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "1.17.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-tqdm",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/tqdm@4.67.3",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "tqdm",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "4.67.3"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-pypi-tzdata",
+      "comment": "Exact package in the pinned Python 3 verification environment.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "externalRefs": [
+        {
+          "referenceCategory": "PACKAGE-MANAGER",
+          "referenceLocator": "pkg:pypi/tzdata@2025.3",
+          "referenceType": "purl"
+        }
+      ],
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "tzdata",
+      "primaryPackagePurpose": "LIBRARY",
+      "versionInfo": "2025.3"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-vendored-alib",
+      "comment": "Vendored source snapshot at third_party/alib/LICENSE; license SHA-256 c64caf016eb207a64afcb1a6b4afacc9b6a81f9ed51e3a5ee79e9b7d4db3d79c.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "name": "alib",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-vendored-vnep-approx",
+      "comment": "Vendored source snapshot at third_party/vnep_approx/LICENSE; license SHA-256 c64caf016eb207a64afcb1a6b4afacc9b6a81f9ed51e3a5ee79e9b7d4db3d79c.",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "MIT",
+      "licenseDeclared": "MIT",
+      "name": "vnep-approx",
+      "primaryPackagePurpose": "LIBRARY"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-data-internet-topology-zoo",
+      "comment": "vendored data inside the byte-pinned alib server snapshot",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "NOASSERTION",
+      "filesAnalyzed": false,
+      "licenseConcluded": "CC-BY-4.0",
+      "licenseDeclared": "CC-BY-4.0",
+      "name": "Internet Topology Zoo",
+      "primaryPackagePurpose": "OTHER"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-data-flocklab",
+      "comment": "adapted data",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://zenodo.org/records/3354718",
+      "filesAnalyzed": false,
+      "licenseConcluded": "CC-BY-4.0",
+      "licenseDeclared": "CC-BY-4.0",
+      "name": "Wireless Link Quality Estimation on FlockLab - and Beyond",
+      "primaryPackagePurpose": "OTHER",
+      "versionInfo": "v1.0.0"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-data-wfcommons-sra-search",
+      "comment": "first-party structural adaptation from a public workflow instance; raw source is not redistributed",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://github.com/wfcommons/WfInstances",
+      "filesAnalyzed": false,
+      "licenseConcluded": "LGPL-3.0-only",
+      "licenseDeclared": "LGPL-3.0-only",
+      "name": "WfCommons WfInstances SRA-Search source",
+      "primaryPackagePurpose": "OTHER"
+    },
+    {
+      "SPDXID": "SPDXRef-Package-data-pegasus-sipht",
+      "comment": "first-party structural reconstruction from a public workflow run; raw source is not redistributed and the archived run has no separate license label",
+      "copyrightText": "NOASSERTION",
+      "downloadLocation": "https://pegasus.isi.edu/workflow_gallery/gallery/sipht/index.php",
+      "filesAnalyzed": false,
+      "licenseConcluded": "NOASSERTION",
+      "licenseDeclared": "NOASSERTION",
+      "name": "Pegasus Workflow Gallery SIPHT source",
+      "primaryPackagePurpose": "OTHER"
+    }
+  ],
+  "relationships": [
+    {
+      "relatedSpdxElement": "SPDXRef-Package-data-flocklab",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-data-internet-topology-zoo",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-vendored-alib",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-vendored-vnep-approx",
+      "relationshipType": "CONTAINS",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-contourpy",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-cycler",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-fonttools",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-kiwisolver",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-matplotlib",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-networkx",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-numpy",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-pandas",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-pillow",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-pyparsing",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-python-dateutil",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-pytz",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-pyyaml",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-scipy",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-six",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-tqdm",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-pypi-tzdata",
+      "relationshipType": "DEPENDS_ON",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-data-pegasus-sipht",
+      "relationshipType": "GENERATED_FROM",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    },
+    {
+      "relatedSpdxElement": "SPDXRef-Package-data-wfcommons-sra-search",
+      "relationshipType": "GENERATED_FROM",
+      "spdxElementId": "SPDXRef-Package-dcnc-dag-sim"
+    }
+  ],
+  "spdxVersion": "SPDX-2.3"
+}

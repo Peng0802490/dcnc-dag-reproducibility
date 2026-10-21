@@ -1,0 +1,9 @@
+# First-party source and documentation use LF on every platform.
+* text=auto eol=lf
+
+# Evidence, fixed inputs, and vendored snapshots are byte-preserved because
+# their identity is covered by SHA-256 manifests.
+/evidence/** -text whitespace=-trailing-space
+/inputs/** -text whitespace=-trailing-space
+/legacy_inputs/** -text whitespace=-trailing-space
+/third_party/** -text whitespace=-trailing-space

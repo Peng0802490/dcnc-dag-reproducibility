@@ -1,0 +1,56 @@
+{
+    "network_id": "DCN_demo_small",
+    "version": "2025-07-25",
+    "description": "示例：含两台计算节点 (u,v) 的有向计算网络",
+    "nodes": [
+      {
+        "id": "s",
+        "role": "FORWARD",
+        "capacity": null
+      },
+      {
+        "id": "u",
+        "role": "COMPUTE",
+        "capacity": 10
+      },
+      {
+        "id": "v",
+        "role": "COMPUTE",
+        "capacity": 12
+      },
+      {
+        "id": "t",
+        "role": "FORWARD",
+        "capacity": null
+      }
+    ],
+    "edges": [
+      {
+        "from": "s",
+        "to": "u",
+        "capacity": 10
+      },
+      {
+        "from": "u",
+        "to": "v",
+        "capacity": 10
+      },
+      {
+        "from": "v",
+        "to": "t",
+        "capacity": 10
+      },
+      {
+        "from": "s",
+        "to": "v",
+        "capacity": 5
+      }
+    ],
+    "metadata": {
+      "author": "Peng Li",
+      "created_at": "2025-07-25",
+      "unit": {
+        "capacity": "Gbps or GPU‑TFLOPS"
+      }
+    }
+  }

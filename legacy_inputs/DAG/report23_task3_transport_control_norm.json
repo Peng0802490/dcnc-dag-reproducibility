@@ -1,0 +1,150 @@
+{
+  "service_chain_id": "report23_task3_transport_control_norm",
+  "version": "2026-04-30-report23-edge",
+  "description": "Report Sec. 2.3 task 3: collaborative transport, collision-aware path planning, and control.",
+  "metadata": {
+    "source_document_section": "2.3 智能制造场景典型任务建模与需求刻画",
+    "task_type": "transport_planning_control",
+    "resource_units_raw": {
+      "communication": "Mb/s",
+      "computation": "GOPS/s"
+    },
+    "normalization": {
+      "communication": "xi = raw_mbps / COMM_NORM_MBPS",
+      "computation": "r = raw_gops / COMP_NORM_GOPS",
+      "COMM_NORM_MBPS": 122.9,
+      "COMP_NORM_GOPS": 54.01,
+      "scope": "global max normalization across the three report-2.3 DAGs"
+    },
+    "notes": [
+      "Ranges in the report were instantiated by representative midpoints unless a single value was given.",
+      "Source-node `in` denotes raw external input load; DAG-edge `xi` denotes post-stage logical traffic.",
+      "The simulator treats all `r`, `in`, `out`, and `xi` fields as unitless normalized loads."
+    ],
+    "substrate_workload_note": "Used with AI_RAN_SmartFactory_24 edge-end collaborative network, not Milan."
+  },
+  "nodes": [
+    {
+      "id": "src_state_queue_input",
+      "type": "source",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "in": 0.002604,
+      "raw_input_mbps": 0.32
+    },
+    {
+      "id": "src_local_obstacle_update",
+      "type": "source",
+      "r": 0.000463,
+      "raw_compute_gops": 0.025,
+      "in": 0.052075,
+      "raw_input_mbps": 6.4
+    },
+    {
+      "id": "src_global_map_input",
+      "type": "source",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "in": 0.013019,
+      "raw_input_mbps": 1.6
+    },
+    {
+      "id": "assignment_priority",
+      "type": "function",
+      "r": 9e-06,
+      "raw_compute_gops": 0.0005
+    },
+    {
+      "id": "global_path_conflict",
+      "type": "function",
+      "r": 0.00037,
+      "raw_compute_gops": 0.02
+    },
+    {
+      "id": "local_replan_avoidance",
+      "type": "function",
+      "r": 0.000667,
+      "raw_compute_gops": 0.036
+    },
+    {
+      "id": "feedback_replan_trigger",
+      "type": "function",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001
+    },
+    {
+      "id": "sink_control_cmd",
+      "type": "sink",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "out": 0.000415,
+      "raw_output_mbps": 0.051
+    },
+    {
+      "id": "sink_event_feedback",
+      "type": "sink",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "out": 0.001627,
+      "raw_output_mbps": 0.2
+    }
+  ],
+  "edges": [
+    {
+      "from": "src_state_queue_input",
+      "to": "assignment_priority",
+      "xi": 0.002604,
+      "raw_mbps": 0.32,
+      "content": "global state summary and task request set"
+    },
+    {
+      "from": "assignment_priority",
+      "to": "global_path_conflict",
+      "xi": 0.000106,
+      "raw_mbps": 0.013,
+      "content": "task-assignment result and priority queue"
+    },
+    {
+      "from": "src_global_map_input",
+      "to": "global_path_conflict",
+      "xi": 0.013019,
+      "raw_mbps": 1.6,
+      "content": "global/topological map or local update summary"
+    },
+    {
+      "from": "global_path_conflict",
+      "to": "local_replan_avoidance",
+      "xi": 0.007811,
+      "raw_mbps": 0.96,
+      "content": "global path and conflict-detection result"
+    },
+    {
+      "from": "src_local_obstacle_update",
+      "to": "local_replan_avoidance",
+      "xi": 0.026037,
+      "raw_mbps": 3.2,
+      "content": "local obstacle feature / local occupancy slice"
+    },
+    {
+      "from": "local_replan_avoidance",
+      "to": "sink_control_cmd",
+      "xi": 0.000415,
+      "raw_mbps": 0.051,
+      "content": "local trajectory and velocity command"
+    },
+    {
+      "from": "local_replan_avoidance",
+      "to": "feedback_replan_trigger",
+      "xi": 0.000415,
+      "raw_mbps": 0.051,
+      "content": "local control result for trigger detection"
+    },
+    {
+      "from": "feedback_replan_trigger",
+      "to": "sink_event_feedback",
+      "xi": 0.001627,
+      "raw_mbps": 0.2,
+      "content": "execution feedback and abnormal event"
+    }
+  ]
+}

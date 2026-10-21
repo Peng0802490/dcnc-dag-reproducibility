@@ -1,0 +1,29 @@
+{
+  "checks_passed": true,
+  "formal_main_runs_reproduced_exactly": 35,
+  "formal_runs_sha256": "5282826539ddc0c178ca6edd7e0163e893ca9d14ca9f64cfddb1721bbdca27c4",
+  "physical_metric_summary_sha256": "82c9c5b9a72d90869b1fc0ce29e846ff356f09d418cfac948c9592bdaa5ea15a",
+  "rates": [
+    0.95,
+    0.98,
+    0.99,
+    1.01,
+    1.03,
+    1.05,
+    1.1
+  ],
+  "second_pass_runs_sha256": "2c486b1791d032e15eb79b05e12e2fc5237473eeb80749c1ee8d1d1e7c054e7c",
+  "seeds": 5,
+  "simulator_module_sha256": {
+    "capacity.py": "a3c817b82254937d4de47998f9cd44fca218cbd160ba3af2be2fa8b3697c2643",
+    "capacity_gurobi.py": "ec6807952ffc8e03532566bf2e6961f5a9b6cd43250c66a91a4d4f79fa269846",
+    "interference.py": "207f6aca0e0e770727830df4db131fc6bd6f019028aef58f8a3e9203f25a4b7a",
+    "mapping.py": "0d257b58734a4ad46c673a21887e5c3750d83386423ca41f966e70a11326ef83",
+    "physical.py": "b95c673d853df4285ec85bc0ee437b02f022b29bc23527ebafbf0ffce0bc3edd",
+    "simulator.py": "08b0f29ec95c54b319987dbbe6fb181f84aeb9445a2eeadcf4970e4f50966596",
+    "virtual.py": "265b1b914c0e9b0710b411a2c61ffdf80d045b7b76b3c23eeca8158312b10a95",
+    "wireless.py": "6d6078efc8fe149fe4b82b58e45d0c9052b62bd48f5b61f594601f2041e57ecd"
+  },
+  "slope_cutoff": 0.05,
+  "slots": 100000
+}

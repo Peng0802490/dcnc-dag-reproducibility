@@ -1,0 +1,157 @@
+{
+  "service_chain_id": "report23_task1_env_twin_norm",
+  "version": "2026-04-30-report23-edge",
+  "description": "Report Sec. 2.3 task 1: collaborative environment perception and digital-twin update.",
+  "metadata": {
+    "source_document_section": "2.3 智能制造场景典型任务建模与需求刻画",
+    "task_type": "environment_perception_digital_twin",
+    "resource_units_raw": {
+      "communication": "Mb/s",
+      "computation": "GOPS/s"
+    },
+    "normalization": {
+      "communication": "xi = raw_mbps / COMM_NORM_MBPS",
+      "computation": "r = raw_gops / COMP_NORM_GOPS",
+      "COMM_NORM_MBPS": 122.9,
+      "COMP_NORM_GOPS": 54.01,
+      "scope": "global max normalization across the three report-2.3 DAGs"
+    },
+    "notes": [
+      "Ranges in the report were instantiated by representative midpoints unless a single value was given.",
+      "Source-node `in` denotes raw external input load; DAG-edge `xi` denotes post-stage logical traffic.",
+      "The simulator treats all `r`, `in`, `out`, and `xi` fields as unitless normalized loads."
+    ],
+    "substrate_workload_note": "Used with AI_RAN_SmartFactory_24 edge-end collaborative network, not Milan."
+  },
+  "nodes": [
+    {
+      "id": "src_rgbd_preprocess",
+      "type": "source",
+      "r": 0.001666,
+      "raw_compute_gops": 0.09,
+      "in": 1.0,
+      "raw_input_mbps": 122.9
+    },
+    {
+      "id": "src_lidar_preprocess",
+      "type": "source",
+      "r": 0.000555,
+      "raw_compute_gops": 0.03,
+      "in": 0.341334,
+      "raw_input_mbps": 41.95
+    },
+    {
+      "id": "src_status_input",
+      "type": "source",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "in": 0.000106,
+      "raw_input_mbps": 0.013
+    },
+    {
+      "id": "object_detection",
+      "type": "function",
+      "r": 0.999815,
+      "raw_compute_gops": 54.0
+    },
+    {
+      "id": "local_mapping_feature",
+      "type": "function",
+      "r": 0.00648,
+      "raw_compute_gops": 0.35
+    },
+    {
+      "id": "map_state_fusion",
+      "type": "function",
+      "r": 0.002222,
+      "raw_compute_gops": 0.12
+    },
+    {
+      "id": "digital_twin_update",
+      "type": "function",
+      "r": 5.6e-05,
+      "raw_compute_gops": 0.003
+    },
+    {
+      "id": "sink_twin_update",
+      "type": "sink",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "out": 0.019528,
+      "raw_output_mbps": 2.4
+    },
+    {
+      "id": "sink_status_broadcast",
+      "type": "sink",
+      "r": 1.9e-05,
+      "raw_compute_gops": 0.001,
+      "out": 0.006509,
+      "raw_output_mbps": 0.8
+    }
+  ],
+  "edges": [
+    {
+      "from": "src_rgbd_preprocess",
+      "to": "object_detection",
+      "xi": 0.799837,
+      "raw_mbps": 98.3,
+      "content": "RGB image or RGB-D detection input"
+    },
+    {
+      "from": "src_rgbd_preprocess",
+      "to": "local_mapping_feature",
+      "xi": 0.400325,
+      "raw_mbps": 49.2,
+      "content": "depth map / local RGB-D feature input"
+    },
+    {
+      "from": "src_lidar_preprocess",
+      "to": "local_mapping_feature",
+      "xi": 0.052482,
+      "raw_mbps": 6.45,
+      "content": "downsampled point cloud / obstacle feature"
+    },
+    {
+      "from": "object_detection",
+      "to": "map_state_fusion",
+      "xi": 0.027665,
+      "raw_mbps": 3.4,
+      "content": "object boxes/classes plus semantic grid summary"
+    },
+    {
+      "from": "local_mapping_feature",
+      "to": "map_state_fusion",
+      "xi": 0.058177,
+      "raw_mbps": 7.15,
+      "content": "local submap / occupancy fragment / fusion feature"
+    },
+    {
+      "from": "src_status_input",
+      "to": "map_state_fusion",
+      "xi": 0.000106,
+      "raw_mbps": 0.013,
+      "content": "pose and workstation state"
+    },
+    {
+      "from": "map_state_fusion",
+      "to": "digital_twin_update",
+      "xi": 0.052482,
+      "raw_mbps": 6.45,
+      "content": "fused map and environment state summary"
+    },
+    {
+      "from": "map_state_fusion",
+      "to": "sink_status_broadcast",
+      "xi": 0.026851,
+      "raw_mbps": 3.3,
+      "content": "environment status broadcast"
+    },
+    {
+      "from": "digital_twin_update",
+      "to": "sink_twin_update",
+      "xi": 0.019528,
+      "raw_mbps": 2.4,
+      "content": "digital-twin update result"
+    }
+  ]
+}

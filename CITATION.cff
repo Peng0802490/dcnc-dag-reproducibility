@@ -1,0 +1,35 @@
+cff-version: "1.2.0"
+message: >-
+  If you use this artifact, please cite the software and the associated paper.
+title: DCNC-DAG Reproducibility Artifact
+type: software
+version: "0.1.0"
+authors:
+  - given-names: Peng
+    family-names: Li
+  - given-names: Jianan
+    family-names: Zhang
+  - given-names: Jaime
+    family-names: Llorca
+  - given-names: Xinzhe
+    family-names: Fu
+  - given-names: Xiang
+    family-names: Cheng
+  - given-names: Chen
+    family-names: Chen
+preferred-citation:
+  type: article
+  title: Throughput-Optimal Control of Distributed Computing Networks for Service DAGs
+  authors:
+    - given-names: Peng
+      family-names: Li
+    - given-names: Jianan
+      family-names: Zhang
+    - given-names: Jaime
+      family-names: Llorca
+    - given-names: Xinzhe
+      family-names: Fu
+    - given-names: Xiang
+      family-names: Cheng
+    - given-names: Chen
+      family-names: Chen

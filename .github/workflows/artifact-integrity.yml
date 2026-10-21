@@ -1,0 +1,76 @@
+name: Artifact integrity
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out complete history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up the captured Python version
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.10.20"
+          cache: pip
+          cache-dependency-path: constraints-main.txt
+
+      - name: Install the pinned verification environment
+        run: |
+          python -m pip install pip==26.0.1 setuptools==82.0.1 wheel==0.46.3
+          python -m pip install --no-build-isolation --constraint constraints-main.txt --editable .
+
+      - name: Check the installed dependency graph
+        run: python -m pip check
+
+      - name: Verify the deterministic SPDX SBOM
+        run: python scripts/generate_sbom.py --check
+
+      - name: Verify integrity and publication safety
+        run: python scripts/maintain_artifact.py verify
+
+      - name: Recompute declared claims
+        run: python scripts/verify_claims.py
+
+      - name: Run artifact tests
+        run: python -m unittest discover -s tests -v
+
+      - name: Compile first-party Python sources
+        run: python -m compileall -q src scripts tools tests evidence legacy_inputs
+
+      - name: Parse maintained shell scripts
+        shell: bash
+        run: |
+          while IFS= read -r -d '' script; do
+            bash -n "$script"
+          done < <(
+            find . -type f -name '*.sh' \
+              -not -path './.git/*' \
+              -not -path './.runtime/*' \
+              -not -path './build/*' \
+              -not -path './dist/*' \
+              -not -path './results/*' \
+              -not -path './results_paper_edge/*' \
+              -print0
+          )
+
+      - name: Build and clean-room verify a candidate archive
+        run: python scripts/build_release_archive.py --candidate
+
+      - name: Require a formal archive for version tags
+        if: startsWith(github.ref, 'refs/tags/v')
+        run: |
+          python scripts/verify_claims.py --strict
+          python scripts/maintain_artifact.py verify --strict
+          python scripts/build_release_archive.py

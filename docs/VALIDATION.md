@@ -1,5 +1,34 @@
 # Validation record
 
+## Input-layout maintenance - 2026-10-21
+
+Validation target: artifact version `0.1.1`. This release preserves all
+v0.1.0 numerical evidence and reorganizes inputs only. CPython 3.10.20 passed:
+
+- All 42 tests, including eight input-layout/provenance regressions.
+- All 104 input migration records, 56 configurations and their references,
+  and byte identity of all 995 evidence files relative to v0.1.0.
+- Identical 100-slot workflow outputs using new and supported old paths,
+  plus a 100-slot Milan/Mixtral DCNC-DAG-H smoke run.
+- Eight random5/random6 configuration checks and all four topology/config
+  generators in an isolated temporary copy, without changing maintained inputs.
+- Strict claims, the explicitly supplied updated paper-project binding,
+  all 2047 maintained hashes, Git-history safety, SBOM/third-party checks,
+  source compilation, and `pip check`.
+- A formal prepublication snapshot: identical repeated archive builds,
+  clean-extraction strict checks and tests, and wheel build/install/import.
+
+The final committed archive and hosted tag run are checked separately before
+publication; its adjacent `.zip.json` records the completed build identity.
+The v0.1.0 ZIP retains SHA-256
+`b7d06f19dd02a61519798d90d1ad30100a69f746218504fbfd8981b0093da467`.
+The existing v0.1.0 release and manuscript reference remain unchanged.
+
+Known pre-existing limitation: the auxiliary `run_project_case.py` runner
+imports an unavailable `StaticMinCostSolver`, also present in v0.1.0. It is
+not runtime-validated here; this directory-only change does not modify the
+mapping algorithms. Workflow and MoE entry points passed the checks above.
+
 ## Formal release preparation - 2026-10-21
 
 Validation target: artifact version `0.1.0`. The corrected source ZIP is bound

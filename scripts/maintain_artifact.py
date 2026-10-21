@@ -684,7 +684,7 @@ def sanitize_imported_provenance() -> int:
 
 def normalize_first_party_line_endings() -> None:
     """Keep maintained first-party text byte-stable across operating systems."""
-    preserved_prefixes = ("evidence/", "inputs/", "legacy_inputs/", "third_party/")
+    preserved_prefixes = ("evidence/", "inputs/", "third_party/")
     for path in maintained_files():
         relative = rel(path)
         if relative.startswith(preserved_prefixes) or path.suffix.lower() not in TEXT_SUFFIXES:

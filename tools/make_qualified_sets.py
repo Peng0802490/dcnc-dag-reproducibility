@@ -20,7 +20,7 @@ import random
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1] / "legacy_inputs"
+ROOT = Path(__file__).resolve().parents[1] / "inputs" / "configs"
 
 
 def variant(src_cfg: str, frac: float, seed: int, suffix: str) -> str:

@@ -3,7 +3,7 @@
 topology: node and directed-arc capacities drawn uniformly from {2,...,10}.
 
 Section VII-A of the paper already states this model for all four topologies,
-but Network/Roofnet38_emulated.json and Network/FlockLab.json ship with every
+but inputs/topologies/Roofnet38_emulated.json and inputs/topologies/FlockLab.json ship with every
 capacity fixed at 1.0.  That is why those two subfigures are compressed into a
 tiny rate range and why the DCNC curves die almost immediately.  Only the
 capacities change; node set, arc set and the dynamic/p_on flags are untouched,
@@ -17,13 +17,13 @@ import random
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1] / "legacy_inputs"
+ROOT = Path(__file__).resolve().parents[1] / "inputs" / "configs"
 SEED = 20260719
 
 
 def rescale(src_name: str, dst_name: str, seed: int) -> None:
-    src = ROOT / "Network" / src_name
-    dst = ROOT / "Network" / dst_name
+    src = ROOT.parent / "topologies" / src_name
+    dst = ROOT.parent / "topologies" / dst_name
     net = json.loads(src.read_text(encoding="utf-8"))
     rng = random.Random(seed)
 
@@ -50,7 +50,7 @@ def derive_config(src_cfg: str, dst_cfg: str, new_net: str) -> None:
     src = ROOT / src_cfg
     cfg = json.loads(src.read_text(encoding="utf-8"))
     cfg = copy.deepcopy(cfg)
-    cfg["network"]["file"] = "Network/" + new_net
+    cfg["network"]["file"] = "../topologies/" + new_net
     (ROOT / dst_cfg).write_text(json.dumps(cfg, indent=2, ensure_ascii=False), encoding="utf-8")
     print("   config %-42s -> %s" % (src_cfg, dst_cfg))
 

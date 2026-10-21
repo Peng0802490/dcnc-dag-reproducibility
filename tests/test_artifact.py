@@ -283,7 +283,7 @@ class ArtifactTests(unittest.TestCase):
             "scripts/maintain_artifact.py verify",
             "scripts/verify_claims.py",
             "unittest discover -s tests -v",
-            "compileall -q src scripts tools tests evidence legacy_inputs",
+            "compileall -q src scripts tools tests evidence inputs",
             "bash -n",
             "scripts/build_release_archive.py --candidate",
         ):
@@ -316,7 +316,7 @@ class ArtifactTests(unittest.TestCase):
         self.assertEqual(decision["paper_alignment"], "verified-updated-latex-project")
         self.assertTrue(claims["release_ready"])
         self.assertTrue(decision["release_preparation_authorized"])
-        self.assertFalse(decision["public_release_authorized"])
+        self.assertTrue(decision["public_release_authorized"])
         self.assertEqual(claims["open_gates"], [])
         self.assertFalse(claims["paper_project"]["compiled_pdf_verified"])
 

@@ -11,7 +11,7 @@ from dcnc_sim.interference import build_activation_policy
 from dcnc_sim.mapping import DynVMPBridgeSolver, NearestToSourceSolver, QueueAwareGreedySolver, RandomSolver, StaticMinCostSolver
 from dcnc_sim.simulator import CommodityConfig, DCNCSimulator
 from dcnc_sim.wireless import IIDOnOffProcess
-from dcnc_sim.workloads import load_legacy_config
+from dcnc_sim.workloads import load_config
 
 from common import build_run_logger, close_logger, ensure_dir, save_dataframe, save_json
 
@@ -153,7 +153,7 @@ def main() -> None:
     rows = []
 
     try:
-        base_net, comms = load_legacy_config(args.config_file)
+        base_net, comms = load_config(args.config_file)
         dynamic_edges = _parse_edge_list(args.dynamic_edges, args.dynamic_edge_p_on)
         if not dynamic_edges:
             dynamic_edges = _dynamic_edges_from_metadata(base_net, args.dynamic_edge_p_on)

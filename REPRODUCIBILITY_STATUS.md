@@ -1,6 +1,6 @@
 # Reproducibility status
 
-Status date: 2026-10-21. Artifact version: `0.1.0`.
+Status date: 2026-10-21. Artifact version: `0.1.1`.
 The current authority is `DCNC_DAG_Table6_timing_updated_project.zip`, SHA-256
 `7e3e4d8f240ae000656c3de4371ec3d43bfaaf703416439afcfb234a820f2fb4`.
 The corrected Table 6 is verified in LaTeX source, not in a newly compiled PDF.

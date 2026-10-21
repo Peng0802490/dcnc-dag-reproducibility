@@ -12,7 +12,7 @@ and makes the four subfigures use one wireless model instead of two.
 import json
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1] / "legacy_inputs"
+ROOT = Path(__file__).resolve().parents[1] / "inputs" / "configs"
 
 
 def variant(cfg_name, net_out, cfg_out):
@@ -34,8 +34,8 @@ def variant(cfg_name, net_out, cfg_out):
     net["network_id"] = str(net.get("network_id", "")) + "-access"
     net.setdefault("metadata", {})["dynamic_model"] = (
         "only arcs incident to source/sink endpoints are dynamic (p_on=0.8)")
-    (ROOT / "Network" / net_out).write_text(json.dumps(net, indent=2), encoding="utf-8")
-    cfg["network"]["file"] = "Network/" + net_out
+    (ROOT.parent / "topologies" / net_out).write_text(json.dumps(net, indent=2), encoding="utf-8")
+    cfg["network"]["file"] = "../topologies/" + net_out
     (ROOT / cfg_out).write_text(json.dumps(cfg, indent=2), encoding="utf-8")
     print("%-42s endpoints=%-22s dynamic_arcs=%d/%d" %
           (cfg_out, sorted(endpoints), n, len(net["edges"])))

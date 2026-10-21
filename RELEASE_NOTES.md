@@ -1,4 +1,26 @@
-# DCNC-DAG reproducibility artifact v0.1.0
+# DCNC-DAG reproducibility artifact v0.1.1
+
+## Input-layout maintenance release
+
+This release reorganizes inputs without changing experimental results.
+Topologies, service DAGs, and configurations now live in `inputs/topologies/`,
+`inputs/dags/`, and `inputs/configs/`. Historical bundles and tutorials are
+retained in `inputs/archive/`; maintained utilities live in `tools/`.
+
+All 104 former `legacy_inputs/` files are accounted for in
+`manifests/input_layout.json`. Topology/DAG bytes and historical archives
+are preserved, and configuration values change only in their file references.
+All files under `evidence/` remain byte-identical to v0.1.0. Supported old
+config arguments continue to work; see [input layout](docs/INPUT_LAYOUT.md).
+
+The published [v0.1.0 release](https://github.com/Peng0802490/dcnc-dag-reproducibility/releases/tag/v0.1.0)
+and the existing manuscript link remain unchanged. This update does not
+claim a new experiment, a revised paper, or a verified compiled PDF.
+
+The auxiliary `run_project_case.py` runner retains its pre-existing missing
+`StaticMinCostSolver` import; it is not a runtime-validated entry point for
+this release. The workflow and MoE runners pass their smoke checks.
+
 
 MIT-licensed source and data artifact, aligned with the corrected LaTeX
 project. Formal archives pass strict verification before delivery.

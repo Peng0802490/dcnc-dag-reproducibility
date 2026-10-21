@@ -29,6 +29,20 @@ def run_key(row: dict) -> tuple:
     return row["model"], row["policy"], float(row["arrival_rate"]), int(row["seed"])
 
 
+def historical_source_bytes(root: Path, relative: str) -> bytes:
+    """Reverse only the declared v0.1.1 path edit before historical hashing."""
+    if relative == "legacy_inputs/Network/Milan.json":
+        return (root / "inputs/topologies/Milan.json").read_bytes()
+    content = (root / relative).read_bytes()
+    if relative == "scripts/run_skewed_moe_milan.py":
+        content = content.replace(
+            b'ROOT / "inputs" / "topologies" / "Milan.json"',
+            b'ROOT / "legacy_inputs" / "Network" / "Milan.json"',
+            1,
+        )
+    return content
+
+
 def verify_results(root: Path = ROOT) -> dict:
     base = root / "evidence/moe_censored"
     inventory = json.loads((base / "import_manifest.json").read_text(encoding="utf-8"))
@@ -48,7 +62,7 @@ def verify_results(root: Path = ROOT) -> dict:
     require(completion["completed_jobs"] == completion["expected_jobs"] == protocol["expected_jobs"] == 321, "MoE job count")
     require(protocol["horizon"] == 100000 and protocol["seeds"] == [0, 1, 2], "MoE horizon/seeds")
     for relative, expected in protocol["source_sha256"].items():
-        require(hashlib.sha256((root / relative).read_bytes()).hexdigest() == expected, f"MoE simulator source: {relative}")
+        require(hashlib.sha256(historical_source_bytes(root, relative)).hexdigest() == expected, f"MoE simulator source: {relative}")
     reference = root / "evidence/moe/figures/skewed_moe_completed_delay_plot_data.csv"
     require(hashlib.sha256(reference.read_bytes()).hexdigest() == protocol["reference_plot_csv_sha256"], "MoE reference grid hash")
     compatibility = base / "runtime_compatibility_server64.json"

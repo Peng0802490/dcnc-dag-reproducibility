@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build random topologies with real path diversity.
 
-The shipped Network/Random.json is a 50-node graph with 50 undirected links,
+The shipped inputs/topologies/Random.json is a 50-node graph with 50 undirected links,
 i.e. a spanning tree plus one edge (average degree 2, diameter 12).  With
 essentially one route between any pair, the choice of a valid mapping barely
 matters, which is why DCNC-DAG and DCNC-DAG-H coincide on Fig.3(b).
@@ -15,8 +15,8 @@ import json
 import random
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1] / "legacy_inputs"
-BASE = json.loads((ROOT / "Network" / "Random.json").read_text(encoding="utf-8"))
+ROOT = Path(__file__).resolve().parents[1] / "inputs" / "configs"
+BASE = json.loads((ROOT.parent / "topologies" / "Random.json").read_text(encoding="utf-8"))
 NODES = [str(n["id"]) for n in BASE["nodes"]]
 DYNAMIC = {("31", "7"), ("7", "31"), ("35", "3"), ("3", "35"), ("40", "7"), ("7", "40"),
            ("18", "30"), ("30", "18"), ("20", "28"), ("28", "20"), ("5", "46"), ("46", "5")}
@@ -61,7 +61,7 @@ def build(n_undirected: int, seed: int, name: str) -> None:
             "avg_degree": round(2.0 * len(undirected) / len(NODES), 2),
         },
     }
-    (ROOT / "Network" / (name + ".json")).write_text(json.dumps(net, indent=2), encoding="utf-8")
+    (ROOT.parent / "topologies" / (name + ".json")).write_text(json.dumps(net, indent=2), encoding="utf-8")
     print("%-22s undirected=%-4d arcs=%-4d avg_deg=%.2f min_deg=%d"
           % (name, len(undirected), len(edges), 2.0 * len(undirected) / len(NODES), min(deg.values())))
 
@@ -70,7 +70,7 @@ def build(n_undirected: int, seed: int, name: str) -> None:
         if not src.exists():
             continue
         cfg = json.loads(src.read_text(encoding="utf-8"))
-        cfg["network"]["file"] = "Network/%s.json" % name
+        cfg["network"]["file"] = "../topologies/%s.json" % name
         dst = ROOT / ("config_%s_%s.json" % (dagset, name))
         dst.write_text(json.dumps(cfg, indent=2), encoding="utf-8")
 

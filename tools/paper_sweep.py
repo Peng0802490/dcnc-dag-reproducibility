@@ -34,7 +34,7 @@ from dcnc_sim.mapping import (
 )
 from dcnc_sim.simulator import CommodityConfig, DCNCSimulator
 from dcnc_sim.wireless import IIDOnOffProcess
-from dcnc_sim.workloads import LEGACY_ROOT, load_legacy_config
+from dcnc_sim.workloads import CONFIG_ROOT, load_config
 
 # Ingress-adjacent arcs made dynamic on the two sparse topologies, exactly as in
 # scripts/run_edge_experiments.py.  The dense measured topologies (RoofNet,
@@ -65,11 +65,11 @@ def job_key(j: dict) -> str:
 def _load(config: str, p_on: float):
     if config in _CACHE:
         return _CACHE[config]
-    net, comms = load_legacy_config(config)
-    with (LEGACY_ROOT / config).open(encoding="utf-8") as f:
+    net, comms = load_config(config)
+    with (CONFIG_ROOT / config).open(encoding="utf-8") as f:
         cfg = json.load(f)
     net_file = str(cfg["network"]["file"])
-    with (LEGACY_ROOT / net_file).open(encoding="utf-8") as f:
+    with (CONFIG_ROOT / net_file).open(encoding="utf-8") as f:
         net_json = json.load(f)
 
     flagged = {(str(e["from"]), str(e["to"])): float(e.get("p_on", p_on))

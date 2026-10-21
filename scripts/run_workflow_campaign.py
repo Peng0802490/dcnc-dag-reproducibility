@@ -71,7 +71,7 @@ def run_job(job: dict) -> dict:
     cmd = [
         str(PYTHON),
         "scripts/run_workflow_case.py",
-        "--config", f"legacy_inputs/{job['config']}",
+        "--config", f"inputs/configs/{job['config']}",
         "--output-dir", str(output_dir),
         "--slots", job["slots"],
         "--seeds", "1",

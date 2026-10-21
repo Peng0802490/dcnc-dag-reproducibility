@@ -12,7 +12,7 @@ from dcnc_sim.mapping import DynVMPBridgeSolver, NearestToSourceSolver, QueueAwa
 from dcnc_sim.plotting import plot_delay_curve
 from dcnc_sim.simulator import CommodityConfig, DCNCSimulator
 from dcnc_sim.wireless import IIDOnOffProcess
-from dcnc_sim.workloads import LEGACY_ROOT, load_legacy_config
+from dcnc_sim.workloads import CONFIG_ROOT, load_config
 
 from common import build_run_logger, close_logger, ensure_dir, save_dataframe, save_json
 
@@ -33,10 +33,10 @@ DEFAULT_RATES = [0.005, 0.01, 0.02, 0.05, 0.1, 0.2]
 
 
 def dynamic_edges_from_config(config_name: str) -> dict[tuple[str, str], float]:
-    cfg_path = LEGACY_ROOT / config_name
+    cfg_path = CONFIG_ROOT / config_name
     with cfg_path.open("r", encoding="utf-8") as f:
         cfg = json.load(f)
-    network_path = LEGACY_ROOT / cfg["network"]["file"]
+    network_path = CONFIG_ROOT / cfg["network"]["file"]
     with network_path.open("r", encoding="utf-8") as f:
         net_json = json.load(f)
     dynamic: dict[tuple[str, str], float] = {}
@@ -77,7 +77,7 @@ def main() -> None:
     logger, log_path = build_run_logger("wireless_benchmark", out_dir, "wireless_benchmark")
     all_rows = []
     try:
-        net, comms = load_legacy_config(config_name)
+        net, comms = load_config(config_name)
         dynamic_edges = dynamic_edges_from_config(config_name)
         compute_nodes = _union_allowed_compute_nodes(comms, net)
         activation_policy = build_activation_policy(args.interference_model)

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.1.1 - 2026-10-21
+
+- Organize 13 topologies, 31 service DAGs, and 56 configurations under
+  `inputs/topologies/`, `inputs/dags/`, and `inputs/configs/`.
+- Retain historical bundles and tutorials in `inputs/archive/`; move maintained
+  input utilities into `tools/`. No experimental input or result is discarded.
+- Update runners, generators, workflow commands, provenance paths, and CI;
+  retain compatibility for old config arguments and `load_legacy_config`.
+- Add regression coverage and an auditable migration inventory. Topology/DAG
+  bytes and all experimental evidence are unchanged; configs change paths only.
+- Preserve the published v0.1.0 tag, attachments, and manuscript reference.
+
 ## 0.1.0 - 2026-10-20
 
 - Final preparation, 2026-10-21: verify the corrected LaTeX project against

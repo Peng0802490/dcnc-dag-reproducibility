@@ -4,20 +4,21 @@ import json
 from pathlib import Path
 from typing import Dict, List, Sequence, Tuple
 
+from .inputs import CONFIG_ROOT, resolve_config_path
 from .models import Commodity, DistributedComputingNetwork, ServiceDAG
 
 ROOT = Path(__file__).resolve().parents[2]
-LEGACY_ROOT = ROOT / "legacy_inputs"
+LEGACY_ROOT = CONFIG_ROOT
 
 
-def load_legacy_config(config_name: str) -> tuple[DistributedComputingNetwork, list[Commodity]]:
-    config_path = LEGACY_ROOT / config_name
+def load_config(config_name: str | Path) -> tuple[DistributedComputingNetwork, list[Commodity]]:
+    config_path = resolve_config_path(config_name)
     with config_path.open("r", encoding="utf-8") as f:
         cfg = json.load(f)
-    network = DistributedComputingNetwork.from_json(LEGACY_ROOT / cfg["network"]["file"])
+    network = DistributedComputingNetwork.from_json(config_path.parent / cfg["network"]["file"])
     commodities: list[Commodity] = []
     for idx, scfg in enumerate(cfg["service_dags"]):
-        dag = ServiceDAG.from_json(LEGACY_ROOT / scfg["file"])
+        dag = ServiceDAG.from_json(config_path.parent / scfg["file"])
         commodities.append(
             Commodity(
                 name=scfg.get("name", f"commodity_{idx}"),
@@ -29,6 +30,11 @@ def load_legacy_config(config_name: str) -> tuple[DistributedComputingNetwork, l
         )
     restrict_to_allowed_compute_nodes(network, commodities)
     return network, commodities
+
+
+def load_legacy_config(config_name: str | Path) -> tuple[DistributedComputingNetwork, list[Commodity]]:
+    """Compatibility entry point for configurations shipped before v0.1.1."""
+    return load_config(config_name)
 
 
 def restrict_to_allowed_compute_nodes(

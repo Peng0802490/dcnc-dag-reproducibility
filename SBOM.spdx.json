@@ -11,8 +11,8 @@
   "documentDescribes": [
     "SPDXRef-Package-dcnc-dag-sim"
   ],
-  "documentNamespace": "https://spdx.org/spdxdocs/dcnc-dag-reproducibility-0.1.0-57e3fc8cae0fc02fcd39",
-  "name": "dcnc-dag-sim-0.1.0",
+  "documentNamespace": "https://spdx.org/spdxdocs/dcnc-dag-reproducibility-0.1.1-740dc4fbaa0dea633d0b",
+  "name": "dcnc-dag-sim-0.1.1",
   "packages": [
     {
       "SPDXID": "SPDXRef-Package-dcnc-dag-sim",
@@ -22,7 +22,7 @@
       "externalRefs": [
         {
           "referenceCategory": "PACKAGE-MANAGER",
-          "referenceLocator": "pkg:pypi/dcnc-dag-sim@0.1.0",
+          "referenceLocator": "pkg:pypi/dcnc-dag-sim@0.1.1",
           "referenceType": "purl"
         }
       ],
@@ -31,7 +31,7 @@
       "licenseDeclared": "MIT",
       "name": "dcnc-dag-sim",
       "primaryPackagePurpose": "APPLICATION",
-      "versionInfo": "0.1.0"
+      "versionInfo": "0.1.1"
     },
     {
       "SPDXID": "SPDXRef-Package-pypi-contourpy",

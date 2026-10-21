@@ -1,21 +1,21 @@
 # DCNC-DAG GitHub 发布教程
 
 本教程把已核验的正式 release 包发布为一个可浏览源码、下载数据、运行
-自动检查的 GitHub 仓库，并创建 `v0.1.0` Release。准备包不等于自动上传：
+自动检查的 GitHub 仓库，并创建 `v0.1.1` Release。准备包不等于自动上传：
 下面的建仓、提交、推送及发布操作由仓库所有者执行。
 
 ## 1. 确认使用的是正式包
 
 在维护目录 `open_source_release` 下，正式交付文件放在
-`dist/github-release-20261021/`：
+`dist/github-release-v0.1.1/`：
 
 ```text
-github-release-20261021/
-  dcnc-dag-reproducibility-0.1.0.zip
-  dcnc-dag-reproducibility-0.1.0.zip.sha256
-  dcnc-dag-reproducibility-0.1.0.zip.json
+github-release-v0.1.1/
+  dcnc-dag-reproducibility-0.1.1.zip
+  dcnc-dag-reproducibility-0.1.1.zip.sha256
+  dcnc-dag-reproducibility-0.1.1.zip.json
   source/
-    dcnc-dag-reproducibility-0.1.0/
+    dcnc-dag-reproducibility-0.1.1/
       README.md
       LICENSE
       .github/
@@ -36,9 +36,9 @@ ZIP 是供 Release 附件下载的包，`source` 中的内层目录是供 Git �
 可以在交付文件所在目录执行下面的 PowerShell 检查：
 
 ```powershell
-Get-FileHash .\dcnc-dag-reproducibility-0.1.0.zip -Algorithm SHA256
-Get-Content .\dcnc-dag-reproducibility-0.1.0.zip.sha256
-Get-Content .\dcnc-dag-reproducibility-0.1.0.zip.json
+Get-FileHash .\dcnc-dag-reproducibility-0.1.1.zip -Algorithm SHA256
+Get-Content .\dcnc-dag-reproducibility-0.1.1.zip.sha256
+Get-Content .\dcnc-dag-reproducibility-0.1.1.zip.json
 ```
 
 两处 SHA-256 应一致，JSON 中应为 `candidate: false`、
@@ -65,7 +65,7 @@ Get-Content .\dcnc-dag-reproducibility-0.1.0.zip.json
 其他位置，直接进入解压后包含 `README.md` 的内层目录即可。
 
 ```powershell
-Set-Location .\dist\github-release-20261021\source\dcnc-dag-reproducibility-0.1.0
+Set-Location .\dist\github-release-v0.1.1\source\dcnc-dag-reproducibility-0.1.1
 Test-Path .\README.md
 Test-Path .\LICENSE
 Test-Path .\.github\workflows\artifact-integrity.yml
@@ -84,7 +84,7 @@ git diff --cached --stat
 如果仓库名称不同，也要同步修改 URL。
 
 ```powershell
-git commit -m "Release DCNC-DAG reproducibility artifact 0.1.0"
+git commit -m "Release DCNC-DAG reproducibility artifact 0.1.1"
 git remote add origin https://github.com/YOUR_NAME/dcnc-dag-reproducibility.git
 git push -u origin main
 ```
@@ -121,8 +121,8 @@ git push -u origin main
 同一个干净源码仓库执行：
 
 ```powershell
-git tag -a v0.1.0 -m "DCNC-DAG reproducibility artifact 0.1.0"
-git push origin v0.1.0
+git tag -a v0.1.1 -m "DCNC-DAG reproducibility artifact 0.1.1"
+git push origin v0.1.1
 ```
 
 回到 **Actions**，等待标签触发的检查通过。版本标签检查会额外要求
@@ -137,10 +137,10 @@ Public。这里不要误点删除仓库或转移所有权。
 
 进入 **Releases → Draft a new release**：
 
-1. 选择已创建的 `v0.1.0` 标签。
-2. Title 填 `DCNC-DAG reproducibility artifact v0.1.0`。
+1. 选择已创建的 `v0.1.1` 标签。
+2. Title 填 `DCNC-DAG reproducibility artifact v0.1.1`。
 3. 正文复制包内 `RELEASE_NOTES.md` 的内容，并预览相对链接是否正确。
-   若 Release 页面不能正确解析相对链接，改为该仓库 `blob/v0.1.0/` 下
+   若 Release 页面不能正确解析相对链接，改为该仓库 `blob/v0.1.1/` 下
    对应文件的完整链接；不要删掉源码核验范围的说明。
 4. 将 ZIP、`.zip.sha256`、`.zip.json` 三个文件一并拖到附件区域。
 5. 不选 pre-release；核对附件完整后点击 **Publish release**。
@@ -156,7 +156,7 @@ GitHub 自动生成的 `Source code (zip)` 和 `Source code (tar.gz)` 可以保�
 README、MIT License、引用信息，`evidence/` 数据及 `.github/` 工作流完整。
 从 Release 重新下载 ZIP，按第 1 节重新核对 SHA-256。
 
-仓库地址用于论文中的 code/data availability；Release 的 `v0.1.0` 地址
+仓库地址用于论文中的 code/data availability；Release 的 `v0.1.1` 地址
 用于引用固定版本。不要将新数据覆盖旧版本附件。未来更新应维护原始证据、
 修订版本信息、重新验证并发布 `v0.1.1` 等新版本。
 

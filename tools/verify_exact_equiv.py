@@ -47,7 +47,7 @@ def load_explicit_config(config_path):
     return net, commodities
 BRIDGE = ["bash", str(ROOT / "tools/run_dynvmp_bridge.sh")]
 N_STATES = int(sys.argv[2]) if len(sys.argv) > 2 else 10
-CONFIG = sys.argv[1] if len(sys.argv) > 1 else "legacy_inputs/config_driving_Milan.json"
+CONFIG = sys.argv[1] if len(sys.argv) > 1 else "inputs/configs/config_driving_Milan.json"
 
 
 def sample_state(net, rng, scale):

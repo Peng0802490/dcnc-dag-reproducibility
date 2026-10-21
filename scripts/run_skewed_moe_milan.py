@@ -32,7 +32,7 @@ from common import build_run_logger, close_logger, ensure_dir, save_dataframe
 
 import run_skewed_moe_case as moe
 
-MILAN_JSON = ROOT / "legacy_inputs" / "Network" / "Milan.json"
+MILAN_JSON = ROOT / "inputs" / "topologies" / "Milan.json"
 
 GPU_CAPABLE = ["4", "5", "7", "9", "14", "16", "17", "20", "21", "22", "30"]
 

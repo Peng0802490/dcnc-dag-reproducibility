@@ -6,6 +6,7 @@ import json
 import shlex
 from pathlib import Path
 
+from dcnc_sim.inputs import resolve_config_path
 from dcnc_sim.interference import build_activation_policy
 from dcnc_sim.mapping import (
     DynVMPBridgeSolver,
@@ -21,7 +22,7 @@ from dcnc_sim.workloads import restrict_to_allowed_compute_nodes
 
 
 def load_explicit_config(config_path: Path) -> tuple[DistributedComputingNetwork, list[Commodity]]:
-    config_path = config_path.resolve()
+    config_path = resolve_config_path(config_path)
     base = config_path.parent
     cfg = json.loads(config_path.read_text(encoding="utf-8"))
     net = DistributedComputingNetwork.from_json(base / cfg["network"]["file"])
@@ -66,7 +67,7 @@ def build_solver(policy: str, net: DistributedComputingNetwork, seed: int, args)
 
 def main() -> None:
     ap = argparse.ArgumentParser(description="Run the 24-node AI-RAN smart-factory case.")
-    ap.add_argument("--config", default="legacy_inputs/config_ai_ran_three_tasks.json")
+    ap.add_argument("--config", default="inputs/configs/config_ai_ran_three_tasks.json")
     ap.add_argument("--output-dir", default="results/project_case")
     ap.add_argument("--slots", type=int, default=400)
     ap.add_argument("--seeds", type=int, default=1)

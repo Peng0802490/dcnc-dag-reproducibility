@@ -11,7 +11,7 @@ from dcnc_sim.interference import build_activation_policy
 from dcnc_sim.mapping import DynVMPBridgeSolver, QueueAwareGreedySolver
 from dcnc_sim.simulator import CommodityConfig, DCNCSimulator
 from dcnc_sim.wireless import IIDOnOffProcess
-from dcnc_sim.workloads import load_legacy_config
+from dcnc_sim.workloads import load_config
 
 from common import build_run_logger, close_logger, ensure_dir, save_dataframe, save_json
 from run_edge_experiments import DEFAULT_CASES, PAPER_DYNAMIC_EDGES, _selected_rates, _union_allowed_compute_nodes
@@ -101,7 +101,7 @@ def main() -> None:
         for case_name in args.cases:
             spec = DEFAULT_CASES[case_name]
             case_dir = ensure_dir(out_dir / case_name)
-            net, comms = load_legacy_config(spec.config_file)
+            net, comms = load_config(spec.config_file)
             topology_key = "milan" if "milan" in case_name else "random"
             dynamic_edges = {e: spec.p_on for e in PAPER_DYNAMIC_EDGES[topology_key]}
             compute_nodes = _union_allowed_compute_nodes(comms, net)

@@ -6,6 +6,10 @@ tests, and hidden `.github/` files must remain together.
 
 Detailed Windows instructions in Chinese: [GITHUB_RELEASE_ZH.md](GITHUB_RELEASE_ZH.md).
 
+For an existing repository, commit the verified update normally and create
+the new `v0.1.1` tag. Do not reinitialize history, force-push, retag v0.1.0,
+replace its attachments, or change the manuscript's existing v0.1.0 link.
+
 ## Publication prerequisites
 
 The owner selected MIT and subsequently supplied the corrected Table 6 source
@@ -26,7 +30,7 @@ GitHub generate a different license or overwrite the included README.
 | Include | Purpose |
 |---|---|
 | `src/`, `scripts/`, `tools/` | Simulator, experiment runners, aggregation, plots, verification |
-| `inputs/`, `legacy_inputs/` | Fixed topology, workload, and protocol inputs |
+| `inputs/` | Organized topology, DAG, configuration, and protocol inputs |
 | `evidence/` | Paper-relevant per-run outputs, summaries, provenance, and corrections |
 | `third_party/`, `THIRD_PARTY.md` | Pinned dependencies and retained third-party rights notices |
 | Environment files and `pyproject.toml` | Installation and reproducible dependency versions |
@@ -63,7 +67,7 @@ git init -b main
 git add .
 git diff --cached --stat
 git status --short
-git commit -m "Release DCNC-DAG reproducibility artifact 0.1.0"
+git commit -m "Release DCNC-DAG reproducibility artifact 0.1.1"
 git remote add origin https://github.com/OWNER/dcnc-dag-reproducibility.git
 git push -u origin main
 ```
@@ -76,11 +80,11 @@ Git LFS for the current artifact.
 ## Create the GitHub release
 
 1. Wait for the `Artifact integrity` workflow on the source commit to pass.
-2. Re-run both strict commands above. Tag that verified commit `v0.1.0` and
+2. Re-run both strict commands above. Tag that verified commit `v0.1.1` and
    push only that tag. The tag workflow additionally requires a formal build.
 3. Wait for the tag workflow to pass; this is not automatic publication.
-4. In GitHub Releases, select `v0.1.0`, use title `DCNC-DAG reproducibility
-   artifact v0.1.0`, and paste the reviewed text from `RELEASE_NOTES.md`.
+4. In GitHub Releases, select `v0.1.1`, use title `DCNC-DAG reproducibility
+   artifact v0.1.1`, and paste the reviewed text from `RELEASE_NOTES.md`.
 5. Attach the formal `.zip`, its `.zip.sha256`, and its `.zip.json` together.
    Do not attach an old candidate or confuse GitHub's automatic source ZIP
    with the separately verified delivery archive.
@@ -96,10 +100,10 @@ subsequent release should be rebuilt from its own clean, reviewed commit.
 After extracting the ZIP, check its adjacent SHA-256 before running code:
 
 ```powershell
-Get-FileHash ./dcnc-dag-reproducibility-0.1.0.zip -Algorithm SHA256
+Get-FileHash ./dcnc-dag-reproducibility-0.1.1.zip -Algorithm SHA256
 ```
 
-On Linux, `sha256sum -c dcnc-dag-reproducibility-0.1.0.zip.sha256` performs
+On Linux, `sha256sum -c dcnc-dag-reproducibility-0.1.1.zip.sha256` performs
 the comparison directly. From the extracted directory, the claim and file
 verification commands use only Python's standard library; install the pinned
 environment before running tests or plotting.

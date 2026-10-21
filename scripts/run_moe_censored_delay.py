@@ -47,7 +47,7 @@ SOURCE_FILES = (
     "src/dcnc_sim/models.py",
     "src/dcnc_sim/interference.py",
     "src/dcnc_sim/wireless.py",
-    "legacy_inputs/Network/Milan.json",
+    "inputs/topologies/Milan.json",
 )
 
 

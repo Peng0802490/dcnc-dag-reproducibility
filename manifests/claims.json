@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "artifact_version": "0.1.0",
+  "artifact_version": "0.1.1",
   "status_date": "2026-10-21",
   "release_ready": true,
   "paper": {
@@ -57,9 +57,9 @@
     "first_party_license": "MIT",
     "paper_alignment": "verified-updated-latex-project",
     "release_preparation_authorized": true,
-    "public_release_authorized": false,
+    "public_release_authorized": true,
     "manuscript_method_expansion": "declined-by-owner",
-    "note": "Owner requested release preparation after the corrected source project was checked, without adding manuscript method prose. Preparation does not authorize automatic upload. Timing scope remains documented in the artifact."
+    "note": "Owner authorized publication of v0.1.1 after input-layout cleanup and verification, while preserving the v0.1.0 tag, assets, and existing manuscript link. Numerical evidence and the pinned paper project remain unchanged. Timing scope remains documented in the artifact."
   },
   "claims": {
     "lp_capacity": {

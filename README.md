@@ -149,7 +149,10 @@ comparison is in `evidence/table6/paper_update/`; its timing gate is closed.
 - `src/dcnc_sim/`: simulator implementation.
 - `scripts/`: experiment, aggregation, verification, and maintenance entry points.
 - `tools/`: exact mapping bridge and paper-data builders.
-- `legacy_inputs/`: network, DAG, and experiment configurations.
+- `inputs/topologies/`, `inputs/dags/`, `inputs/configs/`: fixed experiment inputs.
+- `inputs/command_csv/`: maintained experiment command matrices.
+- `inputs/archive/`: retained historical bundles and tutorials, not active inputs.
+- `docs/INPUT_LAYOUT.md`: v0.1.1 migration map and old-command compatibility.
 - `evidence/`: immutable raw/aggregated records used for paper claims.
 - `third_party/`: exact DynVMP dependency snapshots with retained licenses and
   dataset attribution; see `THIRD_PARTY.md` and `manifests/third_party.json`.

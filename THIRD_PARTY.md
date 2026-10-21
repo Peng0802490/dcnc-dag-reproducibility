@@ -50,14 +50,14 @@ creators.
 
 ### Workflow structure references
 
-`legacy_inputs/DAG/workflow_srasearch22.json` is a first-party service-DAG
+`inputs/dags/workflow_srasearch22.json` is a first-party service-DAG
 adaptation of `srasearch-chameleon-10a-004.json` from
 [wfcommons/WfInstances](https://github.com/wfcommons/WfInstances), whose
 repository is licensed under the GNU Lesser General Public License v3.0. The
 artifact keeps the public task/dependency pattern, while its service-function
 schema and normalized `r`/`xi` factors are DCNC-DAG transformations.
 
-`legacy_inputs/DAG/workflow_sipht31.json` is a first-party structural
+`inputs/dags/workflow_sipht31.json` is a first-party structural
 reconstruction of the public
 [Pegasus Workflow Gallery SIPHT Run 1](https://pegasus.isi.edu/workflow_gallery/gallery/sipht/index.php).
 Pegasus is distributed under the

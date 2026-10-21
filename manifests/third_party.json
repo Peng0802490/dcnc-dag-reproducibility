@@ -51,9 +51,9 @@
       "source_file_md5": "819ed76ca1680fc7857a82a62a50e830",
       "official_source_field": "https://zenodo.org/records/3354718",
       "derived_files": [
-        {"path": "legacy_inputs/Network/FlockLab.json", "sha256": "6d425ada18068504e5ec2d256f27e0cc9d2218fe3d946e2d2615c9409ae04b75"},
-        {"path": "legacy_inputs/Network/FlockLab_cap210.json", "sha256": "3d2ff44d25f257a04035717767817f17394b784a807cc8eba00e8eba3b519848"},
-        {"path": "legacy_inputs/Network/FlockLab_cap210_access.json", "sha256": "ce23a2a2e2f62b1928832ad3383c9bd755080e521c87517dd769b56019d1ee81"}
+        {"path": "inputs/topologies/FlockLab.json", "sha256": "6d425ada18068504e5ec2d256f27e0cc9d2218fe3d946e2d2615c9409ae04b75"},
+        {"path": "inputs/topologies/FlockLab_cap210.json", "sha256": "3d2ff44d25f257a04035717767817f17394b784a807cc8eba00e8eba3b519848"},
+        {"path": "inputs/topologies/FlockLab_cap210_access.json", "sha256": "ce23a2a2e2f62b1928832ad3383c9bd755080e521c87517dd769b56019d1ee81"}
       ]
     },
     "wfcommons_sra_search": {
@@ -63,7 +63,7 @@
       "metadata_source_workflow": "srasearch-chameleon-10a-004.json",
       "source_repository_license": "LGPL-3.0-only",
       "raw_source_redistributed": false,
-      "derived_file": "legacy_inputs/DAG/workflow_srasearch22.json",
+      "derived_file": "inputs/dags/workflow_srasearch22.json",
       "derived_sha256": "c910f9744ddca19ac5e78edd21a9049b4e671b56756a7cdbec3d23c8c73b8676"
     },
     "pegasus_sipht": {
@@ -74,7 +74,7 @@
       "upstream_project_license": "Apache-2.0",
       "license_scope_note": "The Gallery page does not separately label the archived run; this artifact does not redistribute that archive and uses only its task/dependency structure as a reference.",
       "raw_source_redistributed": false,
-      "derived_file": "legacy_inputs/DAG/workflow_sipht31.json",
+      "derived_file": "inputs/dags/workflow_sipht31.json",
       "derived_sha256": "b143a0398329e557b24253666df674946f1513c9b20499eb2e59ed9311e2f923"
     }
   }

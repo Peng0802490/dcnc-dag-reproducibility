@@ -2,11 +2,32 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from itertools import combinations
+import math
 from typing import Dict, Iterable, List, Mapping, MutableMapping, Optional, Sequence, Set, Tuple
 
 import networkx as nx
 
 from .models import DistributedComputingNetwork, Edge, NodeId
+
+
+def _integer_objective(edges, queues, capacities):
+    """Exact products of the supplied binary floats, on one integer scale.
+
+    Float denominators are powers of two. Scaling by their largest product
+    denominator preserves every objective comparison, including tiny gaps;
+    no fixed epsilon or floating-point matching tolerance is used.
+    """
+    ratios = {}
+    for edge in edges:
+        q = float(queues.get(edge, 0.0))
+        cap = float(capacities[edge])
+        if not math.isfinite(q) or q < 0 or not math.isfinite(cap) or cap < 0:
+            raise ValueError("activation queues and capacities must be finite and nonnegative")
+        qn, qd = q.as_integer_ratio()
+        cn, cd = cap.as_integer_ratio()
+        ratios[edge] = (qn * cn, qd * cd)
+    denominator = max((d for _, d in ratios.values()), default=1)
+    return {edge: n * (denominator // d) for edge, (n, d) in ratios.items()}
 
 
 @dataclass
@@ -23,6 +44,7 @@ class BaseActivationPolicy:
         network: DistributedComputingNetwork,
         q_link: Mapping[Edge, float],
         current_link_capacities: Mapping[Edge, float],
+        physical_backlog: Optional[Mapping[Edge, float]] = None,
     ) -> Set[Edge]:
         raise NotImplementedError
 
@@ -51,6 +73,7 @@ class NoInterferenceActivationPolicy(BaseActivationPolicy):
         network: DistributedComputingNetwork,
         q_link: Mapping[Edge, float],
         current_link_capacities: Mapping[Edge, float],
+        physical_backlog: Optional[Mapping[Edge, float]] = None,
     ) -> Set[Edge]:
         return self._normalized_on_edges(current_link_capacities)
 
@@ -79,20 +102,21 @@ class EnumeratedActivationPolicy(BaseActivationPolicy):
         network: DistributedComputingNetwork,
         q_link: Mapping[Edge, float],
         current_link_capacities: Mapping[Edge, float],
+        physical_backlog: Optional[Mapping[Edge, float]] = None,
     ) -> Set[Edge]:
         on_edges = self._normalized_on_edges(current_link_capacities)
         best_edges: Set[Edge] = set()
-        best_weight = -1.0
-        best_size = -1
+        virtual = _integer_objective(on_edges, q_link, current_link_capacities)
+        physical = _integer_objective(on_edges, physical_backlog or {}, current_link_capacities)
+        best_score = (-1, -1, -1)
         for candidate in self._normalized_sets:
             if not candidate.issubset(on_edges):
                 continue
-            weight = sum(float(q_link.get(e, 0.0)) * float(current_link_capacities.get(e, 0.0)) for e in candidate)
-            size = len(candidate)
-            if weight > best_weight + 1e-12 or (abs(weight - best_weight) <= 1e-12 and size > best_size):
+            score = (sum(virtual[e] for e in candidate),
+                     sum(physical[e] for e in candidate), len(candidate))
+            if score > best_score:
                 best_edges = set(candidate)
-                best_weight = weight
-                best_size = size
+                best_score = score
         return best_edges
 
     def enumerate_feasible_sets(
@@ -121,24 +145,32 @@ class PrimaryInterferenceActivationPolicy(BaseActivationPolicy):
         network: DistributedComputingNetwork,
         q_link: Mapping[Edge, float],
         current_link_capacities: Mapping[Edge, float],
+        physical_backlog: Optional[Mapping[Edge, float]] = None,
     ) -> Set[Edge]:
         on_edges = self._normalized_on_edges(current_link_capacities)
         if not on_edges:
             return set()
 
-        pair_best_directed: Dict[frozenset[NodeId], Tuple[Edge, float]] = {}
-        for edge in on_edges:
+        virtual = _integer_objective(on_edges, q_link, current_link_capacities)
+        physical = _integer_objective(on_edges, physical_backlog or {}, current_link_capacities)
+        # A one-unit primary gain dominates the TOTAL possible secondary
+        # weight. Cardinality is a third objective, only on exact double ties.
+        # Integer blossom therefore solves the lexicographic problem exactly.
+        secondary_base = sum(physical.values()) + 1
+        cardinality_base = len(on_edges) + 1
+        pair_best_directed: Dict[frozenset[NodeId], Tuple[Edge, int]] = {}
+        for edge in sorted(on_edges):
             u, v = edge
             pair = frozenset((u, v))
-            weight = float(q_link.get(edge, 0.0)) * float(current_link_capacities.get(edge, 0.0))
+            weight = (virtual[edge] * secondary_base + physical[edge]) * cardinality_base + 1
             best = pair_best_directed.get(pair)
-            if best is None or weight > best[1] + 1e-12:
+            if best is None or weight > best[1]:
                 pair_best_directed[pair] = (edge, weight)
 
         graph = nx.Graph()
         graph.add_nodes_from(network.nodes_all())
         for pair, (edge, weight) in pair_best_directed.items():
-            u, v = tuple(pair)
+            u, v = edge
             graph.add_edge(u, v, weight=weight)
 
         # We need the true max-weight matching induced by the queue weights.

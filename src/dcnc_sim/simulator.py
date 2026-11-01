@@ -130,7 +130,6 @@ class DCNCSimulator:
     logger: Optional[logging.Logger] = None
     run_label: str = ""
     progress_every: Optional[int] = None
-    activation_tie_break_eps: float = 1e-6
 
     # routing_mode="fixed_k" keeps the original implementation.  routing_mode
     # in {"async_refresh", "async"} enables runtime-aware asynchronous DynVMP
@@ -600,21 +599,14 @@ class DCNCSimulator:
             if self.routing_mode == "async_refresh":
                 self._maybe_launch_continuous_async_refreshes(t, cfg_by_key)
 
-            # Interference-aware link activation uses the same slot-start virtual
-            # backlogs q_link_start and the current ON/OFF link state.  To avoid
-            # pathological starvation when multiple schedules have the same
-            # virtual weight, break ties very slightly toward edges that already
-            # carry physical packets. This does not change decisions whenever the
-            # virtual weights differ.
+            # Maximize the slot-start virtual objective exactly. Physical
+            # backlog is a separate lexicographic objective among maximizers.
             edge_backlog_loads = self.physical_network.edge_backlog_loads()
-            activation_q_link = {
-                e: float(q_link_start.get(e, 0.0)) + self.activation_tie_break_eps * float(edge_backlog_loads.get(e, 0.0))
-                for e in self.network.edges_all()
-            }
             active_edges = self.activation_policy.select_active_edges(
                 self.network,
-                activation_q_link,
+                q_link_start,
                 self.physical_network.current_link_capacities,
+                physical_backlog=edge_backlog_loads,
             )
             self.physical_network.set_activated_edges(active_edges)
 

@@ -1,0 +1,23 @@
+{
+  "result": {
+    "experiment": "B",
+    "lambda": 0.8,
+    "seed": 6,
+    "policy": "FIFO",
+    "time": 10000000,
+    "cum_arrivals": 7999977,
+    "cum_completions": 6063423,
+    "incomplete_requests": 1936554,
+    "completed_throughput": 0.6063423,
+    "completion_ratio": 0.7579300540489053,
+    "unfinished_workload_total": 1038143.16,
+    "unfinished_workload_u1": 1038143.16,
+    "unfinished_workload_v1": 0.0,
+    "stage_A_count": 896985,
+    "stage_B_count": 0,
+    "stage_C_count": 0,
+    "stage_E_count": 0,
+    "stage_F_count": 0,
+    "stage_G_count": 1039569
+  }
+}

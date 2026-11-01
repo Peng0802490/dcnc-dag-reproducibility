@@ -1,0 +1,23 @@
+{
+  "result": {
+    "experiment": "B",
+    "lambda": 0.7,
+    "seed": 8,
+    "policy": "NTO",
+    "time": 10000000,
+    "cum_arrivals": 7001697,
+    "cum_completions": 7001691,
+    "incomplete_requests": 6,
+    "completed_throughput": 0.7001691,
+    "completion_ratio": 0.9999991430648885,
+    "unfinished_workload_total": 1.04,
+    "unfinished_workload_u1": 0.0,
+    "unfinished_workload_v1": 1.04,
+    "stage_A_count": 0,
+    "stage_B_count": 1,
+    "stage_C_count": 1,
+    "stage_E_count": 4,
+    "stage_F_count": 0,
+    "stage_G_count": 0
+  }
+}

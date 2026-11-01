@@ -444,6 +444,11 @@ class QueueAwareGreedySolver(BaseMappingSolver):
 
 
 class NearestToSourceSolver(BaseMappingSolver):
+    """CTS: greedy hop distance from already placed immediate predecessors.
+
+    A source function uses its fixed auxiliary source as predecessor. Queue
+    prices affect reported mapping cost only, never this placement decision.
+    """
     def compute(
         self,
         dag: ServiceDAG,
@@ -463,8 +468,8 @@ class NearestToSourceSolver(BaseMappingSolver):
                     val, _ = self.oracle.shortest_path(source_nodes[a], u, hop_cost)
                 else:
                     val = 0.0
-                    for s in source_nodes.values():
-                        d, _ = self.oracle.shortest_path(s, u, hop_cost)
+                    for pred in dag.delta_minus(a):
+                        d, _ = self.oracle.shortest_path(assign[pred], u, hop_cost)
                         val += d
                 if val < best_val:
                     best_val = val

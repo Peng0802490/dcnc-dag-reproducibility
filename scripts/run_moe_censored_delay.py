@@ -346,6 +346,14 @@ def plot(out: Path) -> None:
     plt.close(fig)
 
 
+def load_recorded_rates() -> dict:
+    jobs=json.loads((ROOT / "inputs/experiments.json").read_text())
+    return {model:{policy:sorted({j["params"]["rate"] for j in jobs
+                if j["kind"]=="moe_100000" and j["params"]["model"]==model
+                and j["params"]["policy"]==policy}) for policy in POLICIES}
+            for model in ("mixtral","llama")}
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
@@ -355,7 +363,7 @@ def main() -> None:
     parser.add_argument("--smoke", action="store_true")
     parser.add_argument("--memoize-routing", action="store_true")
     parser.add_argument("--plot-only", action="store_true")
-    parser.add_argument("--rates-csv", type=Path, default=ROOT / "evidence/moe/figures/skewed_moe_completed_delay_plot_data.csv")
+    parser.add_argument("--rates-csv", type=Path, default=None)
     parser.add_argument("--reuse-from", type=Path)
     parser.add_argument("--allow-compatible-runtime-reuse", action="store_true")
     parser.add_argument("--longest-first", action="store_true")
@@ -367,7 +375,7 @@ def main() -> None:
     if args.plot_only:
         plot(out)
         return
-    rates = load_rates(args.rates_csv) if args.rates_csv else RATES
+    rates = load_rates(args.rates_csv) if args.rates_csv else load_recorded_rates()
     out.mkdir(parents=True, exist_ok=True)
     for directory in ("runs", "progress", "pending_arrivals"):
         (out / directory).mkdir(exist_ok=True)

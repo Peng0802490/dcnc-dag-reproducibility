@@ -67,6 +67,11 @@ class PhysicalNetwork:
     current_link_capacities: Dict[Edge, float] = field(default_factory=dict)
     activated_edges: Set[Edge] = field(default_factory=set)
     _enqueue_seq: int = 0
+    # Objects remain in their workload queue while in service, including when
+    # a wireless link is OFF. Only completion releases the resource.
+    _link_in_service: Dict[Edge, LinkQueueItem] = field(default_factory=dict)
+    _node_in_service: Dict[NodeId, ComputeTask] = field(default_factory=dict)
+    _slot_completions: List[Tuple[str, Any]] = field(default_factory=list)
 
     delivered_packets: int = 0
     total_packets: int = 0
@@ -276,18 +281,19 @@ class PhysicalNetwork:
                 eligible = [i for i, item in enumerate(queue) if item.enqueue_seq <= cutoff]
                 if not eligible:
                     break
-                idx = self._select_index(queue, eligible)
+                active = self._link_in_service.get(edge)
+                idx = (next(i for i in eligible if queue[i] is active)
+                       if active is not None else self._select_index(queue, eligible))
                 item = queue[idx]
+                self._link_in_service[edge] = item
                 take = min(budget, item.size_remaining)
                 item.size_remaining -= take
                 budget -= take
                 if item.size_remaining <= 1e-12:
                     item.finish_edge()
                     queue.pop(idx)
-                    if item.is_path_done():
-                        self._on_path_end(item)
-                    else:
-                        self._enqueue_link_item(item)
+                    del self._link_in_service[edge]
+                    self._slot_completions.append(("link", item))
 
     def _serve_nodes_one_slot(self) -> None:
         start_cutoff = {node: max((task.enqueue_seq for task in queue), default=0) for node, queue in self.node_queues.items()}
@@ -298,51 +304,46 @@ class PhysicalNetwork:
                 eligible = [i for i, task in enumerate(queue) if task.enqueue_seq <= cutoff]
                 if not eligible:
                     break
-                idx = self._select_index(queue, eligible)
+                active = self._node_in_service.get(node)
+                idx = (next(i for i in eligible if queue[i] is active)
+                       if active is not None else self._select_index(queue, eligible))
                 task = queue[idx]
+                self._node_in_service[node] = task
                 take = min(budget, task.size_remaining)
                 task.size_remaining -= take
                 budget -= take
                 if task.size_remaining <= 1e-12:
                     queue.pop(idx)
                     task.finish_processing()
-                    dag = task.dag
-                    mapping = task.mapping
-                    hop_now = task.hop
-                    for succ in dag.delta_plus(task.func):
-                        path = mapping.path_for((task.func, succ))
-                        flow = dag.xi(task.func, succ)
-                        item = LinkQueueItem(
-                            commodity_name=task.commodity_name,
-                            job_id=task.job_id,
-                            edge_key=(task.func, succ),
-                            path=path,
-                            path_index=0,
-                            flow_size=flow,
-                            size_remaining=flow,
-                            hop=hop_now,
-                            enqueue_seq=0,
-                        )
-                        self._enqueue_link_item(item)
-                    if task.func in dag.sinks():
-                        path = mapping.path_for((task.func, ("D", task.func)))
-                        flow = dag.xi_sink()[task.func]
-                        item = LinkQueueItem(
-                            commodity_name=task.commodity_name,
-                            job_id=task.job_id,
-                            edge_key=(task.func, ("D", task.func)),
-                            path=path,
-                            path_index=0,
-                            flow_size=flow,
-                            size_remaining=flow,
-                            hop=hop_now,
-                            enqueue_seq=0,
-                        )
-                        self._enqueue_link_item(item)
+                    del self._node_in_service[node]
+                    self._slot_completions.append(("node", task))
+
+    def _release_completed_task(self, task: ComputeTask) -> None:
+        dag, mapping = task.dag, task.mapping
+        outputs = [(succ, dag.xi(task.func, succ)) for succ in dag.delta_plus(task.func)]
+        if task.func in dag.sinks():
+            outputs.append((("D", task.func), dag.xi_sink()[task.func]))
+        for successor, flow in outputs:
+            item = LinkQueueItem(
+                commodity_name=task.commodity_name, job_id=task.job_id,
+                edge_key=(task.func, successor),
+                path=mapping.path_for((task.func, successor)), path_index=0,
+                flow_size=flow, size_remaining=flow, hop=task.hop, enqueue_seq=0,
+            )
+            self._enqueue_link_item(item)
 
     def serve_one_slot(self) -> None:
         self._serve_links_one_slot()
         self._serve_nodes_one_slot()
+        # Both phases see only pre-service objects. Release successors after
+        # BOTH phases, resolving empty paths without performing extra service.
+        # These objects are eligible at the beginning of the next slot.
+        completions, self._slot_completions = self._slot_completions, []
+        for kind, item in completions:
+            if kind == "link":
+                self._enqueue_link_item(item)
+            else:
+                self._release_completed_task(item)
 
     def total_backlog(self) -> int:
         waiting = sum(len(tbl) for tbl in self.wait_pools.values())

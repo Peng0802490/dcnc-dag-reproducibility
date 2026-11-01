@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Uniform sweep driver for the topology-level delay curves (Figs. 3-5).
 
-One process per (case, policy, T_f, seed, rate) point, run in-process rather
+One process per (case, policy, F, seed, rate) point, run in-process rather
 than as a subprocess so that thousands of points fit in minutes on 128 cores.
 Every policy in a figure sees the same network, DAG set, slot count, seeds and
 rate grid; the valid-mapping rule is the only thing that differs, which is the
@@ -15,15 +15,15 @@ from __future__ import annotations
 
 import argparse
 import json
-import os
 import sys
 import time
 import traceback
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
-sys.path.insert(0, os.path.expanduser("~/dcnc_dag_py3/src"))
-sys.path.insert(0, os.path.expanduser("~/dcnc_dag_py3/scripts"))
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
 
 from dcnc_sim.interference import build_activation_policy
 from dcnc_sim.mapping import (

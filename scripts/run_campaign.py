@@ -1,0 +1,365 @@
+"""Resumable remote formal campaign using the original experiment entry points.
+
+Run on a Linux server; DCNC_CAMPAIGN optionally sets a new output directory.
+Only per-job output and passive observations are added; Table 6 is untouched.
+"""
+from __future__ import annotations
+import os
+for name in ("OPENBLAS_NUM_THREADS", "OMP_NUM_THREADS", "MKL_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
+    os.environ[name] = "1"
+os.environ["PYTHONHASHSEED"] = "0"
+os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
+import argparse
+from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, wait, FIRST_COMPLETED
+import contextlib
+import csv
+import datetime
+import hashlib
+import importlib
+import json
+from pathlib import Path
+import platform
+import shutil
+import socket
+import subprocess
+import sys
+import time
+import traceback
+
+PROJECT = Path(__file__).resolve().parents[1]
+BASE = Path(os.environ.get("DCNC_CAMPAIGN", str(PROJECT / "results/campaign"))).resolve()
+RESULTS = BASE / "results"
+for folder in ("src", "scripts", "tools"):
+    sys.path.insert(0, str(PROJECT / folder))
+
+
+def now():
+    return datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+
+def sha(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def write_json(path, data):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temp = path.with_suffix(path.suffix + ".tmp")
+    temp.write_text(json.dumps(data, indent=2, allow_nan=True) + "\n", encoding="utf-8")
+    temp.replace(path)
+
+
+def read_csv(path):
+    with path.open(encoding="utf-8-sig", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def write_csv(path, rows):
+    path.parent.mkdir(parents=True, exist_ok=True)
+    keys = list(dict.fromkeys(k for row in rows for k in row))
+    with path.open("w", encoding="utf-8", newline="") as f:
+        w = csv.DictWriter(f, fieldnames=keys)
+        w.writeheader()
+        w.writerows(rows)
+
+
+def protocol():
+    import numpy, networkx
+    paths = [p for directory in ("src", "scripts", "tools", "inputs", "scripts/fifo")
+             for p in (PROJECT / directory).rglob("*") if p.is_file() and p.suffix in (".py", ".json")]
+    source_hashes = {p.relative_to(PROJECT).as_posix(): sha(p) for p in sorted(paths)}
+    payload = dict(source_sha256=source_hashes, jobs_sha256=sha(BASE / "jobs.json"),
+                   runner_sha256=sha(Path(__file__)), helper_sha256=sha(PROJECT / "scripts/campaign_cache.py"),
+                   runtime=dict(python=platform.python_version(), numpy=numpy.__version__, networkx=networkx.__version__,
+                                platform=platform.platform(), host=socket.gethostname(), pythonhashseed="0"),
+                   excluded="Table 6")
+    payload["protocol_id"] = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
+    target = BASE / "protocol.json"
+    if target.exists():
+        assert json.loads(target.read_text()) == payload, "Code, input, runtime or run matrix changed. Use a separate campaign directory."
+    else:
+        write_json(target, payload)
+    return payload
+
+
+def observe_runs(directory, job, context):
+    """Observe without altering the order of simulator events or RNG calls."""
+    from dcnc_sim.simulator import DCNCSimulator
+    import campaign_cache
+    original_run = DCNCSimulator.run
+
+    def observed(sim):
+        physical = sim.physical_network
+        if job["params"].get("solver") == "cts" or job["params"].get("policy") == "CTS":
+            for cfg in sim.commodity_cfgs:
+                campaign_cache.cache_cts_hop_paths(cfg.solver)
+                campaign_cache.cache_cts_assignment(cfg.solver)
+        if job["kind"] == "workflow":
+            campaign_cache.cache_static_activation(sim.activation_policy, sim.network)
+        arrival_hash, wireless_hash = hashlib.sha256(), hashlib.sha256()
+        sample_arrivals = sim._sample_arrivals
+        sample_wireless = sim.wireless_process.sample_capacities
+        serve = physical.serve_one_slot
+        checks, partial_max, last_write = [], 0, time.monotonic()
+
+        def arrivals(rate):
+            n = sample_arrivals(rate)
+            arrival_hash.update(str(n).encode() + b",")
+            return n
+
+        def wireless(slot):
+            caps = sample_wireless(slot)
+            wireless_hash.update(json.dumps(sorted(caps.items()), separators=(",", ":")).encode())
+            return caps
+
+        def service():
+            nonlocal partial_max, last_write
+            serve()
+            slot = physical.current_time + 1
+            if slot % max(1, sim.total_slots // 20) == 0 or slot == sim.total_slots:
+                partial = max([0] + [sum(1 for x in q if 1e-10 < x.size_remaining < x.flow_size - 1e-10) for q in physical.link_queues.values()]
+                              + [sum(1 for x in q if 1e-10 < x.size_remaining < x.dag.r(x.func) - 1e-10) for q in physical.node_queues.values()])
+                partial_max = max(partial_max, partial)
+                assert partial <= 1, "More than one partially served object on a resource"
+                checks.append(dict(slot=slot, generated_requests=sim._generated_service_units,
+                                   completed_requests=physical.completed_service_units,
+                                   incomplete_requests=sim._generated_service_units - physical.completed_service_units,
+                                   partial_max=partial))
+            if time.monotonic() - last_write >= 15 or slot == sim.total_slots:
+                write_json(directory / "progress.json", dict(job_id=job["id"], slot=slot, slots=sim.total_slots, updated_utc=now()))
+                last_write = time.monotonic()
+
+        sim._sample_arrivals = arrivals
+        sim.wireless_process.sample_capacities = wireless
+        physical.serve_one_slot = service
+        stats = original_run(sim)
+        scalar = {k: v for k, v in vars(stats).items() if isinstance(v, (float, int, str, bool))}
+        assert stats.total_packets == stats.delivered_packets + stats.pending_packets
+        assert stats.total_service_units == stats.completed_service_units + stats.pending_service_units
+        context.update(stats=scalar, audit=dict(arrival_trace_sha256=arrival_hash.hexdigest(),
+                       wireless_trace_sha256=wireless_hash.hexdigest(), wireless_trace_scope="run loop, excluding construction sample",
+                       checkpoint_max_partial_per_resource=partial_max, checkpoints=checks,
+                       completed_request_delay_sum=physical.service_delay_sum_completed,
+                       pending_registered_request_age_sum=sum(sim.total_slots - born for born in physical.job_born_time.values())))
+        return stats
+
+    DCNCSimulator.run = observed
+
+
+def invoke_main(module, args):
+    sys.argv = [module.__file__, *map(str, args)]
+    module.main()
+
+
+def worker(job, root=RESULTS, native=False):
+    info = json.loads((BASE / "protocol.json").read_text())
+    directory = root / "runs" / job["id"]
+    directory.mkdir(parents=True, exist_ok=True)
+    path = directory / "result.json"
+    if path.exists():
+        prior = json.loads(path.read_text())
+        assert prior["protocol_id"] == info["protocol_id"] and prior["job"] == job and prior["native_validation"] == native
+        return prior
+    context = {}
+    if not native:
+        observe_runs(directory, job, context)
+    p, kind = job["params"], job["kind"]
+    started = time.monotonic()
+    with (directory / "worker.log").open("w") as log, contextlib.redirect_stdout(log), contextlib.redirect_stderr(log):
+        if kind in ("main", "frames"):
+            import paper_sweep
+            result = paper_sweep.run_one(p)
+            if result["status"] != "ok":
+                raise RuntimeError(result)
+        elif kind == "workflow":
+            import run_workflow_case as runner
+            invoke_main(runner, ["--config", PROJECT / "inputs/configs" / p["config"], "--output-dir", directory,
+                                "--slots", p["slots"], "--seeds", 1, "--seed-start", p["seed"], "--rate", p["rate"],
+                                "--policy", p["policy"], "--fixed-k", p["fixed_k"], "--interference-model", "primary", "--progress-every", 1000000])
+            result, = read_csv(directory / "workflow_case_results.csv")
+        elif kind == "moe_50000":
+            import run_skewed_moe_milan as runner
+            invoke_main(runner, ["--workload", p["model"] + "_skewed_pr_multitenant", "--policy", p["policy"],
+                                "--rate", p["rate"], "--seed", p["seed"], "--slots", p["slots"], "--fixed-k", p["fixed_k"],
+                                "--tenant-a-fraction", .6, "--interference-model", "primary", "--output-dir", directory, "--progress-every", 1000000])
+            result, = read_csv(directory / "moe_milan_result.csv")
+        elif kind == "moe_100000":
+            import run_moe_censored_delay as runner
+            for name in ("runs", "pending_arrivals", "progress"):
+                (directory / name).mkdir(exist_ok=True)
+            result = runner.run_one(dict(model=p["model"], policy=p["policy"], arrival_rate=p["rate"], seed=p["seed"],
+                                        horizon=p["slots"], output=str(directory), protocol_id=info["protocol_id"], memoize_routing=True))
+        elif kind == "capacity":
+            import run_new_7_2_wireless_mixed_mapping as runner
+            result = runner.run_one((p["slots"], p["policy"], p["rate"], p["seed"], p.get("metric_mode", "incremental")))
+        elif kind == "fifo":
+            sys.path.insert(0, str(PROJECT / "scripts/fifo"))
+            import run_backlog_experiments as runner
+            rows = runner.one_run((p["experiment"], p["rate"], p["seed"], p["policy"], p["slots"], p["sample_every"]))
+            with (directory / "trajectory.csv").open("w", newline="") as f:
+                w = csv.writer(f)
+                w.writerow(runner.COLS)
+                w.writerows(rows)
+            result = dict(zip(runner.COLS, rows[-1]))
+            assert int(result["cum_arrivals"]) == int(result["cum_completions"]) + int(result["incomplete_requests"])
+        else:
+            raise ValueError(kind)
+    row = dict(protocol_id=info["protocol_id"], job=job, native_validation=native, result=result, **context,
+               host=socket.gethostname(), completed_utc=now(), elapsed_seconds=time.monotonic() - started)
+    write_json(path, row)
+    return row
+
+
+def subprocess_job(job, root=RESULTS, native=False):
+    args = [sys.executable, str(Path(__file__)), "--worker", json.dumps(job), "--output", str(root)]
+    if native:
+        args.append("--native")
+    directory = root / "runs" / job["id"]
+    directory.mkdir(parents=True, exist_ok=True)
+    with (directory / "process.log").open("a") as log:
+        proc = subprocess.run(args, stdout=log, stderr=subprocess.STDOUT, env=os.environ.copy())
+    if proc.returncode:
+        raise RuntimeError(f"{job['id']} exited {proc.returncode}; see {directory / 'process.log'}")
+    return json.loads((directory / "result.json").read_text())
+
+
+def consolidate(jobs, info):
+    """Create complete raw exports and per-group summaries after every job succeeds."""
+    import pandas as pd
+    grouped = {}
+    for job in jobs:
+        row = json.loads((RESULTS / "runs" / job["id"] / "result.json").read_text())
+        assert row["protocol_id"] == info["protocol_id"] and row["job"] == job
+        grouped.setdefault(job["kind"], []).append(row)
+    destination = RESULTS / "exports"
+    destination.mkdir(exist_ok=True)
+    for kind, rows in grouped.items():
+        native = [dict(r["result"]) for r in rows]
+        write_csv(destination / kind / "runs.csv", native)
+        if kind in ("main", "frames"):
+            with (destination / kind / "runs.jsonl").open("w") as f:
+                for r in native:
+                    f.write(json.dumps(r) + "\n")
+            df = pd.DataFrame(native)
+            summary = df.groupby(["case", "policy", "solver", "fixed_k", "rate"], as_index=False).agg(
+                seeds=("seed", "size"), avg_delay_completed=("avg_delay_completed", "mean"),
+                delay_se=("avg_delay_completed", "sem"), completion_ratio=("completion_ratio", "mean"))
+            summary.to_csv(destination / kind / "summary.csv", index=False)
+        elif kind == "workflow":
+            df = pd.DataFrame(native)
+            for key in ("avg_delay_completed", "job_completion_ratio", "total_arrival_rate"):
+                df[key] = pd.to_numeric(df[key])
+            df.groupby(["workflow", "policy", "total_arrival_rate"], as_index=False).agg(
+                seeds=("seed", "size"), avg_delay_completed=("avg_delay_completed", "mean"),
+                delay_se=("avg_delay_completed", "sem"), completion_ratio=("job_completion_ratio", "mean")).to_csv(destination / kind / "summary.csv", index=False)
+        elif kind.startswith("moe_"):
+            df = pd.DataFrame(native)
+            for key in ("mean_completion_delay", "completion_ratio", "arrival_rate"):
+                df[key] = pd.to_numeric(df[key])
+            agg = dict(seeds=("seed", "size"), avg_delay_completed=("mean_completion_delay", "mean"),
+                       delay_se=("mean_completion_delay", "sem"), completion_ratio=("completion_ratio", "mean"))
+            if kind == "moe_100000":
+                agg["mean_lower_bound"] = ("mean_service_delay_lower_bound", "mean")
+            df.groupby(["model", "policy", "arrival_rate"], as_index=False).agg(**agg).to_csv(destination / kind / "summary.csv", index=False)
+        elif kind == "capacity":
+            import run_new_7_2_wireless_mixed_mapping as runner
+            df = pd.DataFrame(native)
+            runner.verify_paired_arrivals(df)
+            runner.summarize_runs(df).to_csv(destination / kind / "summary.csv", index=False)
+        elif kind == "fifo":
+            data = destination / kind / "data"
+            data.mkdir(exist_ok=True)
+            for experiment in ("A", "B"):
+                with (data / f"experiment_{experiment}_raw_trajectories.csv").open("w", newline="") as target:
+                    writer = csv.writer(target)
+                    first = True
+                    for row in rows:
+                        if row["job"]["params"]["experiment"] != experiment:
+                            continue
+                        p = RESULTS / "runs" / row["job"]["id"] / "trajectory.csv"
+                        with p.open(newline="") as f:
+                            reader = csv.reader(f)
+                            header = next(reader)
+                            if first:
+                                writer.writerow(header)
+                                first = False
+                            writer.writerows(reader)
+            env = dict(os.environ, DCNC_FIFO_DATA_DIR=str(data.resolve()))
+            subprocess.run([sys.executable, str(PROJECT / "scripts/aggregate_backlog.py")], env=env, check=True)
+    write_json(RESULTS / "completion.json", dict(status="complete", jobs=len(jobs), counts={k: len(v) for k, v in grouped.items()},
+               protocol_id=info["protocol_id"], completed_utc=now(), note="Simulation and raw aggregation complete. Paper figure/package replacement still requires validation."))
+
+
+def coordinate(workers):
+    import fcntl
+    RESULTS.mkdir(exist_ok=True)
+    lock = (BASE / "campaign.lock").open("w")
+    fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+    info = protocol()
+    jobs = json.loads((BASE / "jobs.json").read_text())
+    done, pending_jobs = [], []
+    for job in jobs:
+        file = RESULTS / "runs" / job["id"] / "result.json"
+        if file.exists():
+            row = json.loads(file.read_text())
+            assert row["protocol_id"] == info["protocol_id"] and row["job"] == job
+            done.append(job)
+        else:
+            pending_jobs.append(job)
+    active, attempts, failed = {}, Counter(), []
+    start = time.monotonic()
+    with ThreadPoolExecutor(max_workers=96) as pool:
+        while pending_jobs or active:
+            config = BASE / "workers.txt"
+            limit = max(1, min(96, int(config.read_text().strip()) if config.exists() else workers))
+            while pending_jobs and len(active) < limit:
+                job = pending_jobs.pop(0)
+                attempts[job["id"]] += 1
+                active[pool.submit(subprocess_job, job)] = job
+            finished, _ = wait(active, timeout=10, return_when=FIRST_COMPLETED)
+            for future in finished:
+                job = active.pop(future)
+                try:
+                    future.result()
+                    done.append(job)
+                    print(now(), "DONE", len(done), "/", len(jobs), job["kind"], job["id"], flush=True)
+                except Exception as exc:
+                    print(now(), "ERROR", job["id"], repr(exc), flush=True)
+                    if attempts[job["id"]] < 2:
+                        pending_jobs.append(job)
+                    else:
+                        failed.append(dict(job=job, error=repr(exc)))
+            write_json(RESULTS / "status.json", dict(status="running", protocol_id=info["protocol_id"],
+                       updated_utc=now(), elapsed_seconds=time.monotonic() - start, total=len(jobs), completed=len(done),
+                       active=len(active), queued=len(pending_jobs), failed=len(failed), workers=limit,
+                       completed_by_kind=dict(Counter(j["kind"] for j in done)), active_jobs=[j["id"] for j in active.values()]))
+    if failed:
+        write_json(RESULTS / "failures.json", failed)
+        write_json(RESULTS / "status.json", dict(status="incomplete", completed=len(done), total=len(jobs), failed=len(failed), updated_utc=now()))
+        raise RuntimeError(f"{len(failed)} jobs failed; successful runs are resumable")
+    consolidate(jobs, info)
+    write_json(RESULTS / "status.json", dict(status="complete", completed=len(done), total=len(jobs), failed=0, updated_utc=now()))
+    print("ALL_FORMAL_SIMULATIONS_COMPLETE", flush=True)
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument("--worker")
+    p.add_argument("--output", type=Path, default=RESULTS)
+    p.add_argument("--native", action="store_true")
+    p.add_argument("--workers", type=int, default=64)
+    p.add_argument("--initialize", action="store_true")
+    args = p.parse_args()
+    BASE.mkdir(parents=True, exist_ok=True)
+    if not (BASE / "jobs.json").exists():
+        shutil.copy2(PROJECT / "inputs/experiments.json", BASE / "jobs.json")
+    if args.worker:
+        worker(json.loads(args.worker), args.output, args.native)
+    elif args.initialize:
+        print(json.dumps(protocol(), indent=2))
+    else:
+        coordinate(args.workers)
+
+
+if __name__ == "__main__":
+    main()

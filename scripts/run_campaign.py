@@ -223,71 +223,15 @@ def subprocess_job(job, root=RESULTS, native=False):
     return json.loads((directory / "result.json").read_text())
 
 
-def consolidate(jobs, info):
-    """Create complete raw exports and per-group summaries after every job succeeds."""
-    import pandas as pd
-    grouped = {}
-    for job in jobs:
-        row = json.loads((RESULTS / "runs" / job["id"] / "result.json").read_text())
-        assert row["protocol_id"] == info["protocol_id"] and row["job"] == job
-        grouped.setdefault(job["kind"], []).append(row)
-    destination = RESULTS / "exports"
-    destination.mkdir(exist_ok=True)
-    for kind, rows in grouped.items():
-        native = [dict(r["result"]) for r in rows]
-        write_csv(destination / kind / "runs.csv", native)
-        if kind in ("main", "frames"):
-            with (destination / kind / "runs.jsonl").open("w") as f:
-                for r in native:
-                    f.write(json.dumps(r) + "\n")
-            df = pd.DataFrame(native)
-            summary = df.groupby(["case", "policy", "solver", "fixed_k", "rate"], as_index=False).agg(
-                seeds=("seed", "size"), avg_delay_completed=("avg_delay_completed", "mean"),
-                delay_se=("avg_delay_completed", "sem"), completion_ratio=("completion_ratio", "mean"))
-            summary.to_csv(destination / kind / "summary.csv", index=False)
-        elif kind == "workflow":
-            df = pd.DataFrame(native)
-            for key in ("avg_delay_completed", "job_completion_ratio", "total_arrival_rate"):
-                df[key] = pd.to_numeric(df[key])
-            df.groupby(["workflow", "policy", "total_arrival_rate"], as_index=False).agg(
-                seeds=("seed", "size"), avg_delay_completed=("avg_delay_completed", "mean"),
-                delay_se=("avg_delay_completed", "sem"), completion_ratio=("job_completion_ratio", "mean")).to_csv(destination / kind / "summary.csv", index=False)
-        elif kind.startswith("moe_"):
-            df = pd.DataFrame(native)
-            for key in ("mean_completion_delay", "completion_ratio", "arrival_rate"):
-                df[key] = pd.to_numeric(df[key])
-            agg = dict(seeds=("seed", "size"), avg_delay_completed=("mean_completion_delay", "mean"),
-                       delay_se=("mean_completion_delay", "sem"), completion_ratio=("completion_ratio", "mean"))
-            if kind == "moe_100000":
-                agg["mean_lower_bound"] = ("mean_service_delay_lower_bound", "mean")
-            df.groupby(["model", "policy", "arrival_rate"], as_index=False).agg(**agg).to_csv(destination / kind / "summary.csv", index=False)
-        elif kind == "capacity":
-            import run_new_7_2_wireless_mixed_mapping as runner
-            df = pd.DataFrame(native)
-            runner.verify_paired_arrivals(df)
-            runner.summarize_runs(df).to_csv(destination / kind / "summary.csv", index=False)
-        elif kind == "fifo":
-            data = destination / kind / "data"
-            data.mkdir(exist_ok=True)
-            for experiment in ("A", "B"):
-                with (data / f"experiment_{experiment}_raw_trajectories.csv").open("w", newline="") as target:
-                    writer = csv.writer(target)
-                    first = True
-                    for row in rows:
-                        if row["job"]["params"]["experiment"] != experiment:
-                            continue
-                        p = RESULTS / "runs" / row["job"]["id"] / "trajectory.csv"
-                        with p.open(newline="") as f:
-                            reader = csv.reader(f)
-                            header = next(reader)
-                            if first:
-                                writer.writerow(header)
-                                first = False
-                            writer.writerows(reader)
-            env = dict(os.environ, DCNC_FIFO_DATA_DIR=str(data.resolve()))
-            subprocess.run([sys.executable, str(PROJECT / "scripts/aggregate_backlog.py")], env=env, check=True)
-    write_json(RESULTS / "completion.json", dict(status="complete", jobs=len(jobs), counts={k: len(v) for k, v in grouped.items()},
-               protocol_id=info["protocol_id"], completed_utc=now(), note="Simulation and raw aggregation complete. Paper figure/package replacement still requires validation."))
+def consolidate(jobs, info, *, results=None):
+    """Use the same request metrics and grouping as archived reproduction."""
+    from paper_aggregation import aggregate_records
+    results = Path(results) if results is not None else RESULTS
+    grouped = aggregate_records(jobs, results / "runs", results / "exports",
+                                protocol_id=info["protocol_id"])
+    write_json(results / "completion.json", dict(status="complete", jobs=len(jobs), counts={k: len(v) for k, v in grouped.items()},
+               protocol_id=info["protocol_id"], completed_utc=now(), note="Simulation and request-level aggregation complete. Paper figure/package replacement still requires validation."))
+    return grouped
 
 
 def coordinate(workers):

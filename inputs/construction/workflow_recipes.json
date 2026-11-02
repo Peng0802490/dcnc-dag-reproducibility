@@ -1,0 +1,102 @@
+{
+  "srasearch22": {
+    "output": "dags/workflow_srasearch22.json",
+    "source": "sources/srasearch-chameleon-10a-004.json",
+    "header": {
+      "service_chain_id": "SRA_Search_22",
+      "version": "2026-04-30",
+      "description": "Public-workflow-derived service DAG based on the 22-task SRA-Search WfInstances structure: one reference-build task, ten read-extraction tasks, ten alignment tasks, and one merge task.",
+      "metadata": {
+        "author": "Peng Li",
+        "created_at": "2026-04-30",
+        "source_workflow": "srasearch-chameleon-10a-004.json",
+        "derivation": "task-level service DAG preserving the 3-layer, 20-path fan-out/fan-in structure; r and xi are normalized and clipped resource factors for DCNC-DAG simulation",
+        "notes": "10 sample branches; build_reference and fasterq_dump tasks are source functions; merge_alignments is the sink function"
+      }
+    },
+    "edge_adaptations": {
+      "remove": [],
+      "add": []
+    },
+    "parameter_basis": "Fixed normalized simulation factors recovered from the released input; no historical runtime/byte conversion is documented."
+  },
+  "sipht31": {
+    "output": "dags/workflow_sipht31.json",
+    "source": "sources/sipht-0.dot",
+    "header": {
+      "service_chain_id": "SIPHT_31",
+      "version": "2026-04-30",
+      "description": "Public-workflow-derived service DAG based on Pegasus SIPHT Run 1. It uses the 31 task names from the public run and reconstructs the task-level dependency pattern from the Pegasus DAG graph.",
+      "metadata": {
+        "author": "Peng Li",
+        "created_at": "2026-04-30",
+        "source_workflow": "Pegasus SIPHT Run 1, wf_uuid af788fd3-9d28-41a8-83c7-6f5c1e614cc2",
+        "derivation": "task-level service DAG preserving the public run task names, Patser fan-in, Blast branch, SRNA merge, and final SRNA annotation stage; r and xi are normalized simulation factors",
+        "notes": "31 service functions; many source functions are used because the Pegasus task graph omits the non-task create_dir node; SRNA_annotate_ID000030 is the service sink"
+      }
+    },
+    "edge_adaptations": {
+      "remove": [
+        [
+          "Blast_ID000023",
+          "SRNA_ID000029"
+        ],
+        [
+          "Blast_candidate_ID000024",
+          "SRNA_annotate_ID000030"
+        ],
+        [
+          "FFN_parse_ID000026",
+          "Blast_synteny_ID000027"
+        ],
+        [
+          "SRNA_ID000029",
+          "Blast_QRNA_ID000025"
+        ],
+        [
+          "SRNA_ID000029",
+          "Blast_candidate_ID000024"
+        ],
+        [
+          "SRNA_ID000029",
+          "Blast_paralogues_ID000028"
+        ],
+        [
+          "SRNA_ID000029",
+          "FFN_parse_ID000026"
+        ]
+      ],
+      "add": [
+        [
+          "Blast_ID000023",
+          "Blast_candidate_ID000024"
+        ],
+        [
+          "Blast_candidate_ID000024",
+          "Blast_QRNA_ID000025"
+        ],
+        [
+          "Blast_candidate_ID000024",
+          "Blast_paralogues_ID000028"
+        ],
+        [
+          "Blast_candidate_ID000024",
+          "Blast_synteny_ID000027"
+        ],
+        [
+          "Blast_candidate_ID000024",
+          "FFN_parse_ID000026"
+        ],
+        [
+          "FFN_parse_ID000026",
+          "SRNA_annotate_ID000030"
+        ],
+        [
+          "Patser_concate_ID000031",
+          "SRNA_ID000029"
+        ]
+      ]
+    },
+    "parameter_basis": "Fixed normalized simulation factors recovered from the released input; no historical runtime/byte conversion is documented."
+  }
+}

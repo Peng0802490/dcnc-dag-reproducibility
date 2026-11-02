@@ -1,0 +1,34 @@
+{
+  "wfinstances_revision": "6b6696f5bf426836efd8db80190efbea883ea3e4",
+  "files": [
+    {
+      "path": "inputs/construction/sources/srasearch-chameleon-10a-004.json",
+      "url": "https://raw.githubusercontent.com/wfcommons/WfInstances/6b6696f5bf426836efd8db80190efbea883ea3e4/pegasus/srasearch/srasearch-chameleon-10a-004.json",
+      "sha256": "4ef3fc235fbe700810eb77a84b6169c8c6abebd2c71e7d6d3af52f0ef7db6958"
+    },
+    {
+      "path": "third_party/wfinstances/LICENSE",
+      "url": "https://raw.githubusercontent.com/wfcommons/WfInstances/6b6696f5bf426836efd8db80190efbea883ea3e4/LICENSE",
+      "sha256": "7f378a4367be6ccff61ea0f5408ebf73b35f2a1635573d1129239afb83c819bd"
+    },
+    {
+      "path": "third_party/wfinstances/COPYING",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.txt",
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+    },
+    {
+      "path": "inputs/construction/sources/sipht-0.dot",
+      "url": "https://pegasus.isi.edu/workflow_gallery/gallery/sipht/run_1/sipht-080911.tgz",
+      "archive_sha256": "2d6034b812e0702546f1869a71f14d45ea1377f02287e8df03990f28136b8054",
+      "archive_member": "NC_007146.1312928393/sipht-0.dot",
+      "sha256": "a2a7dd2e16aa02eb7ccea36fcadf5253e47e23c019d70bb3345b1a1819f51649"
+    },
+    {
+      "path": "inputs/construction/sources/sipht_run1_runtimes.csv",
+      "url": "https://pegasus.isi.edu/workflow_gallery/gallery/sipht/run_1/af788fd3-9d28-41a8-83c7-6f5c1e614cc2.php",
+      "page_sha256": "af944c6bc89025d4664c77c829d2ceb7e63f6b717bbcff24f2f80e582f215f31",
+      "extraction": "Runtime column of the 31 task rows; values in seconds",
+      "sha256": "761942f5bb7929153200d779a2ab18275d89b1fc13434d1511831e59c0c500c4"
+    }
+  ]
+}

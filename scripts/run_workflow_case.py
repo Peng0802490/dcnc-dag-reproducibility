@@ -9,6 +9,7 @@ from dcnc_sim.inputs import resolve_config_path
 from dcnc_sim.interference import build_activation_policy
 from dcnc_sim.mapping import NearestToSourceSolver, QueueAwareGreedySolver, RandomSolver
 from dcnc_sim.models import Commodity, DistributedComputingNetwork, ServiceDAG
+from dcnc_sim.paper_metrics import normalize_record
 from dcnc_sim.simulator import CommodityConfig, DCNCSimulator
 from dcnc_sim.wireless import AlwaysOnProcess, IIDOnOffProcess
 from dcnc_sim.workloads import restrict_to_allowed_compute_nodes
@@ -95,32 +96,27 @@ def main() -> None:
         )
         stats = sim.run()
         first_comm = comms[0] if comms else None
-        rows.append({
+        row = {
             "case": config_path.stem,
             "workflow": first_comm.name if first_comm else config_path.stem,
             "policy": args.policy,
             "policy_display": "DCNC-DAG-H" if args.policy == "DCNC-DAG" else args.policy,
             "seed": seed,
+            "slots": args.slots,
             "total_arrival_rate": args.rate,
             "per_commodity_arrival_rate": per_rate,
             "interference_model": args.interference_model,
             "fixed_k": policy_fixed_k,
             "dcnc_solver": "greedy" if args.policy == "DCNC-DAG" else "",
-            "avg_delay_completed": stats.avg_delay_completed,
-            "avg_delay_with_penalty": stats.avg_delay_with_penalty,
             "delivered_packets": stats.delivered_packets,
             "pending_packets": stats.pending_packets,
-            "total_jobs": stats.total_packets,
-            "completed_jobs": stats.delivered_packets,
-            "pending_jobs": stats.pending_packets,
-            "job_throughput": stats.delivered_packets / float(args.slots),
-            "job_completion_ratio": stats.delivered_packets / float(max(1, stats.total_packets)),
             "routing_oracle_calls": stats.routing_oracle_calls,
             "routing_cache_hits": stats.routing_cache_hits,
             "num_dynamic_edges": len(dynamic_edges),
             "num_nodes": len(net.nodes_all()),
             "num_edges": len(net.edges_all()),
-        })
+        }
+        rows.append(normalize_record("workflow", {"result": row, "stats": vars(stats)}, slots=args.slots))
 
     with csv_path.open("w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))

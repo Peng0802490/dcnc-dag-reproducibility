@@ -1,0 +1,31 @@
+# Local Python environments, caches and build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+build/
+dist/
+
+# Generated reproduction/campaign outputs and local runtime files
+results/
+.runtime/
+.test-metrics-*/
+.test-inputs-*/
+.cache/
+*.log
+
+# Local credentials, editor files and archives
+.env
+.env.*
+*.lic
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.zip
+*.tar.gz
+*.bak
+*~

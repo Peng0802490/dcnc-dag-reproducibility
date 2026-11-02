@@ -1,0 +1,42 @@
+{
+  "node_count": 38,
+  "side_km": 2.0,
+  "coordinate_seed": 2005,
+  "radius_km": 0.59,
+  "capacity_seed": 20260719,
+  "p_on": 0.8,
+  "access_config": "inputs/configs/config_random6_Roofnet38_cap210_access.json",
+  "output": "topologies/Roofnet38_cap210_access.json",
+  "header": {
+    "network_id": "Roofnet-38-emulated-cap210-access",
+    "version": "2026-04-23-code-compatible",
+    "description": "Roofnet-inspired 38-node wireless mesh. Node count follows the 38-node ExOR/Roofnet testbed; links are an explicitly declared deterministic emulation because official link matrices are not available from the inspected official pages.",
+    "metadata": {
+      "benchmark": "Roofnet",
+      "official_basis": {
+        "node_count": "38-node Roofnet testbed reported in ExOR/SIGCOMM measurement paper",
+        "mesh_context": "Roofnet/MobiCom paper reports a rooftop 802.11b multi-hop mesh with average route about 3 hops",
+        "missing_official_data": "machine-readable loss/throughput matrix not present in inspected official pages"
+      },
+      "emulation_rules": {
+        "random_seed": 2005,
+        "area_km2": 4.0,
+        "placement": "uniform deterministic placement in a 2km x 2km square to emulate unplanned placement",
+        "radius_km": 0.59,
+        "radius_selection": "chosen so the connected graph average shortest path is close to Roofnet reported average hop count about 3",
+        "edge_capacity_rule": "capacity=1.0 normalized service unit on all wireless links",
+        "p_on_rule": "distance-decay reliability model p_on=clip(0.92 - 0.55*(d/radius)^2 + deterministic jitter, 0.08, 0.98)",
+        "dynamic_edge_rule": "all emulated wireless links are dynamic"
+      },
+      "graph_stats": {
+        "nodes": 38,
+        "directed_edges": 262,
+        "undirected_edges": 131,
+        "calibrated_avg_shortest_path_hops": 2.8847795163584635
+      },
+      "capacity_model": "node and directed-arc capacities i.i.d. uniform on {2,...,10}, seed 20260719",
+      "dynamic_model": "only arcs incident to source/sink endpoints are dynamic (p_on=0.8)"
+    }
+  },
+  "origin": "Recipe reconstructed from released coordinates/metadata and historical capacity/access scripts; verified against the existing input."
+}

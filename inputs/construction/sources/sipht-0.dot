@@ -1,0 +1,106 @@
+digraph E {
+size="8.0,10.0"
+ratio=fill
+node [shape=ellipse]
+edge [arrowhead=normal, arrowsize=1.0]
+	"SRNA_annotate_ID000030" [color=blueviolet,style=filled,label="SRNA_annotate_ID000030"]
+	"Blast_QRNA_ID000025" [color=blueviolet,style=filled,label="Blast_QRNA_ID000025"]
+	"Findterm_ID000001" [color=blueviolet,style=filled,label="Findterm_ID000001"]
+	"Blast_ID000023" [color=blueviolet,style=filled,label="Blast_ID000023"]
+	"SRNA_ID000029" [color=blueviolet,style=filled,label="SRNA_ID000029"]
+	"Patser_concate_ID000031" [color=blueviolet,style=filled,label="Patser_concate_ID000031"]
+	"RNAMotif_ID000002" [color=blueviolet,style=filled,label="RNAMotif_ID000002"]
+	"Blast_paralogues_ID000028" [color=blueviolet,style=filled,label="Blast_paralogues_ID000028"]
+	"Patser_ID000012" [color=blueviolet,style=filled,label="Patser_ID000012"]
+	"Patser_ID000013" [color=blueviolet,style=filled,label="Patser_ID000013"]
+	"Blast_candidate_ID000024" [color=blueviolet,style=filled,label="Blast_candidate_ID000024"]
+	"Patser_ID000010" [color=blueviolet,style=filled,label="Patser_ID000010"]
+	"Transterm_ID000003" [color=blueviolet,style=filled,label="Transterm_ID000003"]
+	"Patser_ID000022" [color=blueviolet,style=filled,label="Patser_ID000022"]
+	"Patser_ID000011" [color=blueviolet,style=filled,label="Patser_ID000011"]
+	"Patser_ID000021" [color=blueviolet,style=filled,label="Patser_ID000021"]
+	"Patser_ID000020" [color=blueviolet,style=filled,label="Patser_ID000020"]
+	"FFN_parse_ID000026" [color=blueviolet,style=filled,label="FFN_parse_ID000026"]
+	"Patser_ID000009" [color=blueviolet,style=filled,label="Patser_ID000009"]
+	"Patser_ID000008" [color=blueviolet,style=filled,label="Patser_ID000008"]
+	"Patser_ID000018" [color=blueviolet,style=filled,label="Patser_ID000018"]
+	"Patser_ID000007" [color=blueviolet,style=filled,label="Patser_ID000007"]
+	"Patser_ID000019" [color=blueviolet,style=filled,label="Patser_ID000019"]
+	"Blast_synteny_ID000027" [color=blueviolet,style=filled,label="Blast_synteny_ID000027"]
+	"Patser_ID000006" [color=blueviolet,style=filled,label="Patser_ID000006"]
+	"Patser_ID000016" [color=blueviolet,style=filled,label="Patser_ID000016"]
+	"Patser_ID000005" [color=blueviolet,style=filled,label="Patser_ID000005"]
+	"Patser_ID000017" [color=blueviolet,style=filled,label="Patser_ID000017"]
+	"Patser_ID000004" [color=blueviolet,style=filled,label="Patser_ID000004"]
+	"Patser_ID000014" [color=blueviolet,style=filled,label="Patser_ID000014"]
+	"Patser_ID000015" [color=blueviolet,style=filled,label="Patser_ID000015"]
+	"stage_out_local_SRNA_annotate_ID000030_0" [color=goldenrod,style=filled,label="stage_out_local_SRNA_annotate_ID000030_0"]
+	"create_dir_sipht_0_wisc_bio" [color=darkturquoise,style=filled,label="create_dir_sipht_0_wisc_bio"]
+
+	"Blast_QRNA_ID000025" -> "SRNA_annotate_ID000030"
+	"Findterm_ID000001" -> "SRNA_ID000029"
+	"Blast_ID000023" -> "SRNA_ID000029"
+	"SRNA_ID000029" -> "Blast_candidate_ID000024"
+	"SRNA_ID000029" -> "Blast_QRNA_ID000025"
+	"SRNA_ID000029" -> "FFN_parse_ID000026"
+	"SRNA_ID000029" -> "Blast_paralogues_ID000028"
+	"SRNA_ID000029" -> "SRNA_annotate_ID000030"
+	"Patser_concate_ID000031" -> "SRNA_annotate_ID000030"
+	"RNAMotif_ID000002" -> "SRNA_ID000029"
+	"Blast_paralogues_ID000028" -> "SRNA_annotate_ID000030"
+	"Patser_ID000012" -> "Patser_concate_ID000031"
+	"Patser_ID000013" -> "Patser_concate_ID000031"
+	"Blast_candidate_ID000024" -> "SRNA_annotate_ID000030"
+	"Patser_ID000010" -> "Patser_concate_ID000031"
+	"Transterm_ID000003" -> "SRNA_ID000029"
+	"Patser_ID000022" -> "Patser_concate_ID000031"
+	"Patser_ID000011" -> "Patser_concate_ID000031"
+	"Patser_ID000021" -> "Patser_concate_ID000031"
+	"Patser_ID000020" -> "Patser_concate_ID000031"
+	"FFN_parse_ID000026" -> "Blast_synteny_ID000027"
+	"Patser_ID000009" -> "Patser_concate_ID000031"
+	"Patser_ID000008" -> "Patser_concate_ID000031"
+	"Patser_ID000018" -> "Patser_concate_ID000031"
+	"Patser_ID000007" -> "Patser_concate_ID000031"
+	"Patser_ID000019" -> "Patser_concate_ID000031"
+	"Blast_synteny_ID000027" -> "SRNA_annotate_ID000030"
+	"Patser_ID000006" -> "Patser_concate_ID000031"
+	"Patser_ID000016" -> "Patser_concate_ID000031"
+	"Patser_ID000005" -> "Patser_concate_ID000031"
+	"Patser_ID000017" -> "Patser_concate_ID000031"
+	"Patser_ID000004" -> "Patser_concate_ID000031"
+	"Patser_ID000014" -> "Patser_concate_ID000031"
+	"Patser_ID000015" -> "Patser_concate_ID000031"
+	"SRNA_annotate_ID000030" -> "stage_out_local_SRNA_annotate_ID000030_0"
+	"create_dir_sipht_0_wisc_bio" -> "SRNA_annotate_ID000030"
+	"create_dir_sipht_0_wisc_bio" -> "Blast_QRNA_ID000025"
+	"create_dir_sipht_0_wisc_bio" -> "Findterm_ID000001"
+	"create_dir_sipht_0_wisc_bio" -> "Blast_ID000023"
+	"create_dir_sipht_0_wisc_bio" -> "SRNA_ID000029"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_concate_ID000031"
+	"create_dir_sipht_0_wisc_bio" -> "RNAMotif_ID000002"
+	"create_dir_sipht_0_wisc_bio" -> "Blast_paralogues_ID000028"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000012"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000013"
+	"create_dir_sipht_0_wisc_bio" -> "Blast_candidate_ID000024"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000010"
+	"create_dir_sipht_0_wisc_bio" -> "Transterm_ID000003"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000022"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000011"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000021"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000020"
+	"create_dir_sipht_0_wisc_bio" -> "FFN_parse_ID000026"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000009"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000008"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000018"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000007"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000019"
+	"create_dir_sipht_0_wisc_bio" -> "Blast_synteny_ID000027"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000006"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000016"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000005"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000017"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000004"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000014"
+	"create_dir_sipht_0_wisc_bio" -> "Patser_ID000015"
+}

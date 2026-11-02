@@ -1,176 +1,40 @@
 {
-  "driving_milan": {
-    "case": "driving_milan",
-    "curves": {
-      "Exact-K1.csv": [
-        "DCNC-DAG",
-        "exact_dp",
-        1
-      ],
-      "Heuristic.csv": [
-        "DCNC-DAG",
-        "greedy",
-        1
-      ],
-      "CTS.csv": [
-        "CTS",
-        "cts",
-        1
-      ],
-      "Randomized.csv": [
-        "Random",
-        "random",
-        1
-      ]
+  "metric": "request_delay_lower_bound",
+  "seed_aggregation": "equal-weight",
+  "shading": "plus/minus 1 standard error",
+  "selection": "Drop the specified number of largest arrival rates per main-scenario solver; use all recorded rates otherwise.",
+  "supported_rates": "Always use the full recorded grids, independently of display selection.",
+  "tail_trim": {
+    "driving_milan": {
+      "random": 3,
+      "cts": 4,
+      "greedy": 4,
+      "exact_dp": 1
     },
-    "gate_trim": true,
-    "min_seeds": 3
-  },
-  "driving_random": {
-    "case": "drv_rand_q45",
-    "curves": {
-      "Exact-K1.csv": [
-        "DCNC-DAG",
-        "exact_dp",
-        1
-      ],
-      "Heuristic.csv": [
-        "DCNC-DAG",
-        "greedy",
-        1
-      ],
-      "CTS.csv": [
-        "CTS",
-        "cts",
-        1
-      ],
-      "Randomized.csv": [
-        "Random",
-        "random",
-        1
-      ]
+    "drv_rand_q45": {
+      "cts": 4,
+      "greedy": 3,
+      "exact_dp": 4
     },
-    "gate_trim": true,
-    "min_seeds": 3
-  },
-  "random_milan": {
-    "case": "r6_milan",
-    "curves": {
-      "Exact-K1.csv": [
-        "DCNC-DAG",
-        "exact_dp",
-        1
-      ],
-      "Heuristic.csv": [
-        "DCNC-DAG",
-        "greedy",
-        1
-      ],
-      "CTS.csv": [
-        "CTS",
-        "cts",
-        1
-      ],
-      "Randomized.csv": [
-        "Random",
-        "random",
-        1
-      ]
+    "r6_milan": {
+      "random": 2,
+      "cts": 1
     },
-    "gate_trim": true,
-    "min_seeds": 3
-  },
-  "random_random": {
-    "case": "r6_random",
-    "curves": {
-      "Exact-K1.csv": [
-        "DCNC-DAG",
-        "exact_dp",
-        1
-      ],
-      "Heuristic.csv": [
-        "DCNC-DAG",
-        "greedy",
-        1
-      ],
-      "CTS.csv": [
-        "CTS",
-        "cts",
-        1
-      ],
-      "Randomized.csv": [
-        "Random",
-        "random",
-        1
-      ]
+    "r6_random": {
+      "random": 3,
+      "cts": 5,
+      "greedy": 1,
+      "exact_dp": 1
     },
-    "gate_trim": true,
-    "min_seeds": 3
-  },
-  "random_roofnet": {
-    "case": "rn_access",
-    "curves": {
-      "Exact-K1.csv": [
-        "DCNC-DAG",
-        "exact_dp",
-        1
-      ],
-      "Heuristic.csv": [
-        "DCNC-DAG",
-        "greedy",
-        1
-      ],
-      "CTS.csv": [
-        "CTS",
-        "cts",
-        1
-      ],
-      "Randomized.csv": [
-        "Random",
-        "random",
-        1
-      ]
+    "rn_access": {
+      "cts": 6,
+      "greedy": 5,
+      "exact_dp": 4
     },
-    "match_grid": {
-      "Heuristic.csv": "Exact-K1.csv"
-    },
-    "cr_floor": 0.72,
-    "gate_trim": true,
-    "min_seeds": 3
-  },
-  "random_flocklab": {
-    "case": "fl_access",
-    "curves": {
-      "Exact-K1.csv": [
-        "DCNC-DAG",
-        "exact_dp",
-        1
-      ],
-      "Heuristic.csv": [
-        "DCNC-DAG",
-        "greedy",
-        1
-      ],
-      "CTS.csv": [
-        "CTS",
-        "cts",
-        1
-      ],
-      "Randomized.csv": [
-        "Random",
-        "random",
-        1
-      ]
-    },
-    "match_grid": {
-      "Heuristic.csv": "Exact-K1.csv"
-    },
-    "cr_floor": 0.72,
-    "gate_trim": true,
-    "drop_last": {
-      "Exact-K1.csv": 3,
-      "Heuristic.csv": 2
-    },
-    "min_seeds": 3
+    "fl_access": {
+      "cts": 4,
+      "greedy": 6,
+      "exact_dp": 4
+    }
   }
 }

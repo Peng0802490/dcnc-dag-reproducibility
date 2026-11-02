@@ -3,7 +3,7 @@
 
 IEEE single-column figure: one linear main axes plus a top-left inset that
 enlarges the NTO backlog.  Reads the aggregated experiment-B trajectories and
-writes a vector PDF with embedded fonts plus a 600 dpi PNG.
+writes a 600 dpi PNG.
 """
 from __future__ import annotations
 
@@ -133,7 +133,7 @@ axi.set_axisbelow(True)
 axi.set_facecolor("white")
 axi.patch.set_alpha(1.0)
 
-for ext, kw in (("pdf", {}), ("png", {"dpi": 600})):
+for ext, kw in (("png", {"dpi": 600}),):
     out = HERE / ("%s.%s" % (STEM, ext))
     fig.savefig(out, **kw)
     print("[write]", out)

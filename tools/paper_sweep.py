@@ -26,6 +26,7 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from dcnc_sim.interference import build_activation_policy
+from dcnc_sim.paper_metrics import REQUEST_METRICS_SCHEMA, request_metrics_from_stats
 from dcnc_sim.mapping import (
     ExactDPSolver,
     NearestToSourceSolver,
@@ -125,16 +126,13 @@ def run_one(job: dict) -> dict:
             progress_every=10 ** 9,
         )
         st = sim.run()
-        delivered, pending = int(st.delivered_packets), int(st.pending_packets)
         return dict(
             job,
             key=job_key(job),
             status="ok",
-            avg_delay_completed=float(st.avg_delay_completed),
-            avg_delay_with_penalty=float(st.avg_delay_with_penalty),
-            delivered_packets=delivered,
-            pending_packets=pending,
-            completion_ratio=delivered / (delivered + pending) if delivered + pending else 1.0,
+            **request_metrics_from_stats(vars(st)),
+            delivered_packets=int(st.delivered_packets),
+            pending_packets=int(st.pending_packets),
             routing_oracle_calls=int(st.routing_oracle_calls),
             num_compute_nodes=len(compute),
             dynamic_edges=len(dynamic),
@@ -161,6 +159,9 @@ def main() -> None:
                 try:
                     r = json.loads(line)
                     if r.get("status") == "ok":
+                        if r.get("request_metrics_schema") != REQUEST_METRICS_SCHEMA:
+                            ap.error("Existing output contains legacy sink-output metrics. Use a new --out file; "
+                                     "reaggregate archived result.json files with reproduce_paper_results.py.")
                         done.add(r["key"])
                 except json.JSONDecodeError:
                     pass

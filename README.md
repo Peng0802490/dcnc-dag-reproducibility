@@ -69,16 +69,13 @@ At F=256, the request-level supported rates are 0.784 (Milan) and 0.48 (Random),
 displayed as 0.78 and 0.48 in the manuscript. Performance/frame runs use
 `exact_dp`; the 150 archived timing measurements use `dynvmp_bridge`.
 
-Request completion requires all sink outputs. All 12 delay panels use the
-same **finite-horizon request-delay lower bound**. For one run with horizon T,
+### Delay metric
 
-```
-LB = (sum of completed-request delays + sum of unfinished-request ages) / arrivals
-completed delay = completion-slot index - arrival-slot index
-unfinished age  = T - arrival-slot index
-```
+For each simulation run of \(T\) slots, we sum the completion delays of finished requests and the elapsed ages of unfinished requests, then divide by the total number of arrivals. A request is completed only when all its sink outputs have been delivered. This gives a finite-horizon lower bound on the average request delay, since the remaining delays of unfinished requests are not counted.
 
-The denominator includes every arrived request. The two numerator sums are
+When the arrival rate lies strictly within the capacity region and the policy stabilizes the network, the uncounted delay per arrival becomes negligible as \(T\to\infty\), provided the mean request delay is finite. Thus, the lower bound approaches the actual mean request delay.
+
+The two numerator sums are
 stored in each physical run's `audit.completed_request_delay_sum` and
 `audit.pending_registered_request_age_sum`. All archived requests are registered;
 there are no asynchronous buffered requests or injected control waits to add.
@@ -87,9 +84,6 @@ there are no asynchronous buffered requests or injected control waits to add.
 Completed-only delays remain explicitly named in the other exports; they are
 not relabeled as lower bounds.
 
-This is a lower bound on the eventual mean delay of the recorded arrivals.
-It is neither steady-state mean delay nor a lower bound on an optimal policy.
-Comparisons of these bounds do not by themselves order eventual mean delays.
 Values are first computed per seed and then averaged with equal seed weights;
 all delay panels shade plus/minus one standard error across three seeds.
 FIFO/NTO backlog bands retain 95% confidence intervals.

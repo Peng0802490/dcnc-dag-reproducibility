@@ -1,0 +1,155 @@
+{
+  "page_dimensions_pt": [
+    420.8824157715,
+    353.3459777832
+  ],
+  "axes_box_top_left": [
+    82.60014343261719,
+    62.846435546875,
+    412.7885437011719,
+    294.5108642578125
+  ],
+  "style": {
+    "font": "Times New Roman",
+    "xlabel_pt": 25.41,
+    "ylabel_pt": 24.3936,
+    "ticks_pt": 20.328,
+    "legend_pt": 19.0575,
+    "linewidth_pt": 2.85131,
+    "markersize_pt": 8.146599999999998,
+    "spine_width_pt": 0.9,
+    "tick_width_pt": 0.9,
+    "tick_length_pt": 3.5,
+    "grid_alpha": 0.3,
+    "legend": {
+      "frameon": true,
+      "borderaxespad": 0,
+      "columnspacing": 0.12,
+      "handlelength": 0.85,
+      "handletextpad": 0.12,
+      "borderpad": 0.16,
+      "labelspacing": 0.16,
+      "markerscale": 0.95
+    }
+  },
+  "xlabel_coordinates": [
+    0.5883449152524132,
+    0.08227640836446777
+  ],
+  "ylabel_coordinates": [
+    0.07341009664196534,
+    0.49397005767852165
+  ],
+  "figures": {
+    "driving_milan_delay_lower_bound": {
+      "filename": "driving_milan_delay.pdf",
+      "xlim": [
+        0,
+        1.0852400000000002
+      ],
+      "ylim": [
+        0,
+        9858.46401382932
+      ]
+    },
+    "driving_milan_F_delay_lower_bound": {
+      "filename": "driving_milan_K.pdf",
+      "xlim": [
+        0,
+        1.151696
+      ],
+      "ylim": [
+        0,
+        34410.092414068014
+      ]
+    },
+    "driving_random_F_delay_lower_bound": {
+      "filename": "driving_random_K.pdf",
+      "xlim": [
+        0,
+        0.7051200000000001
+      ],
+      "ylim": [
+        0,
+        29000
+      ]
+    },
+    "random_flocklab_delay_lower_bound": {
+      "filename": "random_flocklab_delay.pdf",
+      "xlim": [
+        0,
+        4.58328
+      ],
+      "ylim": [
+        0,
+        7024.197086693008
+      ]
+    },
+    "sipht31_delay_lower_bound": {
+      "filename": "sipht31_avg_delay_completed.pdf",
+      "xlim": [
+        0,
+        0.33280000000000004
+      ],
+      "ylim": [
+        0,
+        7937.205112718652
+      ]
+    },
+    "srasearch22_delay_lower_bound": {
+      "filename": "srasearch22_avg_delay_completed.pdf",
+      "xlim": [
+        0,
+        0.16640000000000002
+      ],
+      "ylim": [
+        0,
+        16732.13999279708
+      ]
+    },
+    "driving_random_delay_lower_bound": {
+      "filename": "driving_random_delay.pdf",
+      "xlim": [
+        0,
+        0.64636
+      ],
+      "ylim": [
+        0,
+        9256.562504470443
+      ]
+    },
+    "random_milan_delay_lower_bound": {
+      "filename": "random_milan_delay.pdf",
+      "xlim": [
+        0,
+        1.743664
+      ],
+      "ylim": [
+        0,
+        8900.940657986499
+      ]
+    },
+    "random_random_delay_lower_bound": {
+      "filename": "random_random_delay.pdf",
+      "xlim": [
+        0,
+        1.0852400000000002
+      ],
+      "ylim": [
+        0,
+        6461.756553731435
+      ]
+    },
+    "random_roofnet_delay_lower_bound": {
+      "filename": "random_roofnet_delay.pdf",
+      "xlim": [
+        0,
+        2.643472
+      ],
+      "ylim": [
+        0,
+        6037.474276081367
+      ]
+    }
+  }
+}

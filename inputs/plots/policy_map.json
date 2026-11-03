@@ -2,7 +2,7 @@
   "metric": "request_delay_lower_bound",
   "seed_aggregation": "equal-weight",
   "shading": "plus/minus 1 standard error",
-  "selection": "Drop the specified number of largest arrival rates per main-scenario solver; use all recorded rates otherwise.",
+  "selection": "Drop the specified number of largest arrival rates per main-scenario solver or frame length; use all recorded rates otherwise.",
   "supported_rates": "Always use the full recorded grids, independently of display selection.",
   "tail_trim": {
     "driving_milan": {
@@ -35,6 +35,15 @@
       "cts": 4,
       "greedy": 6,
       "exact_dp": 4
+    }
+  },
+  "frame_tail_trim": {
+    "k100k_random": {
+      "1": 2,
+      "4": 2,
+      "16": 2,
+      "64": 2,
+      "256": 2
     }
   }
 }

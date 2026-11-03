@@ -22,7 +22,9 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 Y_LABEL = 'Request delay lower bound (slots)'
 COLORS = ['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd']
-TAIL_TRIM = json.loads((ROOT/'inputs/plots/policy_map.json').read_text())['tail_trim']
+SELECTION = json.loads((ROOT/'inputs/plots/policy_map.json').read_text())
+TAIL_TRIM = SELECTION['tail_trim']
+FRAME_TAIL_TRIM = SELECTION.get('frame_tail_trim', {})
 
 def read_csv(path):
     with path.open(encoding='utf-8', newline='') as stream:
@@ -97,6 +99,8 @@ def prepare(exports):
     for kind,scenario,stem,title,policies in specs:
         for c in curves[stem]:
             count=TAIL_TRIM.get(scenario,{}).get(c['solver'],0)
+            if kind == 'frames':
+                count=FRAME_TAIL_TRIM.get(scenario,{}).get(str(c['F']),0)
             if not count:continue
             original_count=len(c['x'])
             assert 0<count<original_count
@@ -106,7 +110,7 @@ def prepare(exports):
             for axis in ('x','y','se'):
                 c[axis]=c[axis][:-count]
             selection_audit.append(dict(figure=stem,scenario=scenario,policy=c['policy'],solver=c['solver'],
-                label=c['label'],original_points=original_count,removed_points=count,
+                F=c['F'],label=c['label'],original_points=original_count,removed_points=count,
                 remaining_points=len(c['x']),removed_arrival_rates=removed,
                 last_remaining_arrival_rate=float(c['x'][-1])))
         coverage[stem]=sum(len(c['x']) for c in curves[stem])
@@ -205,7 +209,12 @@ def render(points, output):
     write_selection(output/'exports', figures)
     serif = set_style()
     outputs, layouts = [], []
+    from paper_plot_style import CONFIG as PAPER_STYLE, render_paper_panel
     for spec in specs:
+        if spec[2] in PAPER_STYLE['figures']:
+            files, layout = render_paper_panel(spec, curves, figures, serif, record_layout)
+            outputs.extend(files); layouts.append(layout)
+            continue
         fig=plt.figure(figsize=(6.4,4.95))
         ax=fig.add_axes([.19,.18,.78,.59])
         legend=draw(ax,spec,curves)
@@ -231,10 +240,12 @@ def render(points, output):
         p=figures/(stem+'.png');save_png(fig,p,dpi=150);outputs.append(p);plt.close(fig)
 
     manifest = dict(points=len(selected), runs_used=len(selected)*3, original_points=len(full_points),
-                    omitted_points=len(omitted), figures=12, output_format='png',
+                    omitted_points=len(omitted), figures=12, output_format='png and manuscript pdf',
                     seed_aggregation='equal-weight', uncertainty='plus/minus 1 standard error',
                     display_selection='explicit largest-arrival-rate tail cuts; full data retained',
                     tail_trim_by_scenario_and_solver=TAIL_TRIM,
+                    frame_tail_trim_by_scenario_and_frame=FRAME_TAIL_TRIM,
+                    manuscript_pdf_files=[v['filename'] for v in PAPER_STYLE['figures'].values()],
                     metric='request_delay_lower_bound', font=serif, coverage=coverage,
                     layout_checks=layouts,
                     outputs={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in outputs})
